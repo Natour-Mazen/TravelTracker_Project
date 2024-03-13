@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">TravelTracker_Project</string>
+    <string name="app_name" translatable="false">TravelTracker_Project</string>
+    <string name="landingpageimage" translatable="false">LandingPageImage</string>
+    <string name="welcome_to_traveltracker">Welcome To TravelTracker</string>
+    <string name="arcimg" translatable="false">ArcImg</string>
+    <string name="TextPresentation">TravelTracker is a comprehensive travel tracking \n that provides you the ability to capture, organize, \n and analyze your travel experiences in depth.</string>
+    <string name="log_in">Log-in</string>
+    <string name="sign_in">Sign-up</string>
+    <string name="copyrightimg" translatable="false">CopyrightImg</string>
+    <string name="copyright" translatable="false">copyright</string>
+    <string name="adventuresync_technologies_n_2018_2024" translatable="false">AdventureSync Technologies \n 2018-2024</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="airplaneright" translatable="false">AirPlaneRight</string>
+    <string name="airplaneleft" translatable="false">AirPlaneLeft</string>
+    <string name="your_username">your username</string>
+    <string name="username">UserName :</string>
+    <string name="password">Password :</string>
+    <string name="your_password">your password</string>
+    <string name="connection_panel">Connection Panel</string>
+    <string name="open_the_magic_door_to_the_world_of_travel">Open the magic door to the world of travel ! (Continue) </string>
+    <string name="previous">previous</string>
 </resources>

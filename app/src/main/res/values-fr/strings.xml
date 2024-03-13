@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TravelTracker_Project</string>
+    <string name="welcome_to_traveltracker">Bienvenue sur TravelTracker</string>
+    <string name="TextPresentation">TravelTracker est un outil complet de suivi des voyages qui vous offre la possibilité de capturer, \n \t d\'organiser, et d\'analyser vos expériences de voyage en profondeur.</string>
+    <string name="log_in">Se connecter</string>
+    <string name="sign_in">S\'inscrire</string>
+    <string name="invalid_username">un nom d\'utilisateur non valide</string>
+    <string name="invalid_password">Le mot de passe doit contenir plus de 5 caractères</string>
+    <string name="login_failed">La connexion a échoué</string>
+    <string name="your_username">votre nom d\'utilisateur</string>
+    <string name="username">Nom d\'utilisateur :</string>
+    <string name="password">Mot de passe :</string>
+    <string name="your_password">votre mot de passe</string>
+    <string name="connection_panel">Panneau de \n Connexion</string>
+    <string name="open_the_magic_door_to_the_world_of_travel">Ouvrez la porte magique vers le monde des voyages ! (Continuer) </string>
+    <string name="previous">précédent</string>
+</resources>

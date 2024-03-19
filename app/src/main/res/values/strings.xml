@@ -20,7 +20,7 @@
     <string name="your_password">your password</string>
     <string name="connection_panel">Connection Panel</string>
     <string name="open_the_magic_door_to_the_world_of_travel">Open the magic door to the world of travel ! (Continue) </string>
-    <string name="previous">previous</string>
+    <string name="previous">Previous</string>
     <string name="panneau_n_d_inscription">SignUp Panel</string>
     <string name="complete_my_registration">Complete my registration</string>
     <string name="first_name">First Name :</string>
@@ -36,4 +36,13 @@
     <string name="hi">Hi,</string>
     <string name="LoremText" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat sit amet ligula lacinia ullamcorper sed ac justo. Sed at viverra ipsum. Fusce tincidunt, dolor sit amet ultrices malesuada, metus sapien aliquam ex, non dapibus libero libero id nulla. Ut commodo sodales ex vitae auctor. Vestibulum in enim ut mauris finibus consectetur.</string>
     <string name="imgdeco" translatable="false">ImgDeco</string>
+    <string name="TitleSaveTripSteps">Adventure Ahead, Spread Bed 😆</string>
+    <string name="next">Next</string>
+    <string name="travel_start_date">Travel \nStart Date :</string>
+    <string name="city_name">City Name :</string>
+    <string name="country_name">Country Name :</string>
+    <string name="ex_london">ex: London</string>
+    <string name="ex_england">ex: England</string>
+    <string name="ex_titleTrip">ex : walk in the city</string>
+    <string name="TextViewTitleTrip">Title   of the trip :</string>
 </resources>

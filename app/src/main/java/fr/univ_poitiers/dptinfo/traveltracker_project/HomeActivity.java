@@ -1,5 +1,6 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -21,6 +22,13 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Button travel = findViewById(R.id.buttonTravel);
+        travel.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, SaveTripActivityStep1.class);
+            startActivity(intent);
+        });
+
         Button quit = findViewById(R.id.buttonQuit);
         quit.setOnClickListener(v -> {
             //to close all activities

@@ -35,4 +35,5 @@
     <string name="quit">Quit</string>
     <string name="hi">Hi,</string>
     <string name="LoremText" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat sit amet ligula lacinia ullamcorper sed ac justo. Sed at viverra ipsum. Fusce tincidunt, dolor sit amet ultrices malesuada, metus sapien aliquam ex, non dapibus libero libero id nulla. Ut commodo sodales ex vitae auctor. Vestibulum in enim ut mauris finibus consectetur.</string>
+    <string name="imgdeco" translatable="false">ImgDeco</string>
 </resources>

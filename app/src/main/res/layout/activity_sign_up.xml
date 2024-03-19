@@ -110,6 +110,7 @@
         android:entries="@array/ages"
         android:padding="10dp"
         android:textColor="@color/white"
+        android:textColorHint="@color/transperent_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="@+id/textViewAgeRange"

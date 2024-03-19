@@ -1,6 +1,8 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,5 +26,10 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         });
 
         PreviousButton.setupPreviousButton(this,R.id.buttonPrev);
+        Button next = findViewById(R.id.buttonNext);
+        next.setOnClickListener(v -> {
+            Intent intent = new Intent(SaveTripActivityStep1.this,SaveTripActivityStep2.class);
+            startActivity(intent);
+        });
     }
 }

@@ -31,7 +31,7 @@
     <string name="HomePageText">Hello and welcome \n to TravelTracker - your favorite travel companion!</string>
     <string name="btnimg" translatable="false">BtnImg</string>
     <string name="voyage">Save a trip</string>
-    <string name="profile" translatable="false">Profile</string>
+    <string name="history">History</string>
     <string name="quit">Quit</string>
     <string name="hi">Hi,</string>
     <string name="LoremText" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat sit amet ligula lacinia ullamcorper sed ac justo. Sed at viverra ipsum. Fusce tincidunt, dolor sit amet ultrices malesuada, metus sapien aliquam ex, non dapibus libero libero id nulla. Ut commodo sodales ex vitae auctor. Vestibulum in enim ut mauris finibus consectetur.</string>
@@ -45,4 +45,15 @@
     <string name="ex_england">ex: England</string>
     <string name="ex_titleTrip">ex : walk in the city</string>
     <string name="TextViewTitleTrip">Title   of the trip :</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="summary">Summary</string>
+    <string name="etimated_budget">Etimated budget :</string>
+    <string name="budget_spent">Budget spent :</string>
+    <string name="rate_the_accommodation">Rate the accommodation :</string>
+    <string name="rate_the_ambiance">Rate the ambiance :</string>
+    <string name="rate_the_quality_of_human_interactions">Rate the quality of human interactions :</string>
+    <string name="rate_the_natural_beauty">Rate the natural beauty :</string>
+    <string name="rate_the_safety_level">Rate the safety level :</string>
+    <string name="ex_10" translatable="false">ex : 10 €</string>
 </resources>

@@ -21,4 +21,10 @@
     <string name="connection_panel">Connection Panel</string>
     <string name="open_the_magic_door_to_the_world_of_travel">Open the magic door to the world of travel ! (Continue) </string>
     <string name="previous">previous</string>
+    <string name="panneau_n_d_inscription">SignUp Panel</string>
+    <string name="complete_my_registration">Complete my registration</string>
+    <string name="first_name">First Name :</string>
+    <string name="your_firstname">your firstname</string>
+    <string name="lastname">LastName :</string>
+    <string name="your_lastname">your lastName</string>
 </resources>

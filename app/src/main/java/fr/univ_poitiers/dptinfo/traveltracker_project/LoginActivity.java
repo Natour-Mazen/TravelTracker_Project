@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        
+
         PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);
 
         Button signin= findViewById(R.id.buttonSignIn);

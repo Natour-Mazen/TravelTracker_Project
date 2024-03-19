@@ -15,4 +15,10 @@
     <string name="connection_panel">Panneau de \n Connexion</string>
     <string name="open_the_magic_door_to_the_world_of_travel">Ouvrez la porte magique vers le monde des voyages ! (Continuer) </string>
     <string name="previous">précédent</string>
+    <string name="panneau_n_d_inscription">Panneau\n d\'Inscription</string>
+    <string name="complete_my_registration">Terminer mon inscription</string>
+    <string name="first_name">Prénom :</string>
+    <string name="your_firstname">votre prénom</string>
+    <string name="lastname">Nom de famille :</string>
+    <string name="your_lastname">votre nom de famille</string>
 </resources>

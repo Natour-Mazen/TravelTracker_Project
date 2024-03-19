@@ -30,7 +30,7 @@
     <string name="userimg" translatable="false">userimg</string>
     <string name="HomePageText">Hello and welcome \n to TravelTracker - your favorite travel companion!</string>
     <string name="btnimg" translatable="false">BtnImg</string>
-    <string name="voyage">Travel</string>
+    <string name="voyage">Save a trip</string>
     <string name="profile" translatable="false">Profile</string>
     <string name="quit">Quit</string>
     <string name="hi">Hi,</string>

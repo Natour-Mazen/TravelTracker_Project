@@ -22,7 +22,7 @@
     <string name="lastname">Nom de famille :</string>
     <string name="your_lastname">votre nom de famille</string>
     <string name="HomePageText">Bonjour et bienvenue \n sur TravelTracker - votre compagnon de voyage préféré !</string>
-    <string name="voyage">Voyage</string>
+    <string name="voyage">Enregistrer\n un voyage</string>
     <string name="quit">Quitter</string>
     <string name="hi">Salut,</string>
 </resources>

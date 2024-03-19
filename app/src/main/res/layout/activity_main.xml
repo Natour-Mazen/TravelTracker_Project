@@ -71,8 +71,10 @@
 
     <Button
         android:id="@+id/ButtonContinue"
-        android:layout_width="273dp"
-        android:layout_height="84dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHeight_min="80dp"
+        app:layout_constraintWidth_min="190dp"
         android:layout_marginTop="80dp"
         android:backgroundTint="@color/violet"
         android:text="@string/open_the_magic_door_to_the_world_of_travel"

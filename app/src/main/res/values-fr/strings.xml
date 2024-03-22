@@ -47,4 +47,5 @@
     <string name="rate_the_safety_level">Évaluez le niveau de sécurité :</string>
     <!-- Toast Messages -->
     <string name="login_error">😢 Désolé, une erreur s\'est produite. Veuillez réessayer.</string>
+    <string name="already_signup_error">Vous avez déjà un compte.</string>
 </resources>

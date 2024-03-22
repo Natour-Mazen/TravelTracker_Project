@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String LOG_TAG = "LoginActivity";
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin, buttonSignIn;
-    private  UserRepository userRipo;
+    private UserRepository userRipo;
 
 
     @Override

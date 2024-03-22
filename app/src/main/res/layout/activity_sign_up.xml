@@ -99,23 +99,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/login_icon" />
 
-    <Spinner
-        android:id="@+id/spinnerAge"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/dark_lavander_background"
-        android:ems="10"
-        android:entries="@array/ages"
-        android:padding="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/transperent_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="@+id/textViewAgeRange"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAgeRange" />
-
     <TextView
         android:id="@+id/textViewFirstName"
         android:layout_width="wrap_content"
@@ -183,11 +166,11 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/textViewAgeRange"
+        android:id="@+id/textViewUserNamePreview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Age Range :"
+        android:text="@string/username"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -198,11 +181,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerAge">
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserNamePreview">
 
         <Button
             android:id="@+id/buttonCompleteReg"
@@ -227,6 +211,18 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonCompleteReg"
             app:layout_constraintVertical_bias="0.17000002" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textViewPreviewUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColorHint="#546E7A"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toEndOf="@+id/textViewUserNamePreview"
+        app:layout_constraintTop_toTopOf="@+id/textViewUserNamePreview" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

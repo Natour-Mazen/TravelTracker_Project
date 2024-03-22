@@ -22,7 +22,6 @@ import java.util.Objects;
 public class SignUpActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "SignUpActivity";
-
     private Spinner spinnerAge;
     private EditText editTextFirstName, editTextLastName;
     private Button buttonCompleteReg;

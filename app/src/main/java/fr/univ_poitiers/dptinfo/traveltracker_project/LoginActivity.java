@@ -42,15 +42,14 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             intent.putExtra("username", username);
-            intent.putExtra("username", password);
-
+            intent.putExtra("password", password);
+            LogHelper.logDebug(LOG_TAG, "password " + password);
             startActivity(intent);
         });
 
         buttonLogin.setOnClickListener(v -> {
             checkUser();
         });
-
     }
 
     // Méthode pour initialiser tous les composants de votre layout
@@ -75,8 +74,8 @@ public class LoginActivity extends AppCompatActivity {
                     LogHelper.logDebug(LOG_TAG, "firstname " + user.getFirstname());
                     LogHelper.logDebug(LOG_TAG, "lastname " + user.getLastname());
                 } else {
-                    ToastHelper.showToast(LoginActivity.this,"An error has occured", 1000000);
-                    ToastHelper.showToast(LoginActivity.this,"You are not exist ", 1000000);
+                    String errorMessage = getString(R.string.login_error);
+                    ToastHelper.showLongToast(LoginActivity.this,errorMessage);
                 }
                 userLiveData.removeObserver(this);
             }

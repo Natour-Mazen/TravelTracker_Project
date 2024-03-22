@@ -45,4 +45,6 @@
     <string name="rate_the_quality_of_human_interactions">Évaluez la qualité des interactions humaines :</string>
     <string name="rate_the_natural_beauty">Évaluez la beauté naturelle :</string>
     <string name="rate_the_safety_level">Évaluez le niveau de sécurité :</string>
+    <!-- Toast Messages -->
+    <string name="login_error">😢 Désolé, une erreur s\'est produite. Veuillez réessayer.</string>
 </resources>

@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils;
+package fr.univ_poitiers.dptinfo.traveltracker_project.utils;
 
 import android.app.Activity;
 import android.widget.Button;

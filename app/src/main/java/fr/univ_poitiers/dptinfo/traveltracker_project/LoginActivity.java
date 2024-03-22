@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 
 public class LoginActivity extends AppCompatActivity {
 

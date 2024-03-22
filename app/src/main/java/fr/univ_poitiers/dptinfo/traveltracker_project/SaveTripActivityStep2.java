@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,8 +36,18 @@ public class LoginActivity extends AppCompatActivity {
         PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
 
         buttonSignIn.setOnClickListener(v -> {
+            String username = editTextUserName.getText().toString();
+            String password = editTextPassword.getText().toString();
+
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("password", password);
+
             startActivity(intent);
+        });
+
+        buttonLogin.setOnClickListener(v -> {
+            checkUser();
         });
 
     }
@@ -57,21 +68,21 @@ public class LoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         boolean isUserExist= userRipo.doesUserExist(username,password);
         if(isUserExist){
-            LiveData<User> pokemonLiveData = userRipo.getUser(username,password);
-            pokemonLiveData.observe(this, new Observer<User>() {
+            LiveData<User> userLiveData = userRipo.getUser(username,password);
+            userLiveData.observe(this, new Observer<User>() {
                 @Override
                 public void onChanged(User user) {
-                    if (poke != null) {
+                    if (user != null) {
+                        //TODO
 
-                        displayPokemonData(poke);
                     } else {
-
+                        ToastHelper.showToast(LoginActivity.this,"An error has occured", 1000000);
                     }
-                    pokemonLiveData.removeObserver(this);
+                    userLiveData.removeObserver(this);
                 }
             });
         }else{
-
+            ToastHelper.showToast(LoginActivity.this,"You are not exist ", 1000000);
         }
     }
 

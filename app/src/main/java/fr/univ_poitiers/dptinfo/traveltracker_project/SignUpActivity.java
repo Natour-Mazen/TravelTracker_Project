@@ -17,15 +17,10 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.*;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    // Define the log tag for debugging
     private static final String LOG_TAG = "SignUpActivity";
-
-    // Define the UI components
     private EditText editTextFirstName, editTextLastName;
     private Button buttonCompleteReg;
     private TextView previewuserName;
-
-    // Define the UserRepository
     private UserRepository userRipo;
 
     @Override
@@ -69,6 +64,10 @@ public class SignUpActivity extends AppCompatActivity {
                     } else {
                         // If the user does not exist, create a new user
                         userRipo.createUser(firstname, lastname, username, password);
+                        //TODO Connect the user and teleport them to the home panel
+                        //Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+                        //startActivity(intent);
+
                     }
                     // Remove the observer
                     userLiveData.removeObserver(this);

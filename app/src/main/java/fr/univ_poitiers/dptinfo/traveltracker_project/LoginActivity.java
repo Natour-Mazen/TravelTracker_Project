@@ -21,38 +21,41 @@ public class LoginActivity extends AppCompatActivity {
     private static final String LOG_TAG = "LoginActivity";
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin, buttonSignIn;
-    private UserRepository userRipo;
-
+    private UserRepository userRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Appel de la méthode pour initialiser les composants
+        // Initialize components
         initComponents();
 
-        userRipo = new UserRepository(LoginActivity.this.getApplication());
+        // Initialize UserRepository
+        userRepository = new UserRepository(LoginActivity.this.getApplication());
 
+        // Set up previous button
         PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
 
+        // Handle sign in button click
         buttonSignIn.setOnClickListener(v -> {
             String username = editTextUserName.getText().toString();
             String password = editTextPassword.getText().toString();
 
+            // Start SignUpActivity with username and password extras
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("password", password);
-            LogHelper.logDebug(LOG_TAG, "password " + password);
             startActivity(intent);
         });
 
+        // Handle login button click
         buttonLogin.setOnClickListener(v -> {
             checkUser();
         });
     }
 
-    // Méthode pour initialiser tous les composants de votre layout
+    // Initialize all layout components
     private void initComponents() {
         editTextUserName = findViewById(R.id.editTextUserName);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -60,27 +63,36 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignIn = findViewById(R.id.buttonSignIn);
     }
 
-    private void checkUser(){
+    // Check user credentials
+    private void checkUser() {
         String username = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
-        LiveData<User> userLiveData = userRipo.getUser(username, password);
+
+        // Observe LiveData for user credentials verification
+        LiveData<User> userLiveData = userRepository.getUser(username, password);
         userLiveData.observe(this, new Observer<User>() {
             @Override
             public void onChanged(User user) {
                 if (user != null) {
-                    //TODO
-                    LogHelper.logDebug(LOG_TAG, "username " +  user.getUsername());
-                    LogHelper.logDebug(LOG_TAG, "password " + user.getPassword());
-                    LogHelper.logDebug(LOG_TAG, "firstname " + user.getFirstname());
-                    LogHelper.logDebug(LOG_TAG, "lastname " + user.getLastname());
+                    // User found, proceed to home panel
+                    navigateToHomePanel(user);
                 } else {
+                    // User not found, display error message
                     String errorMessage = getString(R.string.login_error);
-                    ToastHelper.showLongToast(LoginActivity.this,errorMessage);
+                    ToastHelper.showLongToast(LoginActivity.this, errorMessage);
                 }
+                // Remove observer to avoid multiple calls
                 userLiveData.removeObserver(this);
             }
         });
-
     }
 
+    // Navigate to home panel after successful login
+    private void navigateToHomePanel(User user) {
+        // Perform necessary actions to navigate to home panel
+        LogHelper.logDebug(LOG_TAG, "username " +  user.getUsername());
+        LogHelper.logDebug(LOG_TAG, "password " + user.getPassword());
+        LogHelper.logDebug(LOG_TAG, "firstname " + user.getFirstname());
+        LogHelper.logDebug(LOG_TAG, "lastname " + user.getLastname());
+    }
 }

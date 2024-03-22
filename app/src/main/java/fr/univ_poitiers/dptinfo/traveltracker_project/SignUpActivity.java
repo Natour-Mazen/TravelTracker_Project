@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.Objects;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.*;
 
 public class SignUpActivity extends AppCompatActivity {

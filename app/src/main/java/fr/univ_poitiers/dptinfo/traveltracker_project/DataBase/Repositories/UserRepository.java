@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.DAOs.UserDao;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.UserRoomDatabase;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 
 /**
  * Repository class for handling user-related database operations.

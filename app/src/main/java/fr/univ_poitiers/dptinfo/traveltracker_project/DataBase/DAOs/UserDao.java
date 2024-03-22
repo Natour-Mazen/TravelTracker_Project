@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.*;
 import java.util.List;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 
 /**
  * Data Access Object (DAO) interface for User entity.

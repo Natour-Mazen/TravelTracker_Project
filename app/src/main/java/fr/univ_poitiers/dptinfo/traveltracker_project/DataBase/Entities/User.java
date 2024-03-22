@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities;
+package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities;
 
 import androidx.room.*;
 

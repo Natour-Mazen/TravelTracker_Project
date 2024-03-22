@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.lifecycle.LiveData;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 
 public class SessionManager {
     private static final String SHARED_PREF_NAME = "user_session";

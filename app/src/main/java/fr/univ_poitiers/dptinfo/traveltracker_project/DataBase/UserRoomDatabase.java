@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.DAOs.UserDao;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 
 /**
  * Room Database class for handling user-related data operations.

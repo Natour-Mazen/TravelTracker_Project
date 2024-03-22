@@ -12,12 +12,13 @@ import android.widget.TextView;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextView TextViewUserName, TextViewPwd, textView;
+    private static final String LOG_TAG = "LoginActivity";
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin, buttonSignIn;
     private  UserRepository userRipo;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             intent.putExtra("username", username);
-            intent.putExtra("password", password);
+            intent.putExtra("username", password);
 
             startActivity(intent);
         });
@@ -54,10 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Méthode pour initialiser tous les composants de votre layout
     private void initComponents() {
-        textView = findViewById(R.id.textView);
-        TextViewUserName = findViewById(R.id.TextViewUserName);
         editTextUserName = findViewById(R.id.editTextUserName);
-        TextViewPwd = findViewById(R.id.TextViewPwd);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         buttonSignIn = findViewById(R.id.buttonSignIn);
@@ -66,24 +64,24 @@ public class LoginActivity extends AppCompatActivity {
     private void checkUser(){
         String username = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
-        boolean isUserExist= userRipo.doesUserExist(username,password);
-        if(isUserExist){
-            LiveData<User> userLiveData = userRipo.getUser(username,password);
-            userLiveData.observe(this, new Observer<User>() {
-                @Override
-                public void onChanged(User user) {
-                    if (user != null) {
-                        //TODO
-
-                    } else {
-                        ToastHelper.showToast(LoginActivity.this,"An error has occured", 1000000);
-                    }
-                    userLiveData.removeObserver(this);
+        LiveData<User> userLiveData = userRipo.getUser(username, password);
+        userLiveData.observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+                if (user != null) {
+                    //TODO
+                    LogHelper.logDebug(LOG_TAG, "username " +  user.getUsername());
+                    LogHelper.logDebug(LOG_TAG, "password " + user.getPassword());
+                    LogHelper.logDebug(LOG_TAG, "firstname " + user.getFirstname());
+                    LogHelper.logDebug(LOG_TAG, "lastname " + user.getLastname());
+                } else {
+                    ToastHelper.showToast(LoginActivity.this,"An error has occured", 1000000);
+                    ToastHelper.showToast(LoginActivity.this,"You are not exist ", 1000000);
                 }
-            });
-        }else{
-            ToastHelper.showToast(LoginActivity.this,"You are not exist ", 1000000);
-        }
+                userLiveData.removeObserver(this);
+            }
+        });
+
     }
 
 }

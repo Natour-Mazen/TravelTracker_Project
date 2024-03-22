@@ -2,6 +2,7 @@ package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories;
 
 import android.app.Application;
 
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.DAOs.UserDao;
@@ -34,9 +35,5 @@ public class UserRepository {
         UserRoomDatabase.databaseWriteExecutor.execute(() -> userDao.insert(user));
     }
 
-    public boolean doesUserExist(String username, String password) {
-        LiveData<User> user = getUser(username, password);
-        return user.getValue() != null;
-    }
 
 }

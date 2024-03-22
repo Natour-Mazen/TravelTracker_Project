@@ -15,10 +15,14 @@ public interface UserDao {
     @Query("DELETE FROM users_table")
     void deleteAll();
 
-    @Query("SELECT * from users_table ORDER BY name ASC")
-    LiveData<List<User>> getAllPokemons();
+    @Query("SELECT * from users_table ORDER BY firstname ASC")
+    LiveData<List<User>> getAllUsers();
 
-    @Query("SELECT * FROM users_table WHERE name = :name")
-    LiveData<User> getPokemonByName(String name);
+    @Query("SELECT * FROM users_table WHERE username = :username AND password = :password")
+    LiveData<User> getUserByUsernameAndPassword(String username, String password);
+
+    @Query("SELECT * FROM users_table WHERE username = :username")
+    LiveData<User> getUserByUsername(String username);
+
 }
 

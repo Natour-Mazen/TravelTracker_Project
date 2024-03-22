@@ -17,12 +17,26 @@ public class UserRepository {
         userDao = userRoomDatabase.userDao();
     }
 
-    public void insertPokemon(User poke) {
-        UserRoomDatabase.databaseWriteExecutor.execute(() -> userDao.insert(poke));
+    public LiveData<User> getUser(String username, String password) {
+        return userDao.getUserByUsernameAndPassword(username, password);
     }
 
-    public LiveData<User> getPokemon(String pokename) {
-        return userDao.getPokemonByName(pokename);
+    public LiveData<User> getUser(String username) {
+        return userDao.getUserByUsername(username);
+    }
+
+    public void createUser(String firstname, String lastname, String username, String password) {
+        User newUser = new User(firstname, lastname, username, password);
+        insertUser(newUser);
+    }
+
+    private void insertUser(User user) {
+        UserRoomDatabase.databaseWriteExecutor.execute(() -> userDao.insert(user));
+    }
+
+    public boolean doesUserExist(String username, String password) {
+        LiveData<User> user = getUser(username, password);
+        return user.getValue() != null;
     }
 
 }

@@ -27,7 +27,7 @@ public class SessionManager {
             instance = new SessionManager(context, userRepository);
         }
         return instance;
-    }r
+    }
 
     public void userLogin(User user) {
         SharedPreferences.Editor editor = sharedPreferences.edit();

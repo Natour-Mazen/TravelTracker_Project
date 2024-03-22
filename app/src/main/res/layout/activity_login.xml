@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <EditText
-        android:id="@+id/editTextCountry"
+        android:id="@+id/editTextUserName"
         android:layout_width="288dp"
         android:layout_height="55dp"
         android:layout_marginTop="12dp"
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/TextViewUserName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCountry" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserName" />
 
     <EditText
         android:id="@+id/editTextPassword"

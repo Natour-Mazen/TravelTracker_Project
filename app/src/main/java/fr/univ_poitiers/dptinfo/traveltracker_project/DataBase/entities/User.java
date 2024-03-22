@@ -2,6 +2,9 @@ package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.entities;
 
 import androidx.room.*;
 
+/**
+ * Entity class representing a user in the database.
+ */
 @Entity(tableName = "users_table")
 public class User {
     @PrimaryKey(autoGenerate = true)
@@ -19,6 +22,13 @@ public class User {
     @ColumnInfo(name = "password")
     private String password;
 
+    /**
+     * Constructor to create a new User object.
+     * @param firstname The first name of the user.
+     * @param lastname The last name of the user.
+     * @param username The username of the user.
+     * @param password The password of the user.
+     */
     public User(String firstname, String lastname, String username, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -26,6 +36,7 @@ public class User {
         this.password = password;
     }
 
+    // Getters and setters for each field
 
     public int getId() {
         return id;
@@ -66,5 +77,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

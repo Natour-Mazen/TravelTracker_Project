@@ -12,15 +12,14 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
  * Repository class for handling user-related database operations.
  */
 public class UserRepository {
-    private UserRoomDatabase userRoomDatabase;
-    private UserDao userDao;
+    private final UserDao userDao;
 
     /**
      * Constructor for UserRepository.
      * @param application The application context.
      */
     public UserRepository(Application application) {
-        userRoomDatabase = UserRoomDatabase.getDatabase(application);
+        UserRoomDatabase userRoomDatabase = UserRoomDatabase.getDatabase(application);
         userDao = userRoomDatabase.userDao();
     }
 

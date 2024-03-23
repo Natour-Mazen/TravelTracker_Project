@@ -78,8 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (user != null) {
                         // User found, proceed to home panel
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        /*session = SessionManager.getInstance(LoginActivity.getContext(), userRepository);
-                        session.userLogin(user);*/
+                        session = SessionManager.getInstance(LoginActivity.this, userRepository);
+                        session.userLogin(user);
                         startActivity(intent);
                         finish();
                     } else {

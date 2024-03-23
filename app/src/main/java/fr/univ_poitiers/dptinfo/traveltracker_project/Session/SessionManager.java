@@ -39,10 +39,9 @@ public class SessionManager {
         return !TextUtils.isEmpty(sharedPreferences.getString(KEY_USERNAME, ""));
     }
 
-    public User getLoggedInUser() {
+    public LiveData<User> getLoggedInUser() {
         String username = sharedPreferences.getString(KEY_USERNAME, "");
-        LiveData<User> userLiveData = userRepository.getUser(username);
-        return userLiveData.getValue();
+        return userRepository.getUser(username);
     }
 
     public void logout() {

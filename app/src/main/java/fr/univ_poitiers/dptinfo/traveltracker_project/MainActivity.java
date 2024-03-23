@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         continueBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
-            finish();
         });
     }
 }

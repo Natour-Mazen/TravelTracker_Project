@@ -85,7 +85,6 @@ public class SignUpActivity extends AppCompatActivity {
         ToastHelper.showLongToast(SignUpActivity.this, errorMessage);
     }
 
-
     private void disableRegistrationButton() {
         buttonCompleteReg.setEnabled(false);
         buttonCompleteReg.setTextColor(Color.LTGRAY);

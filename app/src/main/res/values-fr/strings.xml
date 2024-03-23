@@ -48,4 +48,5 @@
     <!-- Toast Messages -->
     <string name="login_error">😢 Désolé, une erreur s\'est produite. Veuillez réessayer.</string>
     <string name="already_signup_error">Vous avez déjà un compte.</string>
+    <string name="disconnect">Se déconnecter</string>
 </resources>

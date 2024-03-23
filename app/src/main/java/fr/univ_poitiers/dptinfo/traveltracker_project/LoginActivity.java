@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin, buttonSignIn;
     private UserRepository userRepository;
+    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,31 +69,28 @@ public class LoginActivity extends AppCompatActivity {
         String username = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        // Observe LiveData for user credentials verification
-        LiveData<User> userLiveData = userRepository.getUser(username, password);
-        userLiveData.observe(this, new Observer<User>() {
-            @Override
-            public void onChanged(User user) {
-                if (user != null) {
-                    // User found, proceed to home panel
-                    navigateToHomePanel(user);
-                } else {
-                    // User not found, display error message
-                    String errorMessage = getString(R.string.login_error);
-                    ToastHelper.showLongToast(LoginActivity.this, errorMessage);
+        if(!password.isEmpty() && !username.isEmpty()){
+            // Observe LiveData for user credentials verification
+            LiveData<User> userLiveData = userRepository.getUser(username, password);
+            userLiveData.observe(this, new Observer<User>() {
+                @Override
+                public void onChanged(User user) {
+                    if (user != null) {
+                        // User found, proceed to home panel
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        /*session = SessionManager.getInstance(LoginActivity.getContext(), userRepository);
+                        session.userLogin(user);*/
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // User not found, display error message
+                        String errorMessage = getString(R.string.login_error);
+                        ToastHelper.showLongToast(LoginActivity.this, errorMessage);
+                    }
+                    // Remove observer to avoid multiple calls
+                    userLiveData.removeObserver(this);
                 }
-                // Remove observer to avoid multiple calls
-                userLiveData.removeObserver(this);
-            }
-        });
-    }
-
-    // Navigate to home panel after successful login
-    private void navigateToHomePanel(User user) {
-        // Perform necessary actions to navigate to home panel
-        LogHelper.logDebug(LOG_TAG, "username " +  user.getUsername());
-        LogHelper.logDebug(LOG_TAG, "password " + user.getPassword());
-        LogHelper.logDebug(LOG_TAG, "firstname " + user.getFirstname());
-        LogHelper.logDebug(LOG_TAG, "lastname " + user.getLastname());
+            });
+        }
     }
 }

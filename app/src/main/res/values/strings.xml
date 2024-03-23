@@ -59,4 +59,5 @@
     <!-- Toast Messages -->
     <string name="login_error">😢 Sorry, an error occurred. Please try again.</string>
     <string name="already_signup_error">You already have an account.</string>
+    <string name="disconnect">Logout</string>
 </resources>

@@ -13,10 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button login = findViewById(R.id.ButtonContinue);
-        login.setOnClickListener(v -> {
+        Button continueBtn = findViewById(R.id.ButtonContinue);
+        continueBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 }

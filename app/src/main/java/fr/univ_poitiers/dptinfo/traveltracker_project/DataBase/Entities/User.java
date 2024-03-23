@@ -1,5 +1,6 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.*;
 
 /**
@@ -76,5 +77,17 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

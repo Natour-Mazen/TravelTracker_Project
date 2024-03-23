@@ -1,10 +1,12 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -14,7 +16,7 @@ import java.util.Date;
         parentColumns = "id",
         childColumns = "userId",
         onDelete = ForeignKey.CASCADE))
-public class Trip {
+public class Trip implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -169,5 +171,25 @@ public class Trip {
         this.actualBudget = actualBudget;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", status=" + status +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", departureDate=" + departureDate +
+                ", ambianceRating=" + ambianceRating +
+                ", naturalBeautyRating=" + naturalBeautyRating +
+                ", securityRating=" + securityRating +
+                ", accommodationRating=" + accommodationRating +
+                ", humanInteractionRating=" + humanInteractionRating +
+                ", plannedBudget=" + plannedBudget +
+                ", actualBudget=" + actualBudget +
+                '}';
+    }
 
 }

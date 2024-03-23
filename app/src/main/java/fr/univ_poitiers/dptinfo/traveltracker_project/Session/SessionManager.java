@@ -12,7 +12,6 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 public class SessionManager {
     private static final String SHARED_PREF_NAME = "user_session";
     private static final String KEY_USERNAME = "key_username";
-
     private static SessionManager instance;
     private final SharedPreferences sharedPreferences;
     private final UserRepository userRepository;

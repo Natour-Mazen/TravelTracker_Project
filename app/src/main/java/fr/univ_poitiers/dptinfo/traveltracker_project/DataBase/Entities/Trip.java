@@ -7,7 +7,7 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Entity class representing a trip in the database.
@@ -36,7 +36,7 @@ public class Trip implements Serializable {
     private String city;
 
     @ColumnInfo(name = "departureDate")
-    private Date departureDate;
+    private String departureDate;
 
     @ColumnInfo(name = "ambianceRating")
     private int ambianceRating;
@@ -107,11 +107,11 @@ public class Trip implements Serializable {
         this.city = city;
     }
 
-    public Date getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 

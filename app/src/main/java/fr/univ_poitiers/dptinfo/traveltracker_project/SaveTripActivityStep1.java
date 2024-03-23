@@ -24,8 +24,10 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 import android.widget.EditText;
 import android.widget.CalendarView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 
 public class SaveTripActivityStep1 extends AppCompatActivity {
@@ -35,7 +37,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
     private CalendarView calendarViewStartTravel;
     private Button buttonNext;
     private int userId, originalButtonTextColor, originalButtonBackground;
-    private Date selectedDate;
+    private String selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +156,10 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         month++; // Calendar month is zero-based
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month - 1, dayOfMonth);
-        selectedDate = calendar.getTime();
+        Date selectedDateCalander = calendar.getTime();
+
+        // Format the date as a string
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        selectedDate = format.format(selectedDateCalander);
     }
 }

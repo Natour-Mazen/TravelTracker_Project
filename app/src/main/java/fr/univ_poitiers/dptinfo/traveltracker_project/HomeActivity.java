@@ -24,6 +24,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = "HomeActivity";
     private TextView textViewDisplayUserName, textViewDisplayDate;
     private Button buttonTravel, buttonHistory, buttonQuit, buttonDisconnect;
     private SessionManager session;
@@ -61,8 +62,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initializeSession() {
-        UserRepository userRepository = new UserRepository(HomeActivity.this.getApplication());
-        session = SessionManager.getInstance(HomeActivity.this, userRepository);
+        UserRepository userRep= new UserRepository(HomeActivity.this.getApplication());
+        session = SessionManager.getInstance(HomeActivity.this, userRep);
 
         if (!session.isLoggedIn()) {
             redirectToLoginActivity();

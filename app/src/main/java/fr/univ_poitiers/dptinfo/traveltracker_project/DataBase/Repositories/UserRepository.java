@@ -49,9 +49,10 @@ public class UserRepository {
      * @param username The username of the user.
      * @param password The password of the user.
      */
-    public void createUser(String firstname, String lastname, String username, String password) {
+    public User createUser(String firstname, String lastname, String username, String password) {
         User newUser = new User(firstname, lastname, username, password);
         insertUser(newUser);
+        return newUser;
     }
 
     /**

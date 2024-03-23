@@ -136,10 +136,10 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
 
     private void goToNextStep() {
         Trip newTrip = createNewTrip();
-        LogHelper.logDebug(LOG_TAG,newTrip.toString());
-        /*Intent intent = new Intent(SaveTripActivityStep1.this, SaveTripActivityStep2.class);
+       // LogHelper.logDebug(LOG_TAG,newTrip.toString());
+        Intent intent = new Intent(SaveTripActivityStep1.this, SaveTripActivityStep2.class);
         intent.putExtra("NewTrip", newTrip);
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
     private Trip createNewTrip() {

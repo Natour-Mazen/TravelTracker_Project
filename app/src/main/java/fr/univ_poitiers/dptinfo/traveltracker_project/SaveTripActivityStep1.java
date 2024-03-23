@@ -46,7 +46,6 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         setContentView(R.layout.activity_save_trip_step1);
         applySystemWindowsInsets();
 
-
         initComponents();
         initializeSession();
         setupButtons();

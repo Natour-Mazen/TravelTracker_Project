@@ -39,19 +39,19 @@ public class Trip implements Serializable {
     private String departureDate;
 
     @ColumnInfo(name = "ambianceRating")
-    private int ambianceRating;
+    private float ambianceRating;
 
     @ColumnInfo(name = "naturalBeautyRating")
-    private int naturalBeautyRating;
+    private float naturalBeautyRating;
 
     @ColumnInfo(name = "securityRating")
-    private int securityRating;
+    private float securityRating;
 
     @ColumnInfo(name = "accommodationRating")
-    private int accommodationRating;
+    private float accommodationRating;
 
     @ColumnInfo(name = "humanInteractionRating")
-    private int humanInteractionRating;
+    private float humanInteractionRating;
 
     @ColumnInfo(name = "plannedBudget")
     private double plannedBudget;
@@ -115,43 +115,43 @@ public class Trip implements Serializable {
         this.departureDate = departureDate;
     }
 
-    public int getAmbianceRating() {
+    public float getAmbianceRating() {
         return ambianceRating;
     }
 
-    public void setAmbianceRating(int ambianceRating) {
+    public void setAmbianceRating(float ambianceRating) {
         this.ambianceRating = ambianceRating;
     }
 
-    public int getNaturalBeautyRating() {
+    public float getNaturalBeautyRating() {
         return naturalBeautyRating;
     }
 
-    public void setNaturalBeautyRating(int naturalBeautyRating) {
+    public void setNaturalBeautyRating(float naturalBeautyRating) {
         this.naturalBeautyRating = naturalBeautyRating;
     }
 
-    public int getSecurityRating() {
+    public float getSecurityRating() {
         return securityRating;
     }
 
-    public void setSecurityRating(int securityRating) {
+    public void setSecurityRating(float securityRating) {
         this.securityRating = securityRating;
     }
 
-    public int getAccommodationRating() {
+    public float getAccommodationRating() {
         return accommodationRating;
     }
 
-    public void setAccommodationRating(int accommodationRating) {
+    public void setAccommodationRating(float accommodationRating) {
         this.accommodationRating = accommodationRating;
     }
 
-    public int getHumanInteractionRating() {
+    public float getHumanInteractionRating() {
         return humanInteractionRating;
     }
 
-    public void setHumanInteractionRating(int humanInteractionRating) {
+    public void setHumanInteractionRating(float humanInteractionRating) {
         this.humanInteractionRating = humanInteractionRating;
     }
 

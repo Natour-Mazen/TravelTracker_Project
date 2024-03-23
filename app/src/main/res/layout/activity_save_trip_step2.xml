@@ -97,10 +97,10 @@
 
     <RatingBar
         android:id="@+id/ratingBarAccommodation"
-        android:layout_width="289dp"
+        android:layout_width="236dp"
         android:layout_height="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewStarAccommodation" />
 
@@ -118,25 +118,25 @@
 
     <RatingBar
         android:id="@+id/ratingBarSafety"
-        android:layout_width="289dp"
+        android:layout_width="236dp"
         android:layout_height="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewStarSafety" />
 
     <RatingBar
         android:id="@+id/ratingBarNature"
-        android:layout_width="289dp"
+        android:layout_width="236dp"
         android:layout_height="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewStarNature" />
 
     <RatingBar
         android:id="@+id/ratingBarHumans"
-        android:layout_width="289dp"
+        android:layout_width="236dp"
         android:layout_height="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -325,7 +325,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewTripTitlePreview"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:text="[TripTitle]"
@@ -341,7 +341,7 @@
 
     <RatingBar
         android:id="@+id/ratingBarAmbiance"
-        android:layout_width="289dp"
+        android:layout_width="236dp"
         android:layout_height="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

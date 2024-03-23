@@ -16,6 +16,7 @@ import android.widget.EditText;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
 
 public class LoginActivity extends AppCompatActivity {
@@ -24,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin, buttonSignUp;
     private UserRepository userRepository;
-
     private int originalButtonTextColor, originalButtonBackground;
 
     @Override
@@ -48,12 +48,15 @@ public class LoginActivity extends AppCompatActivity {
     private void setupButtons() {
         buttonSignUp.setOnClickListener(v -> startSignUpActivity());
         buttonLogin.setOnClickListener(v -> checkUser());
-        /***** Disable The Login Button ****/
+        disableLoginButton();
+        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
+    }
+
+    private void disableLoginButton() {
         originalButtonTextColor = buttonLogin.getCurrentTextColor();
         originalButtonBackground = buttonLogin.getDrawingCacheBackgroundColor();
         buttonLogin.setEnabled(false);
         setDisabledButtonColors();
-        /**********************************/
     }
 
     private void setupTextWatchers() {

@@ -22,41 +22,20 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin, buttonSignIn;
     private UserRepository userRepository;
-    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Initialize components
         initComponents();
 
-        // Initialize UserRepository
         userRepository = new UserRepository(LoginActivity.this.getApplication());
 
-        // Set up previous button
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
-
-        // Handle sign in button click
-        buttonSignIn.setOnClickListener(v -> {
-            String username = editTextUserName.getText().toString();
-            String password = editTextPassword.getText().toString();
-
-            // Start SignUpActivity with username and password extras
-            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-            intent.putExtra("username", username);
-            intent.putExtra("password", password);
-            startActivity(intent);
-        });
-
-        // Handle login button click
-        buttonLogin.setOnClickListener(v -> {
-            checkUser();
-        });
+        buttonSignIn.setOnClickListener(v -> startSignUpActivity());
+        buttonLogin.setOnClickListener(v -> checkUser());
     }
 
-    // Initialize all layout components
     private void initComponents() {
         editTextUserName = findViewById(R.id.editTextUserName);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -64,33 +43,46 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignIn = findViewById(R.id.buttonSignIn);
     }
 
-    // Check user credentials
+    private void startSignUpActivity() {
+        String username = editTextUserName.getText().toString();
+        String password = editTextPassword.getText().toString();
+
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        intent.putExtra("username", username);
+        intent.putExtra("password", password);
+        startActivity(intent);
+    }
+
     private void checkUser() {
         String username = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        if(!password.isEmpty() && !username.isEmpty()){
-            // Observe LiveData for user credentials verification
+        if (!password.isEmpty() && !username.isEmpty()) {
             LiveData<User> userLiveData = userRepository.getUser(username, password);
-            userLiveData.observe(this, new Observer<User>() {
-                @Override
-                public void onChanged(User user) {
-                    if (user != null) {
-                        // User found, proceed to home panel
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        session = SessionManager.getInstance(LoginActivity.this, userRepository);
-                        session.userLogin(user);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        // User not found, display error message
-                        String errorMessage = getString(R.string.login_error);
-                        ToastHelper.showLongToast(LoginActivity.this, errorMessage);
-                    }
-                    // Remove observer to avoid multiple calls
-                    userLiveData.removeObserver(this);
-                }
-            });
+            userLiveData.observe(this, userObserver);
         }
+    }
+
+    private final Observer<User> userObserver = this::handleUserResult;
+
+    private void handleUserResult(User user) {
+        if (user != null) {
+            startHomeActivity(user);
+        } else {
+            showLoginError();
+        }
+    }
+
+    private void startHomeActivity(User user) {
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        SessionManager session = SessionManager.getInstance(LoginActivity.this, userRepository);
+        session.userLogin(user);
+        startActivity(intent);
+        finish();
+    }
+
+    private void showLoginError() {
+        String errorMessage = getString(R.string.login_error);
+        ToastHelper.showLongToast(LoginActivity.this, errorMessage);
     }
 }

@@ -20,6 +20,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.*;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = "SignUpActivity";
     private EditText editTextFirstName, editTextLastName;
     private Button buttonCompleteReg;
     private TextView previewUserName;
@@ -33,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         initComponents();
         setupRegistrationButton();
-        setupPreviousButton();
+        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
 
         userRepository = new UserRepository(SignUpActivity.this.getApplication());
 
@@ -84,9 +85,6 @@ public class SignUpActivity extends AppCompatActivity {
         ToastHelper.showLongToast(SignUpActivity.this, errorMessage);
     }
 
-    private void setupPreviousButton() {
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
-    }
 
     private void disableRegistrationButton() {
         buttonCompleteReg.setEnabled(false);

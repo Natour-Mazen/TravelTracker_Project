@@ -10,7 +10,6 @@ import androidx.room.Query;
 import java.util.List;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 
 /**
  * Data Access Object (DAO) interface for Trip entity.

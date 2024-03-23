@@ -147,7 +147,8 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         newTrip.setCity(editTextCity.getText().toString());
         newTrip.setCountry(editTextCountry.getText().toString());
         newTrip.setName(editTextTitleTrip.getText().toString());
-        newTrip.setDepartureDate(selectedDate);
+        if(selectedDate != null)
+            newTrip.setDepartureDate(selectedDate);
         return newTrip;
     }
 

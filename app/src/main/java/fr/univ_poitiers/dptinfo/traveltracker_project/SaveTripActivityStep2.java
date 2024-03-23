@@ -2,6 +2,7 @@ package fr.univ_poitiers.dptinfo.traveltracker_project;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -24,6 +25,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.util.Objects;
+
 public class SaveTripActivityStep2 extends AppCompatActivity {
 
     private static final String LOG_TAG = "SaveTripActivityStep2";
@@ -42,21 +45,10 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         setContentView(R.layout.activity_save_trip_step2);
         applySystemWindowsInsets();
 
-        // Appel de la méthode pour récupérer tous les composants
         initComponents();
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            theNewTrip = getIntent().getSerializableExtra("NewTrip", Trip.class);
-            assert theNewTrip != null;
-            textViewTripTitlePreview.setText(theNewTrip.getName());
-        }
-        tripRepository = new TripRepository(SaveTripActivityStep2.this.getApplication());
-
-
+        initializeTrip();
         setupButtons();
     }
-
-
 
     // Méthode pour initialiser tous les composants
     private void initComponents() {
@@ -74,17 +66,24 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         buttonCancel = findViewById(R.id.buttonCancel);
     }
 
+    private void initializeTrip() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            theNewTrip = getIntent().getSerializableExtra("NewTrip", Trip.class);
+            assert theNewTrip != null;
+            textViewTripTitlePreview.setText(theNewTrip.getName());
+        }
+    }
+
     private void setupButtons() {
         buttonSave.setOnClickListener(v -> {
             updateTripDetails();
-           // savethenewtrip();
+            //saveTrip();
             LogHelper.logDebug(LOG_TAG,theNewTrip.toString());
-
-            buttonSave.setEnabled(false);
-            buttonSave.setTextColor(Color.LTGRAY);
-            buttonSave.setBackgroundColor(Color.GRAY);
         });
-        PreviousButton.setupPreviousButton(this,R.id.buttonPrev);
+
+        buttonCancel.setOnClickListener(v -> redirectToHomeActivity());
+
+        PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
     }
 
     private void applySystemWindowsInsets() {
@@ -97,8 +96,11 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
 
     private void updateTripDetails() {
         // Get the values from the EditText fields
-        double spentBudget = Double.parseDouble(editTextNumberSpentBudget.getText().toString());
-        double estimatedBudget = Double.parseDouble(editTextNumberEstimatedBudget.getText().toString());
+        String spentBudgetString = editTextNumberSpentBudget.getText().toString();
+        double spentBudget = spentBudgetString.isEmpty() ? 0.0 : Double.parseDouble(spentBudgetString);
+
+        String estimatedBudgetString = editTextNumberEstimatedBudget.getText().toString();
+        double estimatedBudget = estimatedBudgetString.isEmpty() ? 0.0 : Double.parseDouble(estimatedBudgetString);
 
         // Get the values from the RatingBar fields
         float accommodationRating = ratingBarAccommodation.getRating();
@@ -117,14 +119,22 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         theNewTrip.setAmbianceRating(ambianceRating);
     }
 
-    private void savethenewtrip(){
+    private void saveTrip() {
+        theNewTrip.setStatus(true);
         tripRepository.insert(theNewTrip);
-        ToastHelper.showLongToast(this,"L'enregistrement est good");
+        ToastHelper.showLongToast(this, "Trip saved successfully");
+        disableSaveButton();
     }
 
     private void redirectToHomeActivity() {
         Intent intent = new Intent(SaveTripActivityStep2.this, HomeActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void disableSaveButton() {
+        buttonSave.setEnabled(false);
+        buttonSave.setTextColor(Color.LTGRAY);
+        buttonSave.setBackgroundColor(Color.GRAY);
     }
 }

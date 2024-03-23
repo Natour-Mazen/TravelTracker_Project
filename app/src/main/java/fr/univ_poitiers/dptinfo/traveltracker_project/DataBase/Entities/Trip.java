@@ -7,7 +7,9 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Entity class representing a trip in the database.
@@ -27,7 +29,7 @@ public class Trip implements Serializable {
     private String name;
 
     @ColumnInfo(name = "status")
-    private Boolean status;
+    private Boolean status = false;
 
     @ColumnInfo(name = "country")
     private String country;
@@ -58,6 +60,12 @@ public class Trip implements Serializable {
 
     @ColumnInfo(name = "actualBudget")
     private double actualBudget;
+
+    public Trip(){
+        // Format the current date as a string
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        this.departureDate = format.format(new Date());
+    }
 
     public int getId() {
         return id;

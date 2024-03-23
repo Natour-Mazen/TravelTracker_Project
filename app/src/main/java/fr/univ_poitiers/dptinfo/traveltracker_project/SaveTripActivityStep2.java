@@ -19,13 +19,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import java.util.Objects;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
 
@@ -46,6 +41,9 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         applySystemWindowsInsets();
 
         initComponents();
+
+        tripRepository = new TripRepository(SaveTripActivityStep2.this.getApplication());
+
         initializeTrip();
         setupButtons();
     }

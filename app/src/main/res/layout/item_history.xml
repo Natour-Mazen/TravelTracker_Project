@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- item_history.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -20,27 +22,39 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05" />
+
         <TextView
             android:id="@+id/text_trip_location"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="#955A5368"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="14sp"/>
+            android:textColor="#955A5368"
+            android:textSize="14sp"
+            android:gravity="center_vertical" />
 
         <TextView
             android:id="@+id/text_trip_date"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:textColor="#955A5368"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
-        <Button
+
+        <ImageButton
             android:id="@+id/button_see_trip_details"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
-            android:background="@android:drawable/ic_dialog_info" />
+            android:backgroundTint="@color/violet"
+            android:background="@drawable/lavander_oval"
+            android:src="@android:drawable/ic_menu_info_details"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+            android:contentDescription="@string/btnimg" />
 
     </LinearLayout>
 

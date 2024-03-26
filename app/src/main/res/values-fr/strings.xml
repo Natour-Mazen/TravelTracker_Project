@@ -28,7 +28,7 @@
     <string name="hi">Salut,</string>
     <string name="TitleSaveTripSteps">préparez-vous à embarquer\n dans l\'aventure 😆</string>
     <string name="next">Suivant</string>
-    <string name="travel_start_date">Date de\n Début de Voyage :</string>
+    <string name="travel_start_date">Date de Début de Voyage :</string>
     <string name="city_name">Nom de la Ville:</string>
     <string name="country_name">Nom du pays :</string>
     <string name="ex_london">ex : Londres</string>

@@ -81,6 +81,7 @@
         android:id="@+id/editTextNumberSpentBudget"
         android:layout_width="207dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:autofillHints=""
         android:background="@drawable/lavander_oval"
         android:ems="10"
@@ -91,14 +92,14 @@
         android:textColor="@color/black"
         android:textColorHint="#616161"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toEndOf="@+id/TextViewRBudget"
-        app:layout_constraintTop_toTopOf="@+id/TextViewRBudget" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberEstimatedBudget" />
 
     <RatingBar
         android:id="@+id/ratingBarAccommodation"
         android:layout_width="236dp"
-        android:layout_height="44dp"
+        android:layout_height="42dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +113,7 @@
         android:text="@string/rate_the_accommodation"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarSafety"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarSafety" />
@@ -120,7 +121,7 @@
     <RatingBar
         android:id="@+id/ratingBarSafety"
         android:layout_width="236dp"
-        android:layout_height="44dp"
+        android:layout_height="42dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +130,7 @@
     <RatingBar
         android:id="@+id/ratingBarNature"
         android:layout_width="236dp"
-        android:layout_height="44dp"
+        android:layout_height="42dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +139,7 @@
     <RatingBar
         android:id="@+id/ratingBarHumans"
         android:layout_width="236dp"
-        android:layout_height="44dp"
+        android:layout_height="42dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewStarHumans" />
@@ -151,7 +152,7 @@
         android:text="@string/rate_the_safety_level"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarNature"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarNature" />
@@ -164,7 +165,7 @@
         android:text="@string/rate_the_natural_beauty"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarHumans"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarHumans" />
@@ -177,7 +178,7 @@
         android:text="@string/rate_the_quality_of_human_interactions"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarAmbianceCity"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarAmbiance" />
@@ -190,7 +191,7 @@
         android:text="@string/rate_the_ambiance"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewRBudget"
         app:layout_constraintTop_toBottomOf="@+id/TextViewRBudget" />
@@ -204,7 +205,7 @@
         android:text="@string/etimated_budget"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -217,7 +218,7 @@
         android:text="@string/budget_spent"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewEBudget"
         app:layout_constraintTop_toBottomOf="@+id/TextViewEBudget" />
@@ -355,7 +356,7 @@
     <RatingBar
         android:id="@+id/ratingBarAmbiance"
         android:layout_width="236dp"
-        android:layout_height="44dp"
+        android:layout_height="42dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewStarAmbianceCity" />
@@ -364,6 +365,7 @@
         android:id="@+id/editTextNumberEstimatedBudget"
         android:layout_width="209dp"
         android:layout_height="50dp"
+        android:layout_marginTop="4dp"
         android:autofillHints=""
         android:background="@drawable/lavander_oval"
         android:ems="10"
@@ -374,9 +376,9 @@
         android:textColor="@color/black"
         android:textColorHint="#616161"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toEndOf="@+id/TextViewEBudget"
-        app:layout_constraintTop_toTopOf="@+id/TextViewEBudget"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,7 +38,7 @@
     <string name="imgdeco" translatable="false">ImgDeco</string>
     <string name="TitleSaveTripSteps">get ready to embark\n on the adventure 😆</string>
     <string name="next">Next</string>
-    <string name="travel_start_date">Travel \nStart Date :</string>
+    <string name="travel_start_date">Travel Start Date :</string>
     <string name="city_name">City Name :</string>
     <string name="country_name">Country Name :</string>
     <string name="ex_london">ex: London</string>

@@ -15,7 +15,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 /**
  * Room Database class for handling trip-related data operations.
  */
-@Database(entities = {Trip.class, User.class}, version = 1, exportSchema = false)
+@Database(entities = {Trip.class}, version = 1, exportSchema = false)
 public abstract class TripRoomDatabase extends RoomDatabase {
     public abstract TripDao tripDao();
 

@@ -13,11 +13,12 @@ import java.util.Locale;
 
 /**
  * Entity class representing a trip in the database.
+ * , foreignKeys = @ForeignKey(entity = User.class,
+ *         parentColumns = "id",
+ *         childColumns = "userId",
+ *         onDelete = ForeignKey.CASCADE)
  */
-@Entity(tableName = "Trips_table", foreignKeys = @ForeignKey(entity = User.class,
-        parentColumns = "id",
-        childColumns = "userId",
-        onDelete = ForeignKey.CASCADE))
+@Entity(tableName = "Trips_table")
 public class Trip implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;

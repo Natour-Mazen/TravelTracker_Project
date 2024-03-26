@@ -75,8 +75,8 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private void setupButtons() {
         buttonSave.setOnClickListener(v -> {
             updateTripDetails();
-            //saveTrip();
             LogHelper.logDebug(LOG_TAG,theNewTrip.toString());
+            saveTrip();
         });
 
         buttonCancel.setOnClickListener(v -> redirectToHomeActivity());

@@ -68,4 +68,5 @@
     <string name="note_the_safety_level">Note of the safety level :</string>
     <string name="travel_mood">Travel mood :</string>
     <string name="adventure_index">Adventure index :</string>
+    <string name="average_total_score">Average Total Score :</string>
 </resources>

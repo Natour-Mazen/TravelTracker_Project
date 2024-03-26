@@ -11,8 +11,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.TravelMood;
+
 import android.widget.TextView;
 
+import java.util.Locale;
+import java.util.Random;
 
 
 public class DetailsTripActivity extends AppCompatActivity {
@@ -81,6 +85,51 @@ public class DetailsTripActivity extends AppCompatActivity {
             textViewNoteNaturalBeauty.setText(String.valueOf(tripToSee.getNaturalBeautyRating()));
             textViewNoteSafetyLevel.setText(String.valueOf(tripToSee.getSecurityRating()));
             textViewNoteAccommodation.setText(String.valueOf(tripToSee.getAccommodationRating()));
+            updateFunnySummaryInformations();
         }
     }
+
+    private void updateFunnySummaryInformations() {
+        // Calculer l'écart entre le budget estimé et le budget réel
+        double budgetDifference = tripToSee.getPlannedBudget() - tripToSee.getActualBudget();
+
+        // Calculer la moyenne des notes données
+        float averageRating = (tripToSee.getAmbianceRating() + tripToSee.getNaturalBeautyRating() +
+                tripToSee.getSecurityRating() + tripToSee.getAccommodationRating() +
+                tripToSee.getHumanInteractionRating()) / 5;
+
+        // Ajout d'un facteur aléatoire pour pimenter les choses
+        Random random = new Random();
+        int randomFactor = random.nextInt(3) - 1; // Génère un nombre aléatoire entre -1 et 1
+
+        // Déterminer l'humeur du voyage en fonction de l'écart budgétaire, de la moyenne des notes et du facteur aléatoire
+        if (budgetDifference >= 0 && averageRating >= 3.5 + randomFactor) {
+            textViewTravelMood.setText(TravelMood.ADVENTUROUS.getMood());
+        } else if (budgetDifference >= 0 && averageRating < 3.5 - randomFactor) {
+            textViewTravelMood.setText(TravelMood.RELAXED.getMood());
+        } else if (budgetDifference < 0 && averageRating >= 3.5 + randomFactor) {
+            textViewTravelMood.setText(TravelMood.CULTURAL.getMood());
+        } else if (budgetDifference < 0 && averageRating < 3.5 - randomFactor) {
+            textViewTravelMood.setText(TravelMood.ROMANTIC.getMood());
+        } else {
+            // Utilisation de FAMILY_FRIENDLY pour une touche supplémentaire
+            textViewTravelMood.setText(TravelMood.FAMILY_FRIENDLY.getMood());
+        }
+
+        // Affichage de l'index d'aventure avec un numéro et un emoji représentant l'indice d'aventure
+        String adventureIndexText = String.format(Locale.getDefault(), "%.2f", averageRating + randomFactor);
+        String adventureEmoji;
+        if (averageRating + randomFactor > 4) {
+            adventureEmoji = "😄"; // Emoji pour un indice d'aventure élevé
+        } else if (averageRating + randomFactor > 3) {
+            adventureEmoji = "😐"; // Emoji pour un indice d'aventure moyen
+        } else {
+            adventureEmoji = "😴"; // Emoji pour un indice d'aventure faible
+        }
+        String textAdventureIndex = adventureIndexText + " " + adventureEmoji;
+        textViewAdventureIndex.setText(textAdventureIndex);
+
+        textViewGlobalIndex.setText(String.valueOf(averageRating ));
+    }
+
 }

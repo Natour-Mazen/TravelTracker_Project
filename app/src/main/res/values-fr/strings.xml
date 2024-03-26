@@ -57,4 +57,5 @@
     <string name="note_the_safety_level">Note le niveau de sécurité :</string>
     <string name="travel_mood">Humeur du Voyage :</string>
     <string name="adventure_index">Indice d\'aventure :</string>
+    <string name="average_total_score">Note totale moyenne :</string>
 </resources>

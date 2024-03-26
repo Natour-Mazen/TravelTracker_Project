@@ -9,6 +9,7 @@ import java.util.List;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.DAOs.TripDao;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.TripRoomDatabase;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 
 /**
  * Repository class for handling trip-related database operations.
@@ -57,6 +58,7 @@ public class TripRepository {
      * @param trip The Trip entity to insert.
      */
     public void insert(Trip trip) {
+        LogHelper.logError("",trip.toString());
         TripRoomDatabase.databaseWriteExecutor.execute(() -> tripDao.insert(trip));
     }
 

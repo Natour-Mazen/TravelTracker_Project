@@ -1,8 +1,11 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.utils;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,10 +18,11 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     private final List<Trip> historyList;
+    private final Context context;
 
-
-    public HistoryAdapter(List<Trip> historyList) {
+    public HistoryAdapter(List<Trip> historyList, Context context) {
         this.historyList = historyList;
+        this.context = context;
     }
 
     @NonNull
@@ -35,6 +39,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         String Location = trip.getCity() + ", " + trip.getCountry();
         holder.tripLocationTextView.setText(Location);
         holder.tripDateTextView.setText(trip.getDepartureDate());
+
+        // Set click listener to launch DetailActivity with trip data
+        holder.seeDetailsButton.setOnClickListener(v -> {
+            LogHelper.logError("", trip.toString());
+          //  Intent intent = new Intent(context, DetailActivity.class);
+           // intent.putExtra("trip", trip);
+           // context.startActivity(intent);
+        });
     }
 
     @Override
@@ -46,12 +58,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         TextView tripNameTextView;
         TextView tripLocationTextView;
         TextView tripDateTextView;
+        Button seeDetailsButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tripNameTextView = itemView.findViewById(R.id.text_trip_name);
             tripLocationTextView = itemView.findViewById(R.id.text_trip_location);
             tripDateTextView = itemView.findViewById(R.id.text_trip_date);
+            seeDetailsButton = itemView.findViewById(R.id.button_see_trip_details);
         }
     }
 }

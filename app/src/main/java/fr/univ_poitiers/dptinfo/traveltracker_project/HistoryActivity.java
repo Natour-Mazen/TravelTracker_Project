@@ -46,7 +46,7 @@ public class HistoryActivity extends AppCompatActivity {
         recycleListeHistory = findViewById(R.id.recyclerViewTrips);
         recycleListeHistory.setLayoutManager(new LinearLayoutManager(this));
 
-        historyAdapter = new HistoryAdapter(tripsList);
+        historyAdapter = new HistoryAdapter(tripsList,this);
         recycleListeHistory.setAdapter(historyAdapter);
 
         PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);

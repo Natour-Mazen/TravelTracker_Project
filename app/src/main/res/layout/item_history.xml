@@ -35,6 +35,13 @@
             android:textColor="#955A5368"
             android:textSize="14sp"/>
 
+        <Button
+            android:id="@+id/button_see_trip_details"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:drawable/ic_dialog_info" />
+
     </LinearLayout>
 
 </LinearLayout>

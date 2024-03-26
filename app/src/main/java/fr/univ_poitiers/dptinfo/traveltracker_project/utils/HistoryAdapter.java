@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DetailsTripActivity;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
@@ -44,9 +45,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         // Set click listener to launch DetailActivity with trip data
         holder.seeDetailsButton.setOnClickListener(v -> {
             LogHelper.logError("", trip.toString());
-          //  Intent intent = new Intent(context, DetailActivity.class);
-           // intent.putExtra("trip", trip);
-           // context.startActivity(intent);
+            Intent intent = new Intent(context, DetailsTripActivity.class);
+            intent.putExtra("TripToSee", trip);
+            context.startActivity(intent);
         });
     }
 

@@ -36,7 +36,7 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         applySystemWindowsInsets();
         initComponents();
-        initializeSession();
+        initializeSessionAndFillHistory();
     }
 
     private void initComponents() {
@@ -56,7 +56,7 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
-    private void initializeSession() {
+    private void initializeSessionAndFillHistory() {
         UserRepository userRep = new UserRepository(getApplication());
         SessionManager session = SessionManager.getInstance(this, userRep);
 
@@ -66,7 +66,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     private void onUserChanged(User user) {
         if (user != null) {
-            LogHelper.logError(LOG_TAG, "user id " + user.getId());
             loadTripsForUser(user.getId());
         }
     }

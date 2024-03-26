@@ -1,8 +1,9 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowInsets;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -26,72 +27,62 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
 public class HistoryActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "HistoryActivity";
-    private RecyclerView recycleListeHistory;
     private HistoryAdapter historyAdapter;
-
     private final ArrayList<Trip> tripsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_history);
+        applySystemWindowsInsets();
+        initComponents();
+        initializeSession();
+    }
+
+    private void initComponents() {
+        RecyclerView recycleListeHistory = findViewById(R.id.recyclerViewTrips);
+        recycleListeHistory.setLayoutManager(new LinearLayoutManager(this));
+        historyAdapter = new HistoryAdapter(tripsList, this);
+        recycleListeHistory.setAdapter(historyAdapter);
+
+        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
+    }
+
+    private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        initializeSession();
-
-        recycleListeHistory = findViewById(R.id.recyclerViewTrips);
-        recycleListeHistory.setLayoutManager(new LinearLayoutManager(this));
-
-        historyAdapter = new HistoryAdapter(tripsList,this);
-        recycleListeHistory.setAdapter(historyAdapter);
-
-        PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);
-
-        if(!tripsList.isEmpty()){
-            for(Trip item : tripsList){
-                LogHelper.logError(LOG_TAG,item.toString());
-            }
-        }else{
-            LogHelper.logError(LOG_TAG,"tripsList is empty");
-        }
-
     }
 
     private void initializeSession() {
-        UserRepository userRep= new UserRepository(HistoryActivity.this.getApplication());
-        SessionManager session = SessionManager.getInstance(HistoryActivity.this, userRep);
+        UserRepository userRep = new UserRepository(getApplication());
+        SessionManager session = SessionManager.getInstance(this, userRep);
 
         LiveData<User> userLiveData = session.getLoggedInUser();
-        userLiveData.observe(this, user -> {
-            if (user != null) {
-                LogHelper.logError(LOG_TAG,"user id " + user.getId());
-                // Get user's trips
-                TripRepository tripRep= new TripRepository(HistoryActivity.this.getApplication());
-                LiveData<List<Trip>> tripsLiveData = tripRep.getTripsByUserId(user.getId());
-                tripsLiveData.observe(this, trips -> {
-                    // Check if trips are not null and add them to a list
-                    if (trips != null && !trips.isEmpty()) {
+        userLiveData.observe(this, this::onUserChanged);
+    }
 
-//                        tripsList.addAll(trips); // Add new trips
-//                        historyAdapter.notifyDataSetChanged();
+    private void onUserChanged(User user) {
+        if (user != null) {
+            LogHelper.logError(LOG_TAG, "user id " + user.getId());
+            loadTripsForUser(user.getId());
+        }
+    }
 
-                        int oldSize = tripsList.size(); // Get the old size of the list
-                        tripsList.clear(); // Clear previous trips
-                        tripsList.addAll(trips); // Add new trips
-                        for (int i = oldSize; i < tripsList.size(); i++) {
-                            historyAdapter.notifyItemInserted(i);
-                        }
-                    }
-                });
-                userLiveData.removeObservers(this);
-            }
-            // Don't need a else statement because if the user is null the getLoggedInUser isn't even called
-        });
+    private void loadTripsForUser(int userId) {
+        TripRepository tripRep = new TripRepository(getApplication());
+        LiveData<List<Trip>> tripsLiveData = tripRep.getTripsByUserId(userId);
+        tripsLiveData.observe(this, this::onTripsChanged);
+    }
 
-
+    private void onTripsChanged(List<Trip> trips) {
+        if (trips != null && !trips.isEmpty()) {
+            int oldSize = tripsList.size();
+            tripsList.clear();
+            tripsList.addAll(trips);
+            historyAdapter.notifyItemRangeInserted(oldSize, tripsList.size() - oldSize);
+        }
     }
 }

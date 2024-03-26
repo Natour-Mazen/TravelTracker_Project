@@ -26,7 +26,7 @@
     <string name="history">Historique</string>
     <string name="quit">Quitter</string>
     <string name="hi">Salut,</string>
-    <string name="TitleSaveTripSteps">Prépare tes valises,\n la brise t\'attend 😆</string>
+    <string name="TitleSaveTripSteps">préparez-vous à embarquer\n dans l\'aventure 😆</string>
     <string name="next">Suivant</string>
     <string name="travel_start_date">Date de\n Début de Voyage :</string>
     <string name="city_name">Nom de la Ville:</string>
@@ -45,7 +45,6 @@
     <string name="rate_the_quality_of_human_interactions">Évaluez la qualité des interactions humaines :</string>
     <string name="rate_the_natural_beauty">Évaluez la beauté naturelle :</string>
     <string name="rate_the_safety_level">Évaluez le niveau de sécurité :</string>
-    <!-- Toast Messages -->
     <string name="login_error">😢 Désolé, une erreur s\'est produite. Veuillez réessayer.</string>
     <string name="already_signup_error">Vous avez déjà un compte.</string>
     <string name="disconnect">Se déconnecter</string>

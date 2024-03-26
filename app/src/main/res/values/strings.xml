@@ -36,7 +36,7 @@
     <string name="hi">Hi,</string>
     <string name="LoremText" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat sit amet ligula lacinia ullamcorper sed ac justo. Sed at viverra ipsum. Fusce tincidunt, dolor sit amet ultrices malesuada, metus sapien aliquam ex, non dapibus libero libero id nulla. Ut commodo sodales ex vitae auctor. Vestibulum in enim ut mauris finibus consectetur.</string>
     <string name="imgdeco" translatable="false">ImgDeco</string>
-    <string name="TitleSaveTripSteps">Adventure Ahead,\n Spread Bed 😆</string>
+    <string name="TitleSaveTripSteps">get ready to embark\n on the adventure 😆</string>
     <string name="next">Next</string>
     <string name="travel_start_date">Travel \nStart Date :</string>
     <string name="city_name">City Name :</string>
@@ -56,7 +56,6 @@
     <string name="rate_the_natural_beauty">Rate the natural beauty :</string>
     <string name="rate_the_safety_level">Rate the safety level :</string>
     <string name="ex_10" translatable="false">ex : 10 €</string>
-    <!-- Toast Messages -->
     <string name="login_error">😢 Sorry, an error occurred. Please try again.</string>
     <string name="already_signup_error">You already have an account.</string>
     <string name="disconnect">Logout</string>

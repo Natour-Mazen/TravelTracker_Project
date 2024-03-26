@@ -42,6 +42,10 @@ public class HomeActivity extends AppCompatActivity {
         buttonTravel.setOnClickListener(v -> startTravelActivity());
         buttonQuit.setOnClickListener(v -> closeAllActivities());
         buttonDisconnect.setOnClickListener(v -> logoutAndRedirect());
+        buttonHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void applySystemWindowsInsets() {

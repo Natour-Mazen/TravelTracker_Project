@@ -136,7 +136,7 @@
 
         <EditText
             android:id="@+id/editTextTitleTrip"
-            android:layout_width="242dp"
+            android:layout_width="182dp"
             android:layout_height="58dp"
             android:autofillHints="hint"
             android:background="@drawable/dark_lavander_background"

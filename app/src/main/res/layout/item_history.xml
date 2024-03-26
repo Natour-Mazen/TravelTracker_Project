@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="#5d5a63"
         android:layout_marginBottom="8dp"/>
 
     <LinearLayout
@@ -23,6 +24,7 @@
             android:id="@+id/text_trip_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textColor="#955A5368"
             android:layout_weight="1"
             android:textSize="14sp"/>
 
@@ -30,6 +32,7 @@
             android:id="@+id/text_trip_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#955A5368"
             android:textSize="14sp"/>
 
     </LinearLayout>

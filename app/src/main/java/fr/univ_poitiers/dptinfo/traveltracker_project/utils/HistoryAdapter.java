@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
@@ -16,6 +15,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     private final List<Trip> historyList;
+
 
     public HistoryAdapter(List<Trip> historyList) {
         this.historyList = historyList;
@@ -32,7 +32,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Trip trip = historyList.get(position);
         holder.tripNameTextView.setText(trip.getName());
-        holder.tripLocationTextView.setText(trip.getCity() + ", " + trip.getCountry());
+        String Location = trip.getCity() + ", " + trip.getCountry();
+        holder.tripLocationTextView.setText(Location);
+        holder.tripDateTextView.setText(trip.getDepartureDate());
     }
 
     @Override
@@ -43,11 +45,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tripNameTextView;
         TextView tripLocationTextView;
+        TextView tripDateTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tripNameTextView = itemView.findViewById(R.id.text_trip_name);
             tripLocationTextView = itemView.findViewById(R.id.text_trip_location);
+            tripDateTextView = itemView.findViewById(R.id.text_trip_date);
         }
     }
 }

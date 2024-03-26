@@ -130,6 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="145dp"
             android:layout_margin="10dp"
+            android:backgroundTint="#ffffff"
             app:cardCornerRadius="10dp"
             app:cardElevation="3dp">
 
@@ -148,7 +149,7 @@
                         android:id="@+id/buttonTravel"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:backgroundTint="#C8BEF6"
+                        android:backgroundTint="@color/violet"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -175,6 +176,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/voyage"
+                    android:textColor="#5d5a63"
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -185,6 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="145dp"
             android:layout_margin="10dp"
+            android:backgroundTint="#ffffff"
             app:cardCornerRadius="10dp"
             app:cardElevation="3dp">
 
@@ -203,7 +206,7 @@
                         android:id="@+id/buttonHistory"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:backgroundTint="#C8BEF6"
+                        android:backgroundTint="@color/violet"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -229,6 +232,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/history"
+                    android:textColor="#5d5a63"
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -266,6 +270,7 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/violet"
         android:text="@string/quit"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonDisconnect"
         app:layout_constraintHorizontal_bias="0.551"
@@ -308,6 +313,7 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/violet"
         android:text="@string/disconnect"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

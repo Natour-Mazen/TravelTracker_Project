@@ -134,7 +134,7 @@
         android:text="@string/TextViewTitleTrip"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -147,7 +147,7 @@
         android:text="@string/country_name"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayTT"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayTT" />
@@ -160,7 +160,7 @@
         android:text="@string/city_name"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayCountry"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayCountry" />
@@ -173,7 +173,7 @@
         android:text="@string/travel_start_date"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayCity"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayCity" />
@@ -186,7 +186,7 @@
         android:text="@string/etimated_budget"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayDate"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayDate" />
@@ -199,7 +199,7 @@
         android:text="@string/budget_spent"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayEBudget"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayEBudget" />
@@ -212,7 +212,7 @@
         android:text="@string/note_the_ambiance"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayRBudget"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayRBudget" />
@@ -225,7 +225,7 @@
         android:text="@string/note_the_quality_of_human_interactions"
         android:textAlignment="gravity"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayRAmbiance"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayRAmbiance" />
@@ -238,12 +238,10 @@
         android:text="@string/note_the_natural_beauty"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="582dp"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayRAmbiance"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDisplayRHumans"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewDisplayRHumans" />
 
     <TextView
         android:id="@+id/textViewDisplayRSafety"
@@ -253,7 +251,7 @@
         android:text="@string/note_the_safety_level"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayRNatural"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayRNatural" />
@@ -266,7 +264,7 @@
         android:text="@string/note_the_accommodation"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDisplayRSafety"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayRSafety" />
@@ -276,9 +274,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
-        app:layout_constraintStart_toEndOf="@+id/textViewDisplayTT"
         app:layout_constraintTop_toTopOf="@+id/textViewDisplayTT" />
 
     <TextView

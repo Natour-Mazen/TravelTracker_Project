@@ -25,9 +25,6 @@ public class Trip implements Serializable {
     @ColumnInfo(name = "name")
     private String name;
 
-    @ColumnInfo(name = "status")
-    private Boolean status = false;
-
     @ColumnInfo(name = "country")
     private String country;
 
@@ -86,14 +83,6 @@ public class Trip implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
     }
 
     public String getCountry() {
@@ -183,7 +172,6 @@ public class Trip implements Serializable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", name='" + name + '\'' +
-                ", status=" + status +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", departureDate=" + departureDate +

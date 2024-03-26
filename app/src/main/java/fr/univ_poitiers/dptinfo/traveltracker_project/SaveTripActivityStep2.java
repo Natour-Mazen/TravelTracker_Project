@@ -28,7 +28,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private EditText editTextNumberSpentBudget, editTextNumberEstimatedBudget;
     private RatingBar ratingBarAccommodation, ratingBarSafety, ratingBarNature, ratingBarHumans, ratingBarAmbiance;
     private TextView textViewTripTitlePreview;
-    private Button buttonSave, buttonSummary, buttonPrev, buttonCancel;
+    private Button buttonSave, buttonSummary, buttonCancel;
     private Trip theNewTrip;
     private TripRepository tripRepository;
 
@@ -60,7 +60,6 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         textViewTripTitlePreview = findViewById(R.id.textViewTripTitlePreview);
         buttonSave = findViewById(R.id.buttonSave);
         buttonSummary = findViewById(R.id.buttonSummary);
-        buttonPrev = findViewById(R.id.buttonPrev);
         buttonCancel = findViewById(R.id.buttonCancel);
     }
 
@@ -75,12 +74,10 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private void setupButtons() {
         buttonSave.setOnClickListener(v -> {
             updateTripDetails();
-            LogHelper.logDebug(LOG_TAG,theNewTrip.toString());
             saveTrip();
         });
-
         buttonCancel.setOnClickListener(v -> redirectToHomeActivity());
-
+        buttonSummary.setOnClickListener(v -> redirectToDetailsActivity());
         PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
     }
 
@@ -118,7 +115,6 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     }
 
     private void saveTrip() {
-        theNewTrip.setStatus(true);
         tripRepository.insert(theNewTrip);
         ToastHelper.showLongToast(this, "Trip saved successfully");
         disableSaveButton();
@@ -128,6 +124,13 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         Intent intent = new Intent(SaveTripActivityStep2.this, HomeActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void redirectToDetailsActivity(){
+        updateTripDetails();
+        Intent intent = new Intent(SaveTripActivityStep2.this, DetailsTripActivity.class);
+        intent.putExtra("TripToSee", theNewTrip);
+        startActivity(intent);
     }
 
     private void disableSaveButton() {

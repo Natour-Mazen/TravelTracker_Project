@@ -58,4 +58,5 @@
     <string name="travel_mood">Humeur du Voyage :</string>
     <string name="adventure_index">Indice d\'aventure :</string>
     <string name="average_total_score">Note totale moyenne :</string>
+    <string name="delete">Supprimer ce voyage</string>
 </resources>

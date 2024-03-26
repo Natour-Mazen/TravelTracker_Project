@@ -10,8 +10,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
+import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.FunnySummaryUpdater;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
+
+import android.widget.Button;
 import android.widget.TextView;
 
 

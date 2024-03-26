@@ -69,4 +69,5 @@
     <string name="travel_mood">Travel mood :</string>
     <string name="adventure_index">Adventure index :</string>
     <string name="average_total_score">Average Total Score :</string>
+    <string name="delete">Delete this trip</string>
 </resources>

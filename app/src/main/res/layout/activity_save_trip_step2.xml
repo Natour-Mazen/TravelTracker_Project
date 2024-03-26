@@ -54,7 +54,7 @@
         android:id="@+id/imageView4"
         android:layout_width="324dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="144dp"
         android:contentDescription="@string/arcimg"
         android:rotation="40"
@@ -337,18 +337,20 @@
 
     <TextView
         android:id="@+id/textViewTripTitlePreview"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="45dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="[TripTitle]"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RatingBar
         android:id="@+id/ratingBarAmbiance"

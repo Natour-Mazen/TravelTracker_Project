@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:layout_width="223dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
 
         android:text="@string/TitleSaveTripSteps"
@@ -242,7 +242,7 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="55dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"

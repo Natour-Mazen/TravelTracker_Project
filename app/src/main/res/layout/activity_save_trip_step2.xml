@@ -128,7 +128,7 @@
         android:text="@string/rate_the_accommodation"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarSafety"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarSafety" />
@@ -167,7 +167,7 @@
         android:text="@string/rate_the_safety_level"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarNature"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarNature" />
@@ -180,7 +180,7 @@
         android:text="@string/rate_the_natural_beauty"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarHumans"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarHumans" />
@@ -193,7 +193,7 @@
         android:text="@string/rate_the_quality_of_human_interactions"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewStarAmbianceCity"
         app:layout_constraintTop_toBottomOf="@+id/ratingBarAmbiance" />
@@ -206,7 +206,7 @@
         android:text="@string/rate_the_ambiance"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewRBudget"
         app:layout_constraintTop_toBottomOf="@+id/TextViewRBudget" />
@@ -220,7 +220,7 @@
         android:text="@string/etimated_budget"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -233,7 +233,7 @@
         android:text="@string/budget_spent"
         android:textAlignment="center"
         android:textColor="#5d5a63"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/TextViewEBudget"
         app:layout_constraintTop_toBottomOf="@+id/TextViewEBudget" />

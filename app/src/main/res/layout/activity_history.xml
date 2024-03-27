@@ -9,19 +9,6 @@
     tools:context=".HistoryActivity">
 
     <ImageView
-        android:id="@+id/imageViewDecoArc2"
-        android:layout_width="288dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="260dp"
-        android:contentDescription="@string/arcimg"
-        android:rotation="-90"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewDecoArc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/arc_1" />
-
-    <ImageView
         android:id="@+id/imageViewDecoArc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,19 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewDecoArc"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageViewDecoArc1"
-        android:layout_width="288dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="110dp"
-        android:contentDescription="@string/arcimg"
-        android:rotation="90"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewDecoArc"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewDecoArc2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/arc_1" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTrips"
@@ -152,4 +126,33 @@
         app:layout_constraintBottom_toTopOf="@+id/constraintLayoutButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewArcDeco1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/viewContainerHistory"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/arc_3"
+        android:contentDescription="@string/arcimg" />
+
+    <ImageView
+        android:id="@+id/imageViewArcDeco2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/viewContainerHistory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/arc_3"
+        android:contentDescription="@string/arcimg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

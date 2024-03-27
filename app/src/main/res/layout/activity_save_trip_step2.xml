@@ -8,6 +8,49 @@
     android:background="@color/lavender"
     tools:context=".SaveTripActivityStep2">
 
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="223dp"
+        android:layout_height="48dp"
+
+        android:text="@string/TitleSaveTripSteps"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewArcDeco2"
+        android:layout_width="71dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/arcimg"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872"
+        app:srcCompat="@drawable/arc_3" />
+
+    <ImageView
+        android:id="@+id/imageViewArcDeco1"
+        android:layout_width="71dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/arcimg"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872"
+        app:srcCompat="@drawable/arc_3" />
+
     <ImageView
         android:id="@+id/imageViewDeco"
         android:layout_width="42dp"
@@ -16,10 +59,10 @@
         android:contentDescription="@string/imgdeco"
         app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/btn_3" />
 
     <ImageView
@@ -30,39 +73,11 @@
         android:contentDescription="@string/imgdeco"
         app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/btn_2" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="324dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="60dp"
-        android:contentDescription="@string/arcimg"
-        android:rotation="-40"
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arc_3"
-        tools:ignore="VisualLintBounds" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="324dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="144dp"
-        android:contentDescription="@string/arcimg"
-        android:rotation="40"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arc_3"
-        tools:ignore="VisualLintBounds" />
 
     <View
         android:id="@+id/view4"
@@ -227,41 +242,14 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="45dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/arc_3" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TitleSaveTripSteps"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:srcCompat="@drawable/arc_3" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -339,19 +327,18 @@
     <TextView
         android:id="@+id/textViewTripTitlePreview"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="0dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="[TripTitle]"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#363539"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewArcDeco2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewArcDeco1"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <RatingBar
         android:id="@+id/ratingBarAmbiance"

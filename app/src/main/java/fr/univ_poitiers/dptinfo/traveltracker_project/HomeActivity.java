@@ -11,7 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +19,6 @@ import java.util.Locale;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
 
 public class HomeActivity extends AppCompatActivity {
 

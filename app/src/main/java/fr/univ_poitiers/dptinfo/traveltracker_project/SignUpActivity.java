@@ -2,7 +2,6 @@ package fr.univ_poitiers.dptinfo.traveltracker_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,12 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Objects;
-
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.*;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
 
 public class SignUpActivity extends AppCompatActivity {
 

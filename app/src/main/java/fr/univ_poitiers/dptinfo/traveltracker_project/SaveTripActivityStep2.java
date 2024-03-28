@@ -13,9 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
 
 import android.widget.Button;
 import android.widget.EditText;

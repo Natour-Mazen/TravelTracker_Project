@@ -8,7 +8,6 @@ import android.text.TextWatcher;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,8 +18,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
 import android.widget.EditText;
 import android.widget.CalendarView;
 

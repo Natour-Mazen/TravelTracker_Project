@@ -2,14 +2,13 @@ package fr.univ_poitiers.dptinfo.traveltracker_project.utils;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.io.IOException;
 
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

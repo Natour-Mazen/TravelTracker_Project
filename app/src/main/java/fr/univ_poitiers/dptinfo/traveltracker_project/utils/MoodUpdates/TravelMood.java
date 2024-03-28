@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils;
+package fr.univ_poitiers.dptinfo.traveltracker_project.utils.MoodUpdates;
 
 public enum TravelMood {
     ADVENTUROUS("Adventurous 🌍"),

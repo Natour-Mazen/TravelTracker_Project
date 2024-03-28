@@ -38,14 +38,8 @@ public class HomeActivity extends AppCompatActivity {
 
         initComponents();
         initializeSession();
+        setUpButtons();
 
-        buttonTravel.setOnClickListener(v -> startTravelActivity());
-        buttonQuit.setOnClickListener(v -> closeAllActivities());
-        buttonDisconnect.setOnClickListener(v -> logoutAndRedirect());
-        buttonHistory.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
-            startActivity(intent);
-        });
     }
 
     private void applySystemWindowsInsets() {
@@ -53,6 +47,17 @@ public class HomeActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+    }
+
+
+    private void setUpButtons(){
+        buttonTravel.setOnClickListener(v -> startTravelActivity());
+        buttonQuit.setOnClickListener(v -> closeAllActivities());
+        buttonDisconnect.setOnClickListener(v -> logoutAndRedirect());
+        buttonHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
+            startActivity(intent);
         });
     }
 

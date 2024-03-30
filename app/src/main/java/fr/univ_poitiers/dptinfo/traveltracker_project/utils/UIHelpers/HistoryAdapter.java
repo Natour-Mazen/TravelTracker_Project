@@ -22,6 +22,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     private final List<Trip> historyList;
     private final Context context;
 
+    /**
+     * Constructor for the HistoryAdapter class.
+     *
+     * @param historyList List of Trip objects representing the user's trip history.
+     * @param context     The context of the activity or fragment using this adapter.
+     */
     public HistoryAdapter(List<Trip> historyList, Context context) {
         this.historyList = historyList;
         this.context = context;
@@ -30,12 +36,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Inflate the item layout for the RecyclerView
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_history, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Bind data to ViewHolder
         Trip trip = historyList.get(position);
         holder.tripNameTextView.setText(trip.getName());
         String Location = trip.getCity() + ", " + trip.getCountry();
@@ -44,7 +52,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         // Set click listener to launch DetailActivity with trip data
         holder.seeDetailsButton.setOnClickListener(v -> {
-            LogHelper.logError("", trip.toString());
+            LogHelper.logError("HistoryAdapter", trip.toString());
             Intent intent = new Intent(context, DetailsTripActivity.class);
             intent.putExtra("TripToSee", trip);
             context.startActivity(intent);
@@ -64,6 +72,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            // Initialize views from the item layout
             tripNameTextView = itemView.findViewById(R.id.text_trip_name);
             tripLocationTextView = itemView.findViewById(R.id.text_trip_location);
             tripDateTextView = itemView.findViewById(R.id.text_trip_date);

@@ -1,3 +1,4 @@
+
 package fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers;
 
 import android.content.Context;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DetailsTripActivity;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;

@@ -15,9 +15,6 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousBu
 
 import android.widget.TextView;
 
-
-
-
 public class DetailsTripActivity extends AppCompatActivity {
 
     private TextView textViewTitleTrip, textViewCountryName, textViewCityName, textViewDate,
@@ -30,17 +27,30 @@ public class DetailsTripActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
+
+        // Set layout
         setContentView(R.layout.activity_details_trip);
+
+        // Apply system window insets for edge-to-edge display
         applySystemWindowsInsets();
 
+        // Initialize UI components
         initComponents();
+
+        // Initialize trip details
         initializeTrip();
+
+        // Fill trip details
         fillTripDetails();
 
+        // Set up previous button
         PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);
     }
 
+    // Initialize UI components
     private void initComponents() {
         textViewTitleTrip = findViewById(R.id.textViewTitleTrip);
         textViewCountryName = findViewById(R.id.textViewCountryName);
@@ -58,13 +68,14 @@ public class DetailsTripActivity extends AppCompatActivity {
         textViewGlobalIndex = findViewById(R.id.textViewGlobalIndex);
     }
 
+    // Initialize trip details from intent extras
     private void initializeTrip() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             tripToSee = getIntent().getParcelableExtra("TripToSee", Trip.class);
         }
     }
 
-    // Méthode pour remplir les TextView avec les détails du voyage
+    // Fill trip details into corresponding TextViews
     private void fillTripDetails() {
         if (tripToSee != null) {
             textViewTitleTrip.setText(tripToSee.getName());
@@ -82,6 +93,7 @@ public class DetailsTripActivity extends AppCompatActivity {
         }
     }
 
+    // Apply system window insets to adjust layout with edge-to-edge display
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -89,5 +101,4 @@ public class DetailsTripActivity extends AppCompatActivity {
             return insets;
         });
     }
-
 }

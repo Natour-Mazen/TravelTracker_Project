@@ -70,4 +70,9 @@
     <string name="adventure_index">Adventure index :</string>
     <string name="average_total_score">Average Total Score :</string>
     <string name="delete">Delete this trip</string>
+    <string name="travel_mood_adventurous">"Adventurous 🌍"</string>
+    <string name="travel_mood_relaxed">Relaxed 🌴</string>
+    <string name="travel_mood_cultural">Cultural 🏛️</string>
+    <string name="travel_mood_romantic">Romantic 💖</string>
+    <string name="travel_mood_family_friendly">Family Friendly 👨‍👩‍👧‍👦</string>
 </resources>

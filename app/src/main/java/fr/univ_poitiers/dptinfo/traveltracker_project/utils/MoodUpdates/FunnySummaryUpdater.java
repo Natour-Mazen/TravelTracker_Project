@@ -1,5 +1,6 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.utils.MoodUpdates;
 
+import android.content.Context;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -17,7 +18,7 @@ public class FunnySummaryUpdater {
      * @param textViewAdventureIndex   TextView to display the adventure index.
      * @param textViewGlobalIndex      TextView to display the global index.
      */
-    public static void updateFunnySummaryInformations(Trip trip, TextView textViewTravelMood, TextView textViewAdventureIndex, TextView textViewGlobalIndex) {
+    public static void updateFunnySummaryInformations(Trip trip, TextView textViewTravelMood, TextView textViewAdventureIndex, TextView textViewGlobalIndex, Context context) {
         double budgetDifference = trip.getPlannedBudget() - trip.getActualBudget();
         float averageRating = (trip.getAmbianceRating() + trip.getNaturalBeautyRating() +
                 trip.getSecurityRating() + trip.getAccommodationRating() +
@@ -25,7 +26,8 @@ public class FunnySummaryUpdater {
         Random random = new Random();
         int randomFactor = random.nextInt(5) - 1;
 
-        String mood = calculateMood(budgetDifference, averageRating, randomFactor);
+        int moodID = calculateMood(budgetDifference, averageRating, randomFactor);
+        String mood = context.getString(moodID);
         String adventureIndex = calculateAdventureIndex(averageRating, randomFactor);
 
         textViewTravelMood.setText(mood);
@@ -41,7 +43,7 @@ public class FunnySummaryUpdater {
      * @param randomFactor     The random factor.
      * @return The calculated travel mood.
      */
-    private static String calculateMood(double budgetDifference, float averageRating, int randomFactor) {
+    private static int calculateMood(double budgetDifference, float averageRating, int randomFactor) {
         if (budgetDifference >= 0 && averageRating >= 3.5 + randomFactor) {
             return TravelMood.ADVENTUROUS.getMood();
         } else if (budgetDifference >= 0 && averageRating < 3.5 - randomFactor) {

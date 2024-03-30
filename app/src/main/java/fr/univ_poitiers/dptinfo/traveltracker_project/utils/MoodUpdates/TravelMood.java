@@ -1,19 +1,37 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.utils.MoodUpdates;
 
+import androidx.annotation.StringRes;
+
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
+
+/**
+ * Enum representing different travel moods.
+ */
 public enum TravelMood {
-    ADVENTUROUS("Adventurous 🌍"),
-    RELAXED("Relaxed 🌴"),
-    CULTURAL("Cultural 🏛️"),
-    ROMANTIC("Romantic 💖"),
-    FAMILY_FRIENDLY("Family Friendly 👨‍👩‍👧‍👦");
+    ADVENTUROUS(R.string.travel_mood_adventurous),
+    RELAXED(R.string.travel_mood_relaxed),
+    CULTURAL(R.string.travel_mood_cultural),
+    ROMANTIC(R.string.travel_mood_romantic),
+    FAMILY_FRIENDLY(R.string.travel_mood_family_friendly);
 
-    private final String mood;
+    @StringRes
+    private final int mood;
 
-    TravelMood(String mood) {
+    /**
+     * Constructor for TravelMood enum.
+     *
+     * @param mood The mood associated with the travel type.
+     */
+    TravelMood(int mood) {
         this.mood = mood;
     }
 
-    public String getMood() {
+    /**
+     * Getter for the mood associated with the travel type.
+     *
+     * @return The mood as a string resource ID.
+     */
+    public int getMood() {
         return mood;
     }
 }

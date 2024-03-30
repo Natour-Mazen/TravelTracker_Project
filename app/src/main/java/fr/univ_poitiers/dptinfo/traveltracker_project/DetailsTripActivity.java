@@ -89,7 +89,7 @@ public class DetailsTripActivity extends AppCompatActivity {
             textViewNoteNaturalBeauty.setText(String.valueOf(tripToSee.getNaturalBeautyRating()));
             textViewNoteSafetyLevel.setText(String.valueOf(tripToSee.getSecurityRating()));
             textViewNoteAccommodation.setText(String.valueOf(tripToSee.getAccommodationRating()));
-            FunnySummaryUpdater.updateFunnySummaryInformations(tripToSee, textViewTravelMood, textViewAdventureIndex, textViewGlobalIndex);
+            FunnySummaryUpdater.updateFunnySummaryInformations(tripToSee, textViewTravelMood, textViewAdventureIndex, textViewGlobalIndex, this);
         }
     }
 

@@ -35,19 +35,28 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
+
+        // Set layout
         setContentView(R.layout.activity_save_trip_step2);
+
+        // Apply system window insets for edge-to-edge display
         applySystemWindowsInsets();
 
+        // Initialize UI components
         initComponents();
 
+        // Initialize trip repository
         tripRepository = new TripRepository(SaveTripActivityStep2.this.getApplication());
 
+        // Initialize trip data and set up buttons
         initializeTrip();
         setupButtons();
     }
 
-    // Méthode pour initialiser tous les composants
+    // Initialize UI components
     private void initComponents() {
         editTextNumberSpentBudget = findViewById(R.id.editTextNumberSpentBudget);
         editTextNumberEstimatedBudget = findViewById(R.id.editTextNumberEstimatedBudget);
@@ -62,6 +71,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         buttonCancel = findViewById(R.id.buttonCancel);
     }
 
+    // Initialize trip data
     private void initializeTrip() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             theNewTrip = getIntent().getParcelableExtra("NewTrip", Trip.class);
@@ -70,8 +80,10 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         }
     }
 
+    // Set up button click listeners
     private void setupButtons() {
         buttonSave.setOnClickListener(v -> {
+            // Update trip details and save trip
             updateTripDetails();
             saveTrip();
         });
@@ -80,6 +92,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
     }
 
+    // Apply system window insets
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -88,15 +101,16 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         });
     }
 
+    // Update trip details with user input
     private void updateTripDetails() {
-        // Get the values from the EditText fields
+        // Get values from EditText fields
         String spentBudgetString = editTextNumberSpentBudget.getText().toString();
         double spentBudget = spentBudgetString.isEmpty() ? 0.0 : Double.parseDouble(spentBudgetString);
 
         String estimatedBudgetString = editTextNumberEstimatedBudget.getText().toString();
         double estimatedBudget = estimatedBudgetString.isEmpty() ? 0.0 : Double.parseDouble(estimatedBudgetString);
 
-        // Get the values from the RatingBar fields
+        // Get values from RatingBar fields
         float accommodationRating = ratingBarAccommodation.getRating();
         float safetyRating = ratingBarSafety.getRating();
         float natureRating = ratingBarNature.getRating();
@@ -113,25 +127,30 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         theNewTrip.setAmbianceRating(ambianceRating);
     }
 
+    // Save trip to database
     private void saveTrip() {
         tripRepository.insert(theNewTrip);
         ToastHelper.showLongToast(this, "Trip saved successfully");
         disableSaveButton();
     }
 
+    // Redirect to home activity
     private void redirectToHomeActivity() {
         Intent intent = new Intent(SaveTripActivityStep2.this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void redirectToDetailsActivity(){
+    // Redirect to trip details activity
+    private void redirectToDetailsActivity() {
+        // Update trip details before redirecting
         updateTripDetails();
         Intent intent = new Intent(SaveTripActivityStep2.this, DetailsTripActivity.class);
         intent.putExtra("TripToSee", theNewTrip);
         startActivity(intent);
     }
 
+    // Disable save button after saving trip
     private void disableSaveButton() {
         buttonSave.setEnabled(false);
         buttonSave.setTextColor(Color.LTGRAY);

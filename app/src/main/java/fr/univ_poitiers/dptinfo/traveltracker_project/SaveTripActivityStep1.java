@@ -27,7 +27,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-
 public class SaveTripActivityStep1 extends AppCompatActivity {
 
     private static final String LOG_TAG = "SaveTripActivityStep1";
@@ -40,16 +39,31 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
+
+        // Set layout
         setContentView(R.layout.activity_save_trip_step1);
+
+        // Apply system window insets for edge-to-edge display
         applySystemWindowsInsets();
 
+        // Initialize UI components
         initComponents();
+
+        // Initialize session and setup buttons
         initializeSession();
         setupButtons();
+
+        // Setup text watchers for input validation
         setupTextWatchers();
+
+        // Setup previous button
+        PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
     }
 
+    // Initialize UI components
     private void initComponents() {
         editTextTitleTrip = findViewById(R.id.editTextTitleTrip);
         editTextCity = findViewById(R.id.editTextCity);
@@ -58,6 +72,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         buttonNext = findViewById(R.id.buttonNext);
     }
 
+    // Apply system window insets to adjust layout with edge-to-edge display
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -66,6 +81,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         });
     }
 
+    // Setup text watchers to enable/disable the next button based on input validation
     private void setupTextWatchers() {
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -85,13 +101,14 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         editTextCountry.addTextChangedListener(textWatcher);
     }
 
+    // Setup button click listeners
     private void setupButtons() {
         buttonNext.setOnClickListener(v -> goToNextStep());
         calendarViewStartTravel.setOnDateChangeListener(this::onCalendarDateSelected);
         disableNextButton();
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
     }
 
+    // Enable or disable the next button based on input validation
     private void enableOrDisableNextButton() {
         String title = editTextTitleTrip.getText().toString().trim();
         String city = editTextCity.getText().toString().trim();
@@ -108,11 +125,13 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         }
     }
 
+    // Set colors for a disabled button
     private void setDisabledButtonColors() {
         buttonNext.setTextColor(Color.LTGRAY);
         buttonNext.setBackgroundColor(Color.GRAY);
     }
 
+    // Disable the next button
     private void disableNextButton() {
         originalButtonTextColor = buttonNext.getCurrentTextColor();
         originalButtonBackground = buttonNext.getDrawingCacheBackgroundColor();
@@ -120,6 +139,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         setDisabledButtonColors();
     }
 
+    // Initialize session to get user ID
     private void initializeSession() {
         UserRepository userRepository = new UserRepository(SaveTripActivityStep1.this.getApplication());
         SessionManager session = SessionManager.getInstance(SaveTripActivityStep1.this, userRepository);
@@ -131,14 +151,15 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         });
     }
 
+    // Go to the next step of trip saving process
     private void goToNextStep() {
         Trip newTrip = createNewTrip();
-       // LogHelper.logDebug(LOG_TAG,newTrip.toString());
         Intent intent = new Intent(SaveTripActivityStep1.this, SaveTripActivityStep2.class);
         intent.putExtra("NewTrip", newTrip);
         startActivity(intent);
     }
 
+    // Create a new trip object with the provided details
     private Trip createNewTrip() {
         Trip newTrip = new Trip();
         newTrip.setUserId(userId);
@@ -150,6 +171,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         return newTrip;
     }
 
+    // Handle calendar date selection
     private void onCalendarDateSelected(CalendarView view, int year, int month, int dayOfMonth) {
         month++; // Calendar month is zero-based
         Calendar calendar = Calendar.getInstance();

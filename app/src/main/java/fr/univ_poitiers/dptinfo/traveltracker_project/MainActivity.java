@@ -11,11 +11,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set the layout for this activity
         setContentView(R.layout.activity_main);
 
+        // Get the reference to the "Continue" button from the layout
         Button continueBtn = findViewById(R.id.ButtonContinue);
+
+        // Set a click listener on the "Continue" button
         continueBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            // When the button is clicked, create an intent to start the LoginActivity
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+
+            // Start the LoginActivity using the created intent
             startActivity(intent);
         });
     }

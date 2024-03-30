@@ -31,12 +31,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Initialize UI components
         initComponents();
+
+        // Initialize UserRepository for database operations
         userRepository = new UserRepository(LoginActivity.this.getApplication());
+
+        // Setup buttons
         setupButtons();
+
+        // Setup text watchers for EditText fields
         setupTextWatchers();
     }
 
+    // Initialize UI components
     private void initComponents() {
         editTextUserName = findViewById(R.id.editTextUserName);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -44,13 +52,22 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignUp = findViewById(R.id.buttonSignUp);
     }
 
+    // Setup click listeners for buttons
     private void setupButtons() {
+        // Start SignUpActivity when SignUp button is clicked
         buttonSignUp.setOnClickListener(v -> startSignUpActivity());
+
+        // Check user credentials when Login button is clicked
         buttonLogin.setOnClickListener(v -> checkUser());
+
+        // Disable Login button initially
         disableLoginButton();
+
+        // Setup previous button
         PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
     }
 
+    // Disable Login button
     private void disableLoginButton() {
         originalButtonTextColor = buttonLogin.getCurrentTextColor();
         originalButtonBackground = buttonLogin.getDrawingCacheBackgroundColor();
@@ -58,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         setDisabledButtonColors();
     }
 
+    // Setup text watchers to enable/disable Login button based on input
     private void setupTextWatchers() {
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -67,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 enableDisableLoginButton();
             }
+
             @Override
             public void afterTextChanged(Editable s) {}
         };
@@ -75,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword.addTextChangedListener(textWatcher);
     }
 
+    // Start SignUpActivity
     private void startSignUpActivity() {
         String username = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
@@ -85,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Check user credentials
     private void checkUser() {
         String username = editTextUserName.getText().toString();
         String password = editTextPassword.getText().toString();
@@ -95,14 +116,18 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    // Observer for user data
     private final Observer<User> userObserver = user -> {
         if (user != null) {
+            // If user is found, start HomeActivity
             startHomeActivity(user);
         } else {
+            // If user is not found, show login error
             showLoginError();
         }
     };
 
+    // Start HomeActivity
     private void startHomeActivity(User user) {
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         SessionManager session = SessionManager.getInstance(LoginActivity.this, userRepository);
@@ -111,11 +136,13 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    // Show login error message
     private void showLoginError() {
         String errorMessage = getString(R.string.login_error);
         ToastHelper.showLongToast(LoginActivity.this, errorMessage);
     }
 
+    // Enable or disable Login button based on input
     private void enableDisableLoginButton() {
         String usernameInput = editTextUserName.getText().toString().trim();
         String passwordInput = editTextPassword.getText().toString().trim();
@@ -124,14 +151,16 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setEnabled(enableButton);
 
         if (enableButton) {
-            // We restore Original Colors
+            // Restore original button colors
             buttonLogin.setTextColor(originalButtonTextColor);
             buttonLogin.setBackgroundColor(originalButtonBackground);
         } else {
+            // Set disabled button colors
             setDisabledButtonColors();
         }
     }
 
+    // Set colors for disabled Login button
     private void setDisabledButtonColors() {
         buttonLogin.setTextColor(Color.LTGRAY);
         buttonLogin.setBackgroundColor(Color.GRAY);

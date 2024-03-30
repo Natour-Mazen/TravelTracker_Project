@@ -75,4 +75,5 @@
     <string name="travel_mood_cultural">Cultural 🏛️</string>
     <string name="travel_mood_romantic">Romantic 💖</string>
     <string name="travel_mood_family_friendly">Family Friendly 👨‍👩‍👧‍👦</string>
+    <string name="trip_saved_successfully_message">Trip saved successfully</string>
 </resources>

@@ -130,7 +130,8 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     // Save trip to database
     private void saveTrip() {
         tripRepository.insert(theNewTrip);
-        ToastHelper.showLongToast(this, "Trip saved successfully");
+        String message = getString(R.string.trip_saved_successfully_message);
+        ToastHelper.showLongToast(this, message);
         disableSaveButton();
     }
 

@@ -15,11 +15,16 @@ import okhttp3.Response;
 
 public class FetchDataTask extends AsyncTask<String, Void, JsonObject> {
 
-    private static final String APP_TAG = "FetchDataTask" ;
+    private static final String APP_TAG = "FetchDataTask";
     private final String baseUrl;
     private final Context myContext;
 
-
+    /**
+     * Constructeur de la classe FetchDataTask.
+     *
+     * @param baseUrl L'URL de base pour la requête.
+     * @param context Le contexte de l'application.
+     */
     public FetchDataTask(String baseUrl, Context context) {
         this.baseUrl = baseUrl;
         this.myContext = context;
@@ -50,14 +55,18 @@ public class FetchDataTask extends AsyncTask<String, Void, JsonObject> {
             processResponseData(jsonObject);
         } else {
             String message = "Données non trouvées";
-
-            ToastHelper.showLongToast(myContext ,message);
+            ToastHelper.showLongToast(myContext, message);
         }
     }
 
-    private void processResponseData(JsonObject thejsonObject) {
+    /**
+     * Méthode pour traiter les données de réponse.
+     *
+     * @param theJsonObject Les données de réponse JSON.
+     */
+    private void processResponseData(JsonObject theJsonObject) {
         // Traitement des données récupérées
         // Ce code dépendra de la structure des données que vous récupérez
-       // Glide.with(myContext).load(imageUrl).into(pokeImage);
+        // Glide.with(myContext).load(imageUrl).into(pokeImage);
     }
 }

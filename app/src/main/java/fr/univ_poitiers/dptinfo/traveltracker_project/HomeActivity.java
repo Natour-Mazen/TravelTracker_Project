@@ -30,16 +30,25 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Enable edge-to-edge display for immersive experience
         EdgeToEdge.enable(this);
+
+        // Set layout and apply system windows insets
         setContentView(R.layout.activity_home);
         applySystemWindowsInsets();
 
+        // Initialize UI components
         initComponents();
-        initializeSession();
-        setUpButtons();
 
+        // Initialize session manager
+        initializeSession();
+
+        // Set up click listeners for buttons
+        setUpButtons();
     }
 
+    // Apply system window insets to adjust layout with edge-to-edge display
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -48,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
+    // Set up click listeners for buttons
     private void setUpButtons(){
         buttonTravel.setOnClickListener(v -> startTravelActivity());
         buttonQuit.setOnClickListener(v -> closeAllActivities());
@@ -59,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    // Initialize UI components
     private void initComponents() {
         textViewDisplayUserName = findViewById(R.id.textViewDisplayUserName);
         textViewDisplayDate = findViewById(R.id.textViewDisplayDate);
@@ -68,6 +78,7 @@ public class HomeActivity extends AppCompatActivity {
         buttonHistory = findViewById(R.id.buttonHistory);
     }
 
+    // Initialize session manager and check if user is logged in
     private void initializeSession() {
         UserRepository userRep= new UserRepository(HomeActivity.this.getApplication());
         session = SessionManager.getInstance(HomeActivity.this, userRep);
@@ -82,28 +93,33 @@ public class HomeActivity extends AppCompatActivity {
                 textViewDisplayUserName.setText(user.getUsername());
                 userLiveData.removeObservers(this);
             }
-            // Don't need a else statement because if the user is null the getLoggedInUser isn't even called
+            // Don't need an else statement because if the user is null the getLoggedInUser isn't even called
         });
 
+        // Display current date
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         textViewDisplayDate.setText(currentDate);
     }
 
+    // Redirect to login activity if user is not logged in
     private void redirectToLoginActivity() {
         Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
 
+    // Start the activity for saving a trip
     private void startTravelActivity() {
         Intent intent = new Intent(HomeActivity.this, SaveTripActivityStep1.class);
         startActivity(intent);
     }
 
+    // Close all activities
     private void closeAllActivities() {
         finishAffinity();
     }
 
+    // Logout user and redirect to login activity
     private void logoutAndRedirect() {
         session.logout();
         redirectToLoginActivity();

@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
@@ -73,11 +74,9 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
 
     // Initialize trip data
     private void initializeTrip() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            theNewTrip = getIntent().getParcelableExtra("NewTrip", Trip.class);
-            assert theNewTrip != null;
-            textViewTripTitlePreview.setText(theNewTrip.getName());
-        }
+        theNewTrip = (Trip) getIntent().getParcelableExtra("NewTrip");
+        assert theNewTrip != null;
+        textViewTripTitlePreview.setText(theNewTrip.getName());
     }
 
     // Set up button click listeners

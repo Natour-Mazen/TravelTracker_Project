@@ -30,21 +30,32 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set the layout
         setContentView(R.layout.activity_history);
+
+        // Apply system window insets for edge-to-edge display
         applySystemWindowsInsets();
+
+        // Initialize UI components
         initComponents();
+
+        // Initialize session and populate history
         initializeSessionAndFillHistory();
     }
 
+    // Initialize UI components
     private void initComponents() {
         RecyclerView recycleListeHistory = findViewById(R.id.recyclerViewTrips);
         recycleListeHistory.setLayoutManager(new LinearLayoutManager(this));
         historyAdapter = new HistoryAdapter(tripsList, this);
         recycleListeHistory.setAdapter(historyAdapter);
 
+        // Set up the previous button
         PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
     }
 
+    // Apply system window insets to adjust layout with edge-to-edge display
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -53,6 +64,7 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
+    // Initialize session manager and populate history with trips
     private void initializeSessionAndFillHistory() {
         UserRepository userRep = new UserRepository(getApplication());
         SessionManager session = SessionManager.getInstance(this, userRep);
@@ -61,18 +73,21 @@ public class HistoryActivity extends AppCompatActivity {
         userLiveData.observe(this, this::onUserChanged);
     }
 
+    // Callback method when the user data changes
     private void onUserChanged(User user) {
         if (user != null) {
             loadTripsForUser(user.getId());
         }
     }
 
+    // Load trips for the logged-in user
     private void loadTripsForUser(int userId) {
         TripRepository tripRep = new TripRepository(getApplication());
         LiveData<List<Trip>> tripsLiveData = tripRep.getTripsByUserId(userId);
         tripsLiveData.observe(this, this::onTripsChanged);
     }
 
+    // Callback method when the trips data changes
     private void onTripsChanged(List<Trip> trips) {
         if (trips != null && !trips.isEmpty()) {
             int oldSize = tripsList.size();

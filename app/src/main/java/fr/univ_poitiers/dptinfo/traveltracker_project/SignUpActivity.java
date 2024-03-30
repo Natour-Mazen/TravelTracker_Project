@@ -30,22 +30,32 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        // Initialize UI components
         initComponents();
+
+        // Setup registration button click listener
         setupRegistrationButton();
+
+        // Setup previous button
         PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
 
+        // Initialize UserRepository for database operations
         userRepository = new UserRepository(SignUpActivity.this.getApplication());
 
+        // Get username and password from intent
         username = getIntent().getStringExtra("username");
         password = getIntent().getStringExtra("password");
 
+        // Disable registration button if username or password is empty
         if(username == null || password == null || username.isEmpty() || password.isEmpty()) {
             disableRegistrationButton();
         }
 
+        // Set preview username
         previewUserName.setText(username);
     }
 
+    // Initialize UI components
     private void initComponents() {
         editTextFirstName = findViewById(R.id.editTextFirstName);
         editTextLastName = findViewById(R.id.editTextLastName);
@@ -53,40 +63,53 @@ public class SignUpActivity extends AppCompatActivity {
         previewUserName = findViewById(R.id.textViewPreviewUserName);
     }
 
+    // Setup click listener for registration button
     private void setupRegistrationButton() {
         buttonCompleteReg.setOnClickListener(v -> {
             String firstname = editTextFirstName.getText().toString();
             String lastname = editTextLastName.getText().toString();
+
+            // Check if the user already exists
             LiveData<User> userLiveData = userRepository.getUser(username, password);
             userLiveData.observe(this, user -> {
                 if (user != null) {
+                    // If user already exists, show error message
                     showErrorMessage();
                 } else {
+                    // If user doesn't exist, create new user and login
                     createUserAndLogin(firstname, lastname, username, password);
                 }
+                // Remove observer to avoid multiple calls
                 userLiveData.removeObservers(this);
             });
         });
     }
 
+    // Create new user and login
     private void createUserAndLogin(String firstname, String lastname, String username, String password) {
+        // Create new user
         User newUser = userRepository.createUser(firstname, lastname, username, password);
+
+        // Login the user
         SessionManager session = SessionManager.getInstance(SignUpActivity.this, userRepository);
         session.userLogin(newUser);
+
+        // Redirect to home activity
         Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
 
+    // Show error message for existing user
     private void showErrorMessage() {
         String errorMessage = getString(R.string.already_signup_error);
         ToastHelper.showLongToast(SignUpActivity.this, errorMessage);
     }
 
+    // Disable registration button
     private void disableRegistrationButton() {
         buttonCompleteReg.setEnabled(false);
         buttonCompleteReg.setTextColor(Color.LTGRAY);
         buttonCompleteReg.setBackgroundColor(Color.GRAY);
     }
 }
-

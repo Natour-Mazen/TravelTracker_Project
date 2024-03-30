@@ -1,21 +1,18 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Entity class representing a trip in the database.
- */
 @Entity(tableName = "Trips_table")
-public class Trip implements Serializable {
+public class Trip implements Parcelable {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -55,11 +52,61 @@ public class Trip implements Serializable {
     @ColumnInfo(name = "actualBudget")
     private double actualBudget;
 
-    public Trip(){
+    public Trip() {
         // Format the current date as a string
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         this.departureDate = format.format(new Date());
     }
+
+    protected Trip(Parcel in) {
+        id = in.readInt();
+        userId = in.readInt();
+        name = in.readString();
+        country = in.readString();
+        city = in.readString();
+        departureDate = in.readString();
+        ambianceRating = in.readFloat();
+        naturalBeautyRating = in.readFloat();
+        securityRating = in.readFloat();
+        accommodationRating = in.readFloat();
+        humanInteractionRating = in.readFloat();
+        plannedBudget = in.readDouble();
+        actualBudget = in.readDouble();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(userId);
+        dest.writeString(name);
+        dest.writeString(country);
+        dest.writeString(city);
+        dest.writeString(departureDate);
+        dest.writeFloat(ambianceRating);
+        dest.writeFloat(naturalBeautyRating);
+        dest.writeFloat(securityRating);
+        dest.writeFloat(accommodationRating);
+        dest.writeFloat(humanInteractionRating);
+        dest.writeDouble(plannedBudget);
+        dest.writeDouble(actualBudget);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Trip> CREATOR = new Creator<Trip>() {
+        @Override
+        public Trip createFromParcel(Parcel in) {
+            return new Trip(in);
+        }
+
+        @Override
+        public Trip[] newArray(int size) {
+            return new Trip[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -184,5 +231,4 @@ public class Trip implements Serializable {
                 ", actualBudget=" + actualBudget +
                 '}';
     }
-
 }

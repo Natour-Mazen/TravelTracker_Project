@@ -64,7 +64,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
 
     private void initializeTrip() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            theNewTrip = getIntent().getSerializableExtra("NewTrip", Trip.class);
+            theNewTrip = getIntent().getParcelableExtra("NewTrip", Trip.class);
             assert theNewTrip != null;
             textViewTripTitlePreview.setText(theNewTrip.getName());
         }

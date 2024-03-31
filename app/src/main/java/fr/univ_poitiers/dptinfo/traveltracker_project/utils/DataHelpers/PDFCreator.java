@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils;
+package fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -23,6 +23,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 
 public class PDFCreator {
     private static final String LOG_TAG = "PDFCreator";

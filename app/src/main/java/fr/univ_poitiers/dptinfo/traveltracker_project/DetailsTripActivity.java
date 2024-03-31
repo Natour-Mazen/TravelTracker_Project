@@ -1,25 +1,20 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.MoodUpdates.FunnySummaryUpdater;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PDFCreator;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.PDFCreator;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;

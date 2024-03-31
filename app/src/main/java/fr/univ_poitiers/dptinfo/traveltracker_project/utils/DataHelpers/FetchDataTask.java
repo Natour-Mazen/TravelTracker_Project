@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils;
+package fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 
 import java.io.IOException;
 
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

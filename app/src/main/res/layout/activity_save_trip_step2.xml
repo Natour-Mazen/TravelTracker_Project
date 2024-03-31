@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
         android:text="@string/TitleSaveTripSteps"
         android:textAlignment="center"
@@ -55,188 +55,23 @@
         android:id="@+id/imageViewDeco"
         android:layout_width="42dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="44dp"
         android:contentDescription="@string/imgdeco"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/btn_3" />
 
     <ImageView
         android:id="@+id/imageViewDeco2"
         android:layout_width="42dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="44dp"
         android:contentDescription="@string/imgdeco"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/btn_2" />
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="-14dp"
-        android:background="@color/light_lavender"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/editTextNumberSpentBudget"
-        android:layout_width="207dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:autofillHints=""
-        android:background="@drawable/lavander_oval"
-        android:ems="10"
-        android:hint="@string/ex_10"
-        android:inputType="numberSigned"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="#616161"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toEndOf="@+id/TextViewRBudget"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberEstimatedBudget" />
-
-    <RatingBar
-        android:id="@+id/ratingBarAccommodation"
-        android:layout_width="236dp"
-        android:layout_height="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewStarAccommodation" />
-
-    <TextView
-        android:id="@+id/TextViewStarAccommodation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/rate_the_accommodation"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/TextViewStarSafety"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBarSafety" />
-
-    <RatingBar
-        android:id="@+id/ratingBarSafety"
-        android:layout_width="236dp"
-        android:layout_height="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewStarSafety" />
-
-    <RatingBar
-        android:id="@+id/ratingBarNature"
-        android:layout_width="236dp"
-        android:layout_height="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewStarNature" />
-
-    <RatingBar
-        android:id="@+id/ratingBarHumans"
-        android:layout_width="236dp"
-        android:layout_height="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewStarHumans" />
-
-    <TextView
-        android:id="@+id/TextViewStarSafety"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/rate_the_safety_level"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/TextViewStarNature"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBarNature" />
-
-    <TextView
-        android:id="@+id/TextViewStarNature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/rate_the_natural_beauty"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/TextViewStarHumans"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBarHumans" />
-
-    <TextView
-        android:id="@+id/TextViewStarHumans"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/rate_the_quality_of_human_interactions"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/TextViewStarAmbianceCity"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBarAmbiance" />
-
-    <TextView
-        android:id="@+id/TextViewStarAmbianceCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/rate_the_ambiance"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/TextViewRBudget"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewRBudget" />
-
-    <TextView
-        android:id="@+id/TextViewEBudget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/etimated_budget"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-    <TextView
-        android:id="@+id/TextViewRBudget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/budget_spent"
-        android:textAlignment="center"
-        android:textColor="#5d5a63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/TextViewEBudget"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewEBudget" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -251,10 +86,224 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arc_3" />
 
+    <TextView
+        android:id="@+id/textViewTripTitlePreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="[TripTitle]"
+        android:textAlignment="center"
+        android:textColor="#363539"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewArcDeco2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewArcDeco1"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <ScrollView
+        android:id="@+id/scrollViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/light_lavender"
+        android:contentDescription="@android:string/unknownName"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="1.0" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/editTextNumberSpentBudget"
+                android:layout_width="209dp"
+                android:layout_height="50dp"
+                android:autofillHints=""
+                android:background="@drawable/lavander_oval"
+                android:ems="10"
+                android:hint="@string/ex_10"
+                android:inputType="numberSigned"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="#616161"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.72"
+                app:layout_constraintStart_toEndOf="@+id/TextViewRBudget"
+                app:layout_constraintTop_toTopOf="@+id/TextViewRBudget" />
+
+            <RatingBar
+                android:id="@+id/ratingBarAccommodation"
+                android:layout_width="236dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewStarAccommodation" />
+
+            <TextView
+                android:id="@+id/TextViewStarAccommodation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/rate_the_accommodation"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TextViewStarSafety"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarSafety" />
+
+            <RatingBar
+                android:id="@+id/ratingBarSafety"
+                android:layout_width="236dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewStarSafety" />
+
+            <RatingBar
+                android:id="@+id/ratingBarNature"
+                android:layout_width="236dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewStarNature" />
+
+            <RatingBar
+                android:id="@+id/ratingBarHumans"
+                android:layout_width="236dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewStarHumans" />
+
+            <TextView
+                android:id="@+id/TextViewEBudget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/etimated_budget"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/TextViewStarSafety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/rate_the_safety_level"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TextViewStarNature"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarNature" />
+
+            <TextView
+                android:id="@+id/TextViewStarNature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/rate_the_natural_beauty"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TextViewStarHumans"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarHumans" />
+
+            <TextView
+                android:id="@+id/TextViewStarHumans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/rate_the_quality_of_human_interactions"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TextViewStarAmbianceCity"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarAmbiance" />
+
+            <TextView
+                android:id="@+id/TextViewStarAmbianceCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="@string/rate_the_ambiance"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TextViewRBudget"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewRBudget" />
+
+            <TextView
+                android:id="@+id/TextViewRBudget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/budget_spent"
+                android:textAlignment="center"
+                android:textColor="#5d5a63"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TextViewEBudget"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewEBudget" />
+
+            <RatingBar
+                android:id="@+id/ratingBarAmbiance"
+                android:layout_width="236dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextViewStarAmbianceCity" />
+
+            <EditText
+                android:id="@+id/editTextNumberEstimatedBudget"
+                android:layout_width="209dp"
+                android:layout_height="50dp"
+                android:autofillHints=""
+                android:background="@drawable/lavander_oval"
+                android:ems="10"
+                android:hint="@string/ex_10"
+                android:inputType="numberSigned"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="#616161"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/TextViewEBudget"
+                app:layout_constraintTop_toTopOf="@+id/TextViewEBudget"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
         android:layout_height="140dp"
+        android:background="@color/light_lavender"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -323,49 +372,5 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textViewTripTitlePreview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="[TripTitle]"
-        android:textAlignment="center"
-        android:textColor="#363539"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewArcDeco2"
-        app:layout_constraintStart_toEndOf="@+id/imageViewArcDeco1"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-    <RatingBar
-        android:id="@+id/ratingBarAmbiance"
-        android:layout_width="236dp"
-        android:layout_height="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewStarAmbianceCity" />
-
-    <EditText
-        android:id="@+id/editTextNumberEstimatedBudget"
-        android:layout_width="209dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        android:autofillHints=""
-        android:background="@drawable/lavander_oval"
-        android:ems="10"
-        android:hint="@string/ex_10"
-        android:inputType="numberSigned"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="#616161"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toEndOf="@+id/TextViewEBudget"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

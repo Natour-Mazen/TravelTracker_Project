@@ -105,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
     private void redirectToLoginActivity() {
         Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        closeAllActivities();
     }
 
     // Start the activity for saving a trip

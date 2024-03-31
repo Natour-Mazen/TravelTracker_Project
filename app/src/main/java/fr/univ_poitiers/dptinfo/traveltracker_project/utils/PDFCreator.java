@@ -25,17 +25,23 @@ import java.nio.file.Files;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 
 public class PDFCreator {
+    private static final String LOG_TAG = "PDFCreator";
 
+    // Constants for page size and text properties
     private static final int PAGE_WIDTH = 300;
     private static final int PAGE_HEIGHT = 400;
     private static final int PAGE_NUMBER = 1;
     private static final int TEXT_SIZE = 25;
     private static final int TEXT_START_POSITION = 10;
-    private static final String LOG_TAG = "PDFCreator" ;
 
+
+    // Method to create a PDF document from trip information
     public static Uri createPDF(Context context, Trip trip) {
+        // Create a new PDF document
         PdfDocument document = createDocument(trip);
+        // Save the document and get its file
         File file = saveDocument(context, document, trip);
+        // If file creation was successful, return its URI using a FileProvider
         if (file != null) {
             return FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", file);
         } else {
@@ -43,26 +49,34 @@ public class PDFCreator {
         }
     }
 
-
+    // Method to create a PDF document containing trip information
     private static PdfDocument createDocument(Trip trip) {
+        // Create a new PDF document
         PdfDocument document = new PdfDocument();
+        // Define page information
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(PAGE_WIDTH, PAGE_HEIGHT, PAGE_NUMBER).create();
+        // Start a new page in the document
         PdfDocument.Page page = document.startPage(pageInfo);
+        // Get the canvas for drawing
         Canvas canvas = page.getCanvas();
+        // Create paint object for drawing
         Paint paint = createPaint();
-
+        // Draw trip information on the canvas
         drawTripInformation(canvas, paint, trip);
-
+        // Finish the page
         document.finishPage(page);
+        // Return the created document
         return document;
     }
 
+    // Method to create a Paint object for drawing
     private static Paint createPaint() {
         Paint paint = new Paint();
         paint.setColor(Color.BLACK);
         return paint;
     }
 
+    // Method to draw trip information on the canvas
     private static void drawTripInformation(Canvas canvas, Paint paint, Trip trip) {
         int yPos = TEXT_SIZE;
         canvas.drawText("Name: " + trip.getName(), TEXT_START_POSITION, yPos, paint);
@@ -88,61 +102,26 @@ public class PDFCreator {
         canvas.drawText("Actual Budget: " + trip.getActualBudget(), TEXT_START_POSITION, yPos, paint);
     }
 
+    // Method to save the PDF document
     private static File saveDocument(Context context, PdfDocument document, Trip trip) {
         try {
+            // Get the cache directory
             File cacheDir = context.getCacheDir();
+            // Create a file in the cache directory with trip name as filename
             File file = new File(cacheDir, "trip_" + trip.getName() + ".pdf");
-
+            // Create an output stream to write to the file
             FileOutputStream outputStream = new FileOutputStream(file);
+            // Write the document content to the output stream
             document.writeTo(outputStream);
+            // Close the document and output stream
             document.close();
             outputStream.close();
-
+            // Return the created file
             return file;
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Error saving document: " + e.getMessage());
-            e.printStackTrace();
+            // Log any errors that occur during file saving
+            LogHelper.logError(LOG_TAG, "Error saving document: " + e.getMessage());
             return null;
         }
     }
-
-
-
-    private static Uri insertFileIntoMediaStore(Context context, File file) {
-        Uri contentUri = null;
-        if (file != null) {
-            ContentValues contentValues = createContentValues(file);
-            ContentResolver contentResolver = context.getContentResolver();
-            contentUri = contentResolver.insert(MediaStore.Files.getContentUri("external"), contentValues);
-            writeToFile(contentResolver, contentUri, file);
-        }
-        return contentUri;
-    }
-
-    private static ContentValues createContentValues(File file) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, file.getName());
-        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf");
-        contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOCUMENTS);
-        return contentValues;
-    }
-
-    private static void writeToFile(ContentResolver contentResolver, Uri contentUri, File file) {
-        try {
-            InputStream inputStream = Files.newInputStream(file.toPath());
-            OutputStream outputStream = contentResolver.openOutputStream(contentUri);
-
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) > 0) {
-                outputStream.write(buffer, 0, length);
-            }
-
-            inputStream.close();
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

@@ -23,11 +23,9 @@
             android:exported="false" />
         <activity
             android:name=".SaveTripActivityStep2"
-            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SaveTripActivityStep1"
-            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

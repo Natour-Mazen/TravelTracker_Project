@@ -313,18 +313,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           >
 
             <Button
                 android:id="@+id/buttonCancel"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:maxWidth="320dp"
                 android:backgroundTint="@color/violet"
-                android:minWidth="0dp"
+                android:minWidth="100dp"
                 android:minHeight="0dp"
                 android:text="@string/quit"
                 android:textColor="@color/white" />
@@ -332,12 +337,12 @@
             <Button
                 android:id="@+id/buttonPrev"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:maxWidth="320dp"
                 android:backgroundTint="@color/violet"
-                android:minWidth="0dp"
+                android:minWidth="100dp"
                 android:minHeight="0dp"
                 android:text="@string/previous"
                 android:textColor="@color/white" />
@@ -345,12 +350,12 @@
             <Button
                 android:id="@+id/buttonSummary"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:maxWidth="320dp"
                 android:backgroundTint="@color/violet"
-                android:minWidth="0dp"
+                android:minWidth="100dp"
                 android:minHeight="0dp"
                 android:text="@string/summary"
                 android:textColor="@color/white" />
@@ -358,12 +363,12 @@
             <Button
                 android:id="@+id/buttonSave"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:maxWidth="320dp"
                 android:backgroundTint="@color/violet"
-                android:minWidth="0dp"
+                android:minWidth="100dp"
                 android:minHeight="0dp"
                 android:text="@string/save"
                 android:textColor="@color/white" />

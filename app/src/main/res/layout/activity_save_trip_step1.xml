@@ -292,31 +292,46 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/buttonNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="60dp"
-            android:backgroundTint="@color/violet"
-            android:text="@string/next"
-            android:textColor="@color/white"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.519" />
-
-        <Button
-            android:id="@+id/buttonPrev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/violet"
-            android:text="@string/previous"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonNext"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="wrap">
+
+            <Button
+                android:id="@+id/buttonPrev"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/violet"
+                android:minWidth="100dp"
+                android:minHeight="0dp"
+                android:maxWidth="320dp"
+                android:text="@string/previous"
+                android:textColor="@color/white"
+                />
+
+            <Button
+                android:id="@+id/buttonNext"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/violet"
+                android:minWidth="100dp"
+                android:minHeight="0dp"
+                android:maxWidth="320dp"
+                android:text="@string/next"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
 
         <View
             android:id="@+id/divider5"

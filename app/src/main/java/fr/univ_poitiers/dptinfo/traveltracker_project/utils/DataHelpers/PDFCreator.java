@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Environment;
@@ -29,11 +30,13 @@ public class PDFCreator {
     private static final String LOG_TAG = "PDFCreator";
 
     // Constants for page size and text properties
-    private static final int PAGE_WIDTH = 300;
-    private static final int PAGE_HEIGHT = 400;
+    private static final int PAGE_WIDTH = 600;
+    private static final int PAGE_HEIGHT = 800;
     private static final int PAGE_NUMBER = 1;
-    private static final int TEXT_SIZE = 25;
-    private static final int TEXT_START_POSITION = 10;
+    private static final int MARGIN = 50;
+    private static final int TITLE_TEXT_SIZE = 30;
+    private static final int CONTENT_TEXT_SIZE = 20;
+    private static final int LINE_SPACING = 10;
 
 
     // Method to create a PDF document from trip information
@@ -79,29 +82,40 @@ public class PDFCreator {
 
     // Method to draw trip information on the canvas
     private static void drawTripInformation(Canvas canvas, Paint paint, Trip trip) {
-        int yPos = TEXT_SIZE;
-        canvas.drawText("Name: " + trip.getName(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Country: " + trip.getCountry(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("City: " + trip.getCity(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Departure Date: " + trip.getDepartureDate(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Ambiance Rating: " + trip.getAmbianceRating(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Natural Beauty Rating: " + trip.getNaturalBeautyRating(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Security Rating: " + trip.getSecurityRating(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Accommodation Rating: " + trip.getAccommodationRating(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Human Interaction Rating: " + trip.getHumanInteractionRating(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Planned Budget: " + trip.getPlannedBudget(), TEXT_START_POSITION, yPos, paint);
-        yPos += TEXT_SIZE;
-        canvas.drawText("Actual Budget: " + trip.getActualBudget(), TEXT_START_POSITION, yPos, paint);
+        int yPos = MARGIN;
+
+        // Title
+        paint.setTextSize(TITLE_TEXT_SIZE);
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        canvas.drawText("Trip Information", MARGIN, yPos, paint);
+        yPos += TITLE_TEXT_SIZE + LINE_SPACING;
+
+        // Content
+        paint.setTextSize(CONTENT_TEXT_SIZE);
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+        canvas.drawText("Name: " + trip.getName(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Country: " + trip.getCountry(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("City: " + trip.getCity(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Departure Date: " + trip.getDepartureDate(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Ambiance Rating: " + trip.getAmbianceRating(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Natural Beauty Rating: " + trip.getNaturalBeautyRating(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Security Rating: " + trip.getSecurityRating(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Accommodation Rating: " + trip.getAccommodationRating(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Human Interaction Rating: " + trip.getHumanInteractionRating(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Planned Budget: " + trip.getPlannedBudget(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Actual Budget: " + trip.getActualBudget(), MARGIN, yPos, paint);
     }
+
 
     // Method to save the PDF document
     private static File saveDocument(Context context, PdfDocument document, Trip trip) {

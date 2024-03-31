@@ -163,7 +163,8 @@
                     android:textColor="#5d5a63"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:minWidth="120dp"/>
+                    android:minWidth="120dp"
+                    android:maxWidth="120dp"/>
 
                 <!-- TextView 2 -->
                 <TextView
@@ -194,7 +195,8 @@
                     android:textColor="#5d5a63"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:maxWidth="120dp"/>
+                    android:maxWidth="120dp"
+                    android:minWidth="120dp"/>
 
                 <!-- TextView 2 -->
                 <TextView
@@ -287,10 +289,10 @@
                     android:textColor="#5d5a63"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:maxWidth="120dp"/>
+                    android:maxWidth="120dp"
+                    android:minWidth="120dp"/>
 
                 <!-- TextView 2 -->
-
                 <TextView
                     android:id="@+id/textViewSpentBudget"
                     android:layout_width="wrap_content"

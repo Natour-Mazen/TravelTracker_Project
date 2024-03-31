@@ -63,15 +63,12 @@ public class DetailsTripActivity extends AppCompatActivity {
         PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);
 
         // Configuration du clic sur le bouton de partage
-        buttonShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri pdfUri = PDFCreator.createPDF(DetailsTripActivity.this, tripToSee);
-                if (pdfUri != null) {
-                    sharePDF(pdfUri);
-                } else {
-                    Toast.makeText(DetailsTripActivity.this, "Erreur lors de la création du PDF", Toast.LENGTH_SHORT).show();
-                }
+        buttonShare.setOnClickListener(v -> {
+            Uri pdfUri = PDFCreator.createPDF(DetailsTripActivity.this, tripToSee);
+            if (pdfUri != null) {
+                sharePDF(pdfUri);
+            } else {
+                Toast.makeText(DetailsTripActivity.this, "Erreur lors de la création du PDF", Toast.LENGTH_SHORT).show();
             }
         });
     }

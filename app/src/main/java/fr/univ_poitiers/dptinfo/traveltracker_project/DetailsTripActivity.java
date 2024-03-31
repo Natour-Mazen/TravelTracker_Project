@@ -1,9 +1,14 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -11,9 +16,13 @@ import androidx.core.view.WindowInsetsCompat;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.MoodUpdates.FunnySummaryUpdater;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.PDFCreator;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DetailsTripActivity extends AppCompatActivity {
 
@@ -22,6 +31,8 @@ public class DetailsTripActivity extends AppCompatActivity {
             textViewEstimatedBudget, textViewSpentBudget, textViewNoteAmbiance, textViewNoteHumansInteraction,
             textViewNoteNaturalBeauty, textViewNoteSafetyLevel, textViewNoteAccommodation,
             textViewTravelMood, textViewAdventureIndex, textViewGlobalIndex;
+
+    private Button buttonShare;
 
     private Trip tripToSee;
 
@@ -47,8 +58,22 @@ public class DetailsTripActivity extends AppCompatActivity {
         // Fill trip details
         fillTripDetails();
 
+
         // Set up previous button
         PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);
+
+        // Configuration du clic sur le bouton de partage
+        buttonShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri pdfUri = PDFCreator.createPDF(DetailsTripActivity.this, tripToSee);
+                if (pdfUri != null) {
+                    sharePDF(pdfUri);
+                } else {
+                    Toast.makeText(DetailsTripActivity.this, "Erreur lors de la création du PDF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     // Initialize UI components
@@ -67,6 +92,7 @@ public class DetailsTripActivity extends AppCompatActivity {
         textViewTravelMood = findViewById(R.id.textViewTravelMood);
         textViewAdventureIndex = findViewById(R.id.textViewAdventureIndex);
         textViewGlobalIndex = findViewById(R.id.textViewGlobalIndex);
+        buttonShare = findViewById(R.id.buttonShare);
     }
 
     // Initialize trip details from intent extras
@@ -99,5 +125,12 @@ public class DetailsTripActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void sharePDF(Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("application/pdf");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        startActivity(Intent.createChooser(intent, "Partager via"));
     }
 }

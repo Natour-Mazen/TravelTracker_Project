@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;

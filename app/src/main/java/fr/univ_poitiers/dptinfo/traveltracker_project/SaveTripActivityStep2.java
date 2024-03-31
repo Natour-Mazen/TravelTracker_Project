@@ -2,7 +2,6 @@ package fr.univ_poitiers.dptinfo.traveltracker_project;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -11,7 +10,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;

@@ -9,7 +9,7 @@ import java.util.List;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.DAOs.TripDao;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.TripRoomDatabase;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
 
 /**
  * Repository class for handling trip-related database operations.

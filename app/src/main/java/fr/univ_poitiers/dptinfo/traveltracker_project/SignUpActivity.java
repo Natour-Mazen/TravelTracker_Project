@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;

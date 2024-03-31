@@ -14,7 +14,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.LiveData;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;

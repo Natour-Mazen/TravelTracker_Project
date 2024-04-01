@@ -97,6 +97,7 @@
         android:textColor="#363539"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/imageViewArcDeco2"
         app:layout_constraintStart_toEndOf="@+id/imageViewArcDeco1"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />

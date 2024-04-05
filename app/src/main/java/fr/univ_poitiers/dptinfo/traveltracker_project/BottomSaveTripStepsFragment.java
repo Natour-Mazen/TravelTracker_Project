@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.jetbrains.annotations.NotNull;
+
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
 
@@ -22,15 +24,11 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelpe
  */
 public class BottomSaveTripStepsFragment extends Fragment {
 
-    private static final String LOG_TAG = "BottomSaveTrips";
+    private static final String LOG_TAG = "BottomSaveTripStepsFragment";
     private Trip mTrip;
     private Class<?> mNextActivity;
-    private int originalButtonTextColor, originalButtonBackground;
-
-    private Button buttonNext;
-
-
-    private Boolean enableBtn;
+    private int mOriginalButtonTextColor = Color.WHITE, mOriginalButtonBackground;
+    private Button mButtonNext;
 
     public BottomSaveTripStepsFragment() {
         // Required empty public constructor
@@ -54,10 +52,10 @@ public class BottomSaveTripStepsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bottom_save_trip_steps, container, false);
 
         // Récupération du bouton "Next"
-        buttonNext = view.findViewById(R.id.buttonNext);
+        mButtonNext = view.findViewById(R.id.buttonNext);
 
         // Définition de l'écouteur de clic pour le bouton "Next"
-        buttonNext.setOnClickListener(v -> goToNextStep());
+        mButtonNext.setOnClickListener(v -> goToNextStep());
 
         // Configurer le bouton de retour arrière
         Button buttonPrev = view.findViewById(R.id.buttonPrev);
@@ -78,31 +76,31 @@ public class BottomSaveTripStepsFragment extends Fragment {
     // Méthode pour passer à l'étape suivante du processus de sauvegarde de voyage
     private void goToNextStep() {
         Intent intent = new Intent(getActivity(), mNextActivity);
-        LogHelper.logDebug("Fragment",mTrip.toString());
         intent.putExtra("NewTrip", mTrip);
         startActivity(intent);
     }
 
     // Disable the next button
     private void disableNextButton() {
-        originalButtonTextColor = buttonNext.getCurrentTextColor();
-        originalButtonBackground = buttonNext.getDrawingCacheBackgroundColor();
-        buttonNext.setTextColor(Color.LTGRAY);
-        buttonNext.setBackgroundColor(Color.GRAY);
-        buttonNext.setEnabled(false);
+        mOriginalButtonTextColor = mButtonNext.getCurrentTextColor();
+        mOriginalButtonBackground = mButtonNext.getDrawingCacheBackgroundColor();
+        mButtonNext.setTextColor(Color.LTGRAY);
+        mButtonNext.setBackgroundColor(Color.GRAY);
+        mButtonNext.setEnabled(false);
     }
+
+    // enable the next button
     private void enableNextButton() {
-        buttonNext.setTextColor(originalButtonTextColor);
-        buttonNext.setBackgroundColor(originalButtonBackground);
-        buttonNext.setEnabled(true);
+        mButtonNext.setTextColor(mOriginalButtonTextColor);
+        mButtonNext.setBackgroundColor(mOriginalButtonBackground);
+        mButtonNext.setEnabled(true);
     }
 
     public void setTrip(Trip trip) {
         this.mTrip = trip;
     }
 
-    public void setEnableNextBtn(Boolean enableBtn) {
-        this.enableBtn = enableBtn;
+    public void setEnableNextBtn(@NotNull Boolean enableBtn) {
         if(enableBtn){
             enableNextButton();
         }else{

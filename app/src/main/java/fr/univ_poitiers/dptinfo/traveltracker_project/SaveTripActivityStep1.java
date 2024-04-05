@@ -29,8 +29,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
     private static final String LOG_TAG = "SaveTripActivityStep1";
     private EditText editTextTitleTrip, editTextCity, editTextCountry;
     private CalendarView calendarViewStartTravel;
-  //  private Button buttonNext;
-    private int userId, originalButtonTextColor, originalButtonBackground;
+    private int userId;
     private String selectedDate;
 
     private BottomSaveTripStepsFragment fragment;
@@ -58,14 +57,12 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         // Setup text watchers for input validation
         setupTextWatchers();
 
-
+        // Setup the fragment
         fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep2.class);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainerBottom, fragment)
                 .commit();
-
-
     }
 
     // Initialize UI components
@@ -74,7 +71,6 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         editTextCity = findViewById(R.id.editTextCity);
         editTextCountry = findViewById(R.id.editTextCountry);
         calendarViewStartTravel = findViewById(R.id.calendarViewStartTravel);
-       // buttonNext = findViewById(R.id.buttonNext);
     }
 
     // Apply system window insets to adjust layout with edge-to-edge display

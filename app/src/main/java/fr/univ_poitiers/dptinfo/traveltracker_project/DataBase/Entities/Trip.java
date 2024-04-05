@@ -7,6 +7,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -30,6 +31,9 @@ public class Trip implements Parcelable {
 
     @ColumnInfo(name = "departureDate")
     private String departureDate = "";
+
+    @ColumnInfo(name = "arrivalDate")
+    private String arrivalDate = "";
 
     @ColumnInfo(name = "ambianceRating")
     private float ambianceRating = 0F;
@@ -55,10 +59,23 @@ public class Trip implements Parcelable {
     @ColumnInfo(name = "levelSatisfactionActivities")
     private int levelSatisfactionActivities = 0;
 
+    @ColumnInfo(name = "levelOfAdvanture")
+    private int levelOfAdvanture = 0;
+
+    @ColumnInfo(name = "transportation")
+    private String transportation = "";
+
     public Trip() {
         // Format the current date as a string
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         this.departureDate = format.format(new Date());
+
+        // Create a Calendar object
+        Calendar calendar = Calendar.getInstance();
+        // Add 10 days to the current date
+        calendar.add(Calendar.DATE, 10);
+        // Format the new date as a string
+        this.arrivalDate = format.format(calendar.getTime());
     }
 
     protected Trip(Parcel in) {
@@ -68,6 +85,8 @@ public class Trip implements Parcelable {
         country = in.readString();
         city = in.readString();
         departureDate = in.readString();
+        arrivalDate = in.readString();
+        transportation = in.readString();
         ambianceRating = in.readFloat();
         naturalBeautyRating = in.readFloat();
         securityRating = in.readFloat();
@@ -76,6 +95,7 @@ public class Trip implements Parcelable {
         plannedBudget = in.readDouble();
         actualBudget = in.readDouble();
         levelSatisfactionActivities= in.readInt();
+        levelOfAdvanture= in.readInt();
     }
 
     @Override
@@ -86,6 +106,8 @@ public class Trip implements Parcelable {
         dest.writeString(country);
         dest.writeString(city);
         dest.writeString(departureDate);
+        dest.writeString(arrivalDate);
+        dest.writeString(transportation);
         dest.writeFloat(ambianceRating);
         dest.writeFloat(naturalBeautyRating);
         dest.writeFloat(securityRating);
@@ -94,6 +116,7 @@ public class Trip implements Parcelable {
         dest.writeDouble(plannedBudget);
         dest.writeDouble(actualBudget);
         dest.writeInt(levelSatisfactionActivities);
+        dest.writeInt(levelOfAdvanture);
     }
 
     @Override
@@ -224,6 +247,30 @@ public class Trip implements Parcelable {
     public void setLevelSatisfactionActivities(int levelSatisfactionActivities) {
         this.levelSatisfactionActivities = levelSatisfactionActivities;
     }
+    public int getLevelOfAdvanture() {
+        return levelOfAdvanture;
+    }
+
+    public void setLevelOfAdvanture(int levelOfAdvanture) {
+        this.levelOfAdvanture = levelOfAdvanture;
+    }
+
+    public String getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(String arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public String getTransportation() {
+        return transportation;
+    }
+
+    public void setTransportation(String transportation) {
+        this.transportation = transportation;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -234,6 +281,7 @@ public class Trip implements Parcelable {
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", departureDate=" + departureDate +
+                ", arrivalDate=" + arrivalDate +
                 ", ambianceRating=" + ambianceRating +
                 ", naturalBeautyRating=" + naturalBeautyRating +
                 ", securityRating=" + securityRating +
@@ -242,6 +290,8 @@ public class Trip implements Parcelable {
                 ", plannedBudget=" + plannedBudget +
                 ", actualBudget=" + actualBudget +
                 ", levelSatisfactionActivities=" + levelSatisfactionActivities +
+                ", levelOfAdvanture=" + levelOfAdvanture +
+                ", transportation=" + transportation +
                 '}';
     }
 }

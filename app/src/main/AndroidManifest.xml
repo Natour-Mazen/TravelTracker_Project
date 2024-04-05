@@ -16,7 +16,7 @@
             android:name=".SaveTripActivityStep4"
             android:exported="false" />
         <activity
-            android:name=".SaveTripActivityStep3"
+            android:name=".SaveTripActivityStep2"
             android:exported="false" />
         <activity
             android:name=".DetailsTripActivity"
@@ -25,7 +25,7 @@
             android:name=".HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".SaveTripActivityStep2"
+            android:name=".SaveTripActivityStep4"
             android:exported="false" />
         <activity
             android:name=".SaveTripActivityStep1"

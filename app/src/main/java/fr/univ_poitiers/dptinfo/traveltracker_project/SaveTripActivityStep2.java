@@ -1,95 +1,84 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
-
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import com.google.android.material.tabs.TabLayout;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
-
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
 
     private static final String LOG_TAG = "SaveTripActivityStep2";
-    private EditText editTextNumberSpentBudget, editTextNumberEstimatedBudget;
-    private RatingBar ratingBarAccommodation, ratingBarSafety, ratingBarNature, ratingBarHumans, ratingBarAmbiance;
-    private TextView textViewTripTitlePreview;
-    private Button buttonSave, buttonSummary, buttonCancel;
-    private Trip theNewTrip;
-    private TripRepository tripRepository;
 
+    private TextView textViewTripTitlePreview;
+    private TextView textViewSatisfactionLevel;
+    private EditText editTextActivityName, editTextTime;
+    private TabLayout tabLayout;
+    private RadioButton radioButtonLowPriority, radioButtonMediumPriority, radioButtonHighPriority;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    private Switch switch1;
+    private CheckBox checkboxMonday, checkboxTuesday, checkboxWednesday, checkboxThursday, checkboxFriday, checkboxSatarday, checkboxSunday;
+    private SeekBar sliderSatisfaction;
+    private Button buttonSaveActivity;
+    private Trip theNewTrip;
+    private ConstraintLayout questionsLayout;
+    private BottomSaveTripStepsFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
-
-        // Set layout
         setContentView(R.layout.activity_save_trip_step2);
-
-        // Apply system window insets for edge-to-edge display
         applySystemWindowsInsets();
-
-        // Initialize UI components
         initComponents();
-
-        // Initialize trip repository
-        tripRepository = new TripRepository(SaveTripActivityStep2.this.getApplication());
-
-        // Initialize trip data and set up buttons
+        bindSeekBarToTextView();
         initializeTrip();
-        setupButtons();
+        setupListeners();
+        setupFragment();
     }
 
-    // Initialize UI components
     private void initComponents() {
-        editTextNumberSpentBudget = findViewById(R.id.editTextNumberSpentBudget);
-        editTextNumberEstimatedBudget = findViewById(R.id.editTextNumberEstimatedBudget);
-        ratingBarAccommodation = findViewById(R.id.ratingBarAccommodation);
-        ratingBarSafety = findViewById(R.id.ratingBarSafety);
-        ratingBarNature = findViewById(R.id.ratingBarNature);
-        ratingBarHumans = findViewById(R.id.ratingBarHumans);
-        ratingBarAmbiance = findViewById(R.id.ratingBarAmbiance);
         textViewTripTitlePreview = findViewById(R.id.textViewTripTitlePreview);
-        buttonSave = findViewById(R.id.buttonSave);
-        buttonSummary = findViewById(R.id.buttonSummary);
-        buttonCancel = findViewById(R.id.buttonCancel);
+        textViewSatisfactionLevel = findViewById(R.id.textViewSatisfactionLevel);
+        editTextActivityName = findViewById(R.id.editTextActivityName);
+        editTextTime = findViewById(R.id.editTextTime);
+        tabLayout = findViewById(R.id.tabLayout);
+        radioButtonLowPriority = findViewById(R.id.radioButtonLowPriority);
+        radioButtonMediumPriority = findViewById(R.id.radioButtonMediumPriority);
+        radioButtonHighPriority = findViewById(R.id.radioButtonHighPriority);
+        switch1 = findViewById(R.id.switch1);
+        checkboxMonday = findViewById(R.id.checkboxMonday);
+        checkboxTuesday = findViewById(R.id.checkboxTuesday);
+        checkboxWednesday = findViewById(R.id.checkboxWednesday);
+        checkboxThursday = findViewById(R.id.checkboxThursday);
+        checkboxFriday = findViewById(R.id.checkboxFriday);
+        checkboxSatarday = findViewById(R.id.checkboxSatarday);
+        checkboxSunday = findViewById(R.id.checkboxSunday);
+        sliderSatisfaction = findViewById(R.id.sliderSatisfaction);
+        buttonSaveActivity = findViewById(R.id.buttonSaveActivity);
+        questionsLayout= findViewById(R.id.constraintLayoutQuestions);
     }
 
-    // Initialize trip data
-    private void initializeTrip() {
-        theNewTrip = (Trip) getIntent().getParcelableExtra("NewTrip");
-        assert theNewTrip != null;
-        textViewTripTitlePreview.setText(theNewTrip.getName());
-    }
-
-    // Set up button click listeners
-    private void setupButtons() {
-        buttonSave.setOnClickListener(v -> {
-            // Update trip details and save trip
-            updateTripDetails();
-            saveTrip();
-        });
-        buttonCancel.setOnClickListener(v -> redirectToHomeActivity());
-        buttonSummary.setOnClickListener(v -> redirectToDetailsActivity());
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
-    }
-
-    // Apply system window insets
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -98,60 +87,108 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         });
     }
 
-    // Update trip details with user input
-    private void updateTripDetails() {
-        // Get values from EditText fields
-        String spentBudgetString = editTextNumberSpentBudget.getText().toString();
-        double spentBudget = spentBudgetString.isEmpty() ? 0.0 : Double.parseDouble(spentBudgetString);
+    private void bindSeekBarToTextView() {
+        sliderSatisfaction.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textViewSatisfactionLevel.setText(String.valueOf(progress));
+            }
 
-        String estimatedBudgetString = editTextNumberEstimatedBudget.getText().toString();
-        double estimatedBudget = estimatedBudgetString.isEmpty() ? 0.0 : Double.parseDouble(estimatedBudgetString);
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
-        // Get values from RatingBar fields
-        float accommodationRating = ratingBarAccommodation.getRating();
-        float safetyRating = ratingBarSafety.getRating();
-        float natureRating = ratingBarNature.getRating();
-        float humansRating = ratingBarHumans.getRating();
-        float ambianceRating = ratingBarAmbiance.getRating();
-
-        // Update the Trip object
-        theNewTrip.setActualBudget(spentBudget);
-        theNewTrip.setPlannedBudget(estimatedBudget);
-        theNewTrip.setAccommodationRating(accommodationRating);
-        theNewTrip.setSecurityRating(safetyRating);
-        theNewTrip.setNaturalBeautyRating(natureRating);
-        theNewTrip.setHumanInteractionRating(humansRating);
-        theNewTrip.setAmbianceRating(ambianceRating);
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
     }
 
-    // Save trip to database
-    private void saveTrip() {
-        tripRepository.insert(theNewTrip);
-        String message = getString(R.string.trip_saved_successfully_message);
-        ToastHelper.showLongToast(this, message);
-        disableSaveButton();
+    private void initializeTrip() {
+        theNewTrip = getIntent().getParcelableExtra("NewTrip");
+        assert theNewTrip != null;
+        textViewTripTitlePreview.setText(theNewTrip.getName());
     }
 
-    // Redirect to home activity
-    private void redirectToHomeActivity() {
-        Intent intent = new Intent(SaveTripActivityStep2.this, HomeActivity.class);
-        startActivity(intent);
-        finish();
+    private void setupListeners() {
+        switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                ToastHelper.showShortToast(this, "Une activité dangereuse, à ce que je vois 👀");
+            }
+        });
+
+        buttonSaveActivity.setOnClickListener(v -> {
+            if (!isFormValid()) {
+                ToastHelper.showLongToast(this, "Veuillez remplir tous les champs.");
+            } else {
+                RemoveCurrentTab();
+                clearComponents();
+            }
+        });
     }
 
-    // Redirect to trip details activity
-    private void redirectToDetailsActivity() {
-        // Update trip details before redirecting
-        updateTripDetails();
-        Intent intent = new Intent(SaveTripActivityStep2.this, DetailsTripActivity.class);
-        intent.putExtra("TripToSee", theNewTrip);
-        startActivity(intent);
+    private void setupFragment() {
+        fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep4.class);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerBottom, fragment)
+                .commit();
     }
 
-    // Disable save button after saving trip
-    private void disableSaveButton() {
-        buttonSave.setEnabled(false);
-        buttonSave.setTextColor(Color.LTGRAY);
-        buttonSave.setBackgroundColor(Color.GRAY);
+    private boolean isFormValid() {
+        return !editTextActivityName.getText().toString().isEmpty() &&
+                !editTextTime.getText().toString().isEmpty() &&
+                (radioButtonLowPriority.isChecked() || radioButtonMediumPriority.isChecked() || radioButtonHighPriority.isChecked()) &&
+                (checkboxMonday.isChecked() || checkboxTuesday.isChecked() || checkboxWednesday.isChecked() ||
+                        checkboxThursday.isChecked() || checkboxFriday.isChecked() || checkboxSatarday.isChecked() || checkboxSunday.isChecked());
+    }
+
+    private void clearComponents() {
+        editTextActivityName.setText("");
+        editTextTime.setText("");
+        radioButtonLowPriority.setChecked(false);
+        radioButtonMediumPriority.setChecked(false);
+        radioButtonHighPriority.setChecked(false);
+        switch1.setChecked(false);
+        checkboxMonday.setChecked(false);
+        checkboxTuesday.setChecked(false);
+        checkboxWednesday.setChecked(false);
+        checkboxThursday.setChecked(false);
+        checkboxFriday.setChecked(false);
+        checkboxSatarday.setChecked(false);
+        checkboxSunday.setChecked(false);
+        sliderSatisfaction.setProgress(0);
+    }
+
+    private void RemoveCurrentTab() {
+        int selectedTabPosition = tabLayout.getSelectedTabPosition();
+        tabLayout.removeTabAt(selectedTabPosition);
+
+        int sliderValue = Integer.parseInt((String) textViewSatisfactionLevel.getText());
+        theNewTrip.setLevelSatisfactionActivities(theNewTrip.getLevelSatisfactionActivities() + sliderValue);
+
+        if (tabLayout.getTabCount() == 0) {
+            questionsLayout.removeAllViews();
+            tabLayout.setVisibility(View.GONE);
+
+            TextView messageTextView = new TextView(this);
+            messageTextView.setText("Vous ne pouvez plus enregistrer d'autres activités.");
+            messageTextView.setGravity(Gravity.CENTER);
+            messageTextView.setId(View.generateViewId());
+            messageTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            messageTextView.setTextColor(Color.parseColor("#5d5a63"));
+            messageTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            messageTextView.setTypeface(messageTextView.getTypeface(), Typeface.BOLD);
+            questionsLayout.addView(messageTextView);
+            questionsLayout.setMinHeight(500);
+
+            ConstraintSet constraintSet = new ConstraintSet();
+            constraintSet.clone(questionsLayout);
+            constraintSet.connect(messageTextView.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP);
+            constraintSet.connect(messageTextView.getId(), ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
+            constraintSet.connect(messageTextView.getId(), ConstraintSet.LEFT, ConstraintSet.PARENT_ID, ConstraintSet.LEFT);
+            constraintSet.connect(messageTextView.getId(), ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT);
+            constraintSet.applyTo(questionsLayout);
+
+            fragment.setTrip(theNewTrip);
+            fragment.setEnableNextBtn(true);
+        }
     }
 }

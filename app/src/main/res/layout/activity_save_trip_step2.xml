@@ -6,41 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lavender"
-    tools:context=".SaveTripActivityStep2">
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="@string/TitleSaveTripSteps"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
-        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewArcDeco2"
-        android:layout_width="71dp"
-        android:layout_height="70dp"
-        android:contentDescription="@string/arcimg"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872"
-        app:srcCompat="@drawable/arc_3" />
+    tools:context=".SaveTripActivityStep2"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp"
+    tools:ignore="VisualLintBounds">
 
     <ImageView
         android:id="@+id/imageViewArcDeco1"
         android:layout_width="71dp"
-        android:layout_height="70dp"
+        android:layout_height="56dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
@@ -48,7 +22,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872"
+        app:layout_constraintVertical_bias="0.745"
+        app:srcCompat="@drawable/arc_3" />
+
+    <ImageView
+        android:id="@+id/imageViewArcDeco2"
+        android:layout_width="71dp"
+        android:layout_height="56dp"
+        android:contentDescription="@string/arcimg"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745"
         app:srcCompat="@drawable/arc_3" />
 
     <ImageView
@@ -73,11 +61,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btn_2" />
 
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:text="@string/TitleSaveTripSteps"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDeco2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDeco"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="50dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,287 +102,388 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/imageViewArcDeco2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageViewArcDeco1"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
-        android:id="@+id/scrollViewContainer"
+        android:id="@+id/ScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/light_lavender"
-        android:contentDescription="@android:string/unknownName"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerBottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="1.0" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
+            android:padding="1dp">
 
-            <EditText
-                android:id="@+id/editTextNumberSpentBudget"
-                android:layout_width="209dp"
-                android:layout_height="50dp"
-                android:autofillHints=""
-                android:background="@drawable/lavander_oval"
-                android:ems="10"
-                android:hint="@string/ex_10"
-                android:inputType="numberSigned"
-                android:padding="15dp"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textColorHint="#616161"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.72"
-                app:layout_constraintStart_toEndOf="@+id/TextViewRBudget"
-                app:layout_constraintTop_toTopOf="@+id/TextViewRBudget" />
-
-            <RatingBar
-                android:id="@+id/ratingBarAccommodation"
-                android:layout_width="236dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewStarAccommodation" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/TextViewStarAccommodation"
-                android:layout_width="wrap_content"
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabItemActivity1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activity-1" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabItemActivity2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activity-2" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabItemActivity3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activity-3" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabItemActivity4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activity-4" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <!-- ConstraintLayout for Activities -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayoutQuestions"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/rate_the_accommodation"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/TextViewStarSafety"
-                app:layout_constraintTop_toBottomOf="@+id/ratingBarSafety" />
-
-            <RatingBar
-                android:id="@+id/ratingBarSafety"
-                android:layout_width="236dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="1dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewStarSafety" />
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout">
 
-            <RatingBar
-                android:id="@+id/ratingBarNature"
-                android:layout_width="236dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewStarNature" />
+                <!-- Titre de l'activité -->
+                <TextView
+                    android:id="@+id/textViewActivityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Titre de l'activité"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <RatingBar
-                android:id="@+id/ratingBarHumans"
-                android:layout_width="236dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewStarHumans" />
+                <!-- Champ pour saisir le nom de l'activité -->
+                <EditText
+                    android:id="@+id/editTextActivityName"
+                    android:layout_width="183dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/dark_lavander_background"
+                    android:hint="Nom de l'activité"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/transperent_white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textViewActivityTitle"
+                    app:layout_constraintTop_toTopOf="@+id/textViewActivityTitle" />
 
-            <TextView
-                android:id="@+id/TextViewEBudget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/etimated_budget"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <!-- Question sur la priorité de l'activité -->
+                <TextView
+                    android:id="@+id/textViewPriorityQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Quelle est le niveau de cette activité ?"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editTextActivityName" />
 
-            <TextView
-                android:id="@+id/TextViewStarSafety"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/rate_the_safety_level"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/TextViewStarNature"
-                app:layout_constraintTop_toBottomOf="@+id/ratingBarNature" />
+                <RadioGroup
+                    android:id="@+id/radioGroupPriority"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewPriorityQuestion">
 
-            <TextView
-                android:id="@+id/TextViewStarNature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/rate_the_natural_beauty"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/TextViewStarHumans"
-                app:layout_constraintTop_toBottomOf="@+id/ratingBarHumans" />
+                    <RadioButton
+                        android:id="@+id/radioButtonLowPriority"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="Facile" />
 
-            <TextView
-                android:id="@+id/TextViewStarHumans"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/rate_the_quality_of_human_interactions"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/TextViewStarAmbianceCity"
-                app:layout_constraintTop_toBottomOf="@+id/ratingBarAmbiance" />
+                    <RadioButton
+                        android:id="@+id/radioButtonMediumPriority"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Normale" />
 
-            <TextView
-                android:id="@+id/TextViewStarAmbianceCity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
-                android:text="@string/rate_the_ambiance"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/TextViewRBudget"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewRBudget" />
+                    <RadioButton
+                        android:id="@+id/radioButtonHighPriority"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Difficile" />
 
-            <TextView
-                android:id="@+id/TextViewRBudget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="@string/budget_spent"
-                android:textAlignment="center"
-                android:textColor="#5d5a63"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/TextViewEBudget"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewEBudget" />
+                </RadioGroup>
 
-            <RatingBar
-                android:id="@+id/ratingBarAmbiance"
-                android:layout_width="236dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextViewStarAmbianceCity" />
+                <!-- Question sur la durée estimée de l'activité -->
+                <TextView
+                    android:id="@+id/textViewDurationQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Combien de temps cette activité a-t-elle pris  ?"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/radioGroupPriority" />
 
-            <EditText
-                android:id="@+id/editTextNumberEstimatedBudget"
-                android:layout_width="209dp"
-                android:layout_height="50dp"
-                android:autofillHints=""
-                android:background="@drawable/lavander_oval"
-                android:ems="10"
-                android:hint="@string/ex_10"
-                android:inputType="numberSigned"
-                android:padding="15dp"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textColorHint="#616161"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/TextViewEBudget"
-                app:layout_constraintTop_toTopOf="@+id/TextViewEBudget"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <EditText
+                    android:id="@+id/editTextTime"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/lavander_oval"
+                    android:inputType="time"
+                    android:padding="20dp"
+                    android:textColor="@color/light_black"
+                    android:textColorHint="@color/transperent_white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDurationQuestion" />
+
+
+                <!-- Question avec réponse booléenne -->
+                <TextView
+                    android:id="@+id/textViewBooleanQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Cette activité nécessite-t-elle une approbation ?"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+
+                <TextView
+                    android:id="@+id/textViewCheckboxQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Sélectionnez les jours de la semaine :"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+                <!-- Case à cocher pour les jours de la semaine -->
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewCheckboxQuestion">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkboxMonday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Lundi" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxTuesday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Mardi" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxWednesday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Mercredi" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxThursday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Jeudi" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkboxFriday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Vendredi" />
+
+
+                        <CheckBox
+                            android:id="@+id/checkboxSatarday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Samedi" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxSunday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Dimanche" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Question avec un Slider -->
+                <TextView
+                    android:id="@+id/textViewSliderQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Sélectionnez un niveau de satisfaction :"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <!-- Slider pour le niveau de satisfaction -->
+
+                <!-- TextView pour afficher le niveau de satisfaction sélectionné -->
+
+                <SeekBar
+                    android:id="@+id/sliderSatisfaction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewSatisfactionLevel"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewSliderQuestion" />
+
+                <TextView
+                    android:id="@+id/textViewSatisfactionLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:maxWidth="100dp"
+                    android:minWidth="60dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sliderSatisfaction" />
+
+
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewBooleanQuestion"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <Button
+                    android:id="@+id/buttonSaveActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/save"
+                    android:backgroundTint="@color/violet"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sliderSatisfaction" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerBottom"
+        android:name="fr.univ_poitiers.dptinfo.traveltracker_project.BottomSaveTripStepsFragment"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/light_lavender"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/flow"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:constraint_referenced_ids="buttonSave,buttonSummary,buttonPrev,buttonCancel"
-            app:flow_horizontalGap="16dp"
-            app:flow_horizontalStyle="packed"
-            app:flow_verticalAlign="center"
-            app:flow_wrapMode="aligned"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/flow"
-            app:layout_constraintTop_toTopOf="@+id/flow" />
-
-        <Button
-            android:id="@+id/buttonSummary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/summary"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/buttonSave"
-            app:layout_constraintTop_toTopOf="@+id/flow"
-            />
-
-        <Button
-            android:id="@+id/buttonPrev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/previous"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/flow"
-            app:layout_constraintTop_toBottomOf="@+id/buttonSave"
-            />
-
-        <Button
-            android:id="@+id/buttonCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/quit"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/buttonPrev"
-            app:layout_constraintTop_toTopOf="@+id/buttonPrev"
-            />
-
-        <View
-            android:id="@+id/divider5"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_bottom_save_trip_steps" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

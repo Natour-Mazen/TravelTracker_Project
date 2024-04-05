@@ -66,4 +66,26 @@
     <string name="travel_mood_family_friendly">Familial 👨‍👩‍👧‍👦</string>
     <string name="trip_saved_successfully_message">Voyage enregistré avec succès</string>
     <string name="share">Partager</string>
+    <string name="travel_end_date">Date de fin du voyage :</string>
+    <string name="Friday">Vendredi</string>
+    <string name="Monday">Lundi</string>
+    <string name="SATURDAY">Samedi</string>
+    <string name="Sunday">Dimanche</string>
+    <string name="Thursday">Jeudi</string>
+    <string name="Tuesday">Mardi</string>
+    <string name="Wednesday">Mercredi</string>
+    <string name="activity_name">Nom de l\'activité</string>
+    <string name="difficult">Difficile</string>
+    <string name="easy">Facile</string>
+    <string name="normal">Normale</string>
+    <string name="activity_1">Activité-1</string>
+    <string name="activity_2">Activité-2</string>
+    <string name="activity_3">Activité-3</string>
+    <string name="activity_4">Activité-4</string>
+    <string name="title_of_activity">" Titre de l'activité :"</string>
+    <string name="activity_approval">Cette activité nécessite-t-elle une autorisation ?</string>
+    <string name="days_of_the_week">Sélectionnez les jours de la semaine :</string>
+    <string name="combien_de_temps_cette_activit_a_t_elle_pris">Combien de temps cette activité a-t-elle pris ?</string>
+    <string name="level_of_this_activity">Quel est le niveau de cette activité ?</string>
+    <string name="satisfaction_level">Sélectionnez un niveau de satisfaction :</string>
 </resources>

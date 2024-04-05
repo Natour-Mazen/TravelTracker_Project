@@ -139,25 +139,25 @@
                     android:id="@+id/tabItemActivity1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Activity-1" />
+                    android:text="@string/activity_1" />
 
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/tabItemActivity2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Activity-2" />
+                    android:text="@string/activity_2" />
 
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/tabItemActivity3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Activity-3" />
+                    android:text="@string/activity_3" />
 
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/tabItemActivity4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Activity-4" />
+                    android:text="@string/activity_4" />
 
             </com.google.android.material.tabs.TabLayout>
 
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="Titre de l'activité"
+                    android:text="@string/title_of_activity"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"
@@ -193,7 +193,7 @@
                     android:layout_width="183dp"
                     android:layout_height="48dp"
                     android:background="@drawable/dark_lavander_background"
-                    android:hint="Nom de l'activité"
+                    android:hint="@string/activity_name"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:padding="10dp"
@@ -209,7 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Quelle est le niveau de cette activité ?"
+                    android:text="@string/level_of_this_activity"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"
@@ -236,7 +236,7 @@
                         android:layout_weight="1"
                         android:checked="true"
                         android:gravity="center"
-                        android:text="Facile" />
+                        android:text="@string/easy" />
 
                     <RadioButton
                         android:id="@+id/radioButtonMediumPriority"
@@ -244,7 +244,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Normale" />
+                        android:text="@string/normal" />
 
                     <RadioButton
                         android:id="@+id/radioButtonHighPriority"
@@ -252,7 +252,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Difficile" />
+                        android:text="@string/difficult" />
 
                 </RadioGroup>
 
@@ -262,7 +262,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Combien de temps cette activité a-t-elle pris  ?"
+                    android:text="@string/combien_de_temps_cette_activit_a_t_elle_pris"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"
@@ -270,7 +270,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/radioGroupPriority" />
-
 
                 <EditText
                     android:id="@+id/editTextTime"
@@ -281,11 +280,14 @@
                     android:background="@drawable/lavander_oval"
                     android:inputType="time"
                     android:padding="20dp"
+                    android:text="@string/invisble_text"
+                    android:textAlignment="center"
                     android:textColor="@color/light_black"
-                    android:textColorHint="@color/transperent_white"
+                    android:textColorHint="#4575C6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textViewDurationQuestion" />
+                    app:layout_constraintTop_toBottomOf="@id/textViewDurationQuestion"
+                    tools:ignore="" />
 
 
                 <!-- Question avec réponse booléenne -->
@@ -294,7 +296,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Cette activité nécessite-t-elle une approbation ?"
+                    android:text="@string/activity_approval"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"
@@ -309,7 +311,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Sélectionnez les jours de la semaine :"
+                    android:text="@string/days_of_the_week"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"
@@ -330,6 +332,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textViewCheckboxQuestion">
 
+                    <!-- First row of checkboxes -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -341,7 +344,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Lundi" />
+                            android:text="@string/Monday" />
 
                         <CheckBox
                             android:id="@+id/checkboxTuesday"
@@ -349,7 +352,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Mardi" />
+                            android:text="@string/Tuesday" />
 
                         <CheckBox
                             android:id="@+id/checkboxWednesday"
@@ -357,7 +360,15 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Mercredi" />
+                            android:text="@string/Wednesday" />
+
+                    </LinearLayout>
+
+                    <!-- Second row of checkboxes -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <CheckBox
                             android:id="@+id/checkboxThursday"
@@ -365,14 +376,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Jeudi" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                            android:text="@string/Thursday" />
 
                         <CheckBox
                             android:id="@+id/checkboxFriday"
@@ -380,8 +384,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Vendredi" />
-
+                            android:text="@string/Friday" />
 
                         <CheckBox
                             android:id="@+id/checkboxSatarday"
@@ -389,7 +392,21 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Samedi" />
+                            android:text="@string/SATURDAY" />
+
+                    </LinearLayout>
+
+                    <!-- Third row of checkboxes -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- Add two empty views with weight 1 each to fill the space -->
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
                         <CheckBox
                             android:id="@+id/checkboxSunday"
@@ -397,7 +414,12 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Dimanche" />
+                            android:text="@string/Sunday" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
                     </LinearLayout>
 
@@ -409,7 +431,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Sélectionnez un niveau de satisfaction :"
+                    android:text="@string/satisfaction_level"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"

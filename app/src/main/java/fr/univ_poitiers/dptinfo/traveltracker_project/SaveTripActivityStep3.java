@@ -98,7 +98,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
             return insets;
         });
     }
-    
+
     private void initializeTrip() {
         theNewTrip = getIntent().getParcelableExtra("NewTrip");
         assert theNewTrip != null;

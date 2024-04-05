@@ -78,4 +78,26 @@
     <string name="trip_saved_successfully_message">Trip saved successfully</string>
     <string name="share">Share</string>
     <string name="travel_end_date">Travel End Date :</string>
+    <string name="Friday">Friday</string>
+    <string name="Monday">Monday</string>
+    <string name="SATURDAY">Saturday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="activity_name">Activity name</string>
+    <string name="difficult">Difficult</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="activity_1">Activity-1</string>
+    <string name="activity_2">Activity-2</string>
+    <string name="activity_3">Activity-3</string>
+    <string name="activity_4">Activity-4</string>
+    <string name="title_of_activity">Title of the Activity :</string>
+    <string name="activity_approval">Does this activity require approval ?</string>
+    <string name="days_of_the_week">Select the days of the week :</string>
+    <string name="combien_de_temps_cette_activit_a_t_elle_pris">How much time this activity took to take ?</string>
+    <string name="level_of_this_activity">What is the level of this activity ?</string>
+    <string name="satisfaction_level">Select a satisfaction level :</string>
+    <string name="invisble_text" translatable="false"><![CDATA[ ]]></string>
 </resources>

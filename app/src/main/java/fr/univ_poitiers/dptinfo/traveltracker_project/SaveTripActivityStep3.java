@@ -40,7 +40,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
     private BottomSaveTripStepsFragment fragment;
     private Trip theNewTrip;
     private Button buttonSaveActivity;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +74,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {
-
+                ToastHelper.showLongToast(this, "Veuillez remùplir tout les champs.");
             } else {
                 prepareTrip();
             }
@@ -98,6 +98,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
             return insets;
         });
     }
+    
     private void initializeTrip() {
         theNewTrip = getIntent().getParcelableExtra("NewTrip");
         assert theNewTrip != null;

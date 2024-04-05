@@ -48,7 +48,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
-
+    val fragment_version="1.6.2"
+    implementation("androidx.fragment:fragment:$fragment_version")
     implementation ("androidx.room:room-runtime:2.6.1")
     annotationProcessor ("androidx.room:room-compiler:2.6.1")
 }

@@ -93,12 +93,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/light_lavender"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
@@ -282,65 +281,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerBottom"
+        android:name="fr.univ_poitiers.dptinfo.traveltracker_project.BottomSaveTrips"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="@color/light_lavender"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_max="wrap">
-
-            <Button
-                android:id="@+id/buttonPrev"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/violet"
-                android:minWidth="100dp"
-                android:minHeight="0dp"
-                android:maxWidth="320dp"
-                android:text="@string/previous"
-                android:textColor="@color/white"
-                />
-
-            <Button
-                android:id="@+id/buttonNext"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/violet"
-                android:minWidth="100dp"
-                android:minHeight="0dp"
-                android:maxWidth="320dp"
-                android:text="@string/next"
-                android:textColor="@color/white"
-
-                />
-        </LinearLayout>
-
-        <View
-            android:id="@+id/divider5"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_bottom_save_trips" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

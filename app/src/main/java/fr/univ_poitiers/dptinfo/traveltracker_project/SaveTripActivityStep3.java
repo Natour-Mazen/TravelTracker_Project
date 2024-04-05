@@ -40,8 +40,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
     private BottomSaveTripStepsFragment fragment;
     private Trip theNewTrip;
     private Button buttonSaveActivity;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,14 +112,14 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
     }
 
     private void prepareTrip(){
-        int newLevelAdv = theNewTrip.getLevelOfAdvanture() * seekBarSatisfaction.getProgress();
+        int newLevelAdv = theNewTrip.getLevelOfAdvanture() * seekBarSatisfaction.getProgress() + Integer.parseInt(textViewCount.getText().toString());
         String endDateTravel = calanderbinder.getSelectedDate();
         String startDateTravel = theNewTrip.getDepartureDate();
         String selectedTransportation = spinnerTransportation.getSelectedItem().toString();
+
         theNewTrip.setTransportation(selectedTransportation);
         theNewTrip.setLevelOfAdvanture(newLevelAdv);
 
-        LogHelper.logDebug(LOG_TAG,theNewTrip.toString());
 
         // Convert the dates from String to Date
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
@@ -147,7 +146,5 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
         }else{
             ToastHelper.showLongToast(this, "Veuillez choisir une date de fin.");
         }
-
     }
-
 }

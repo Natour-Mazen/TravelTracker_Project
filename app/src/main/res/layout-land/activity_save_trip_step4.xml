@@ -75,11 +75,11 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:contentDescription="@string/arcimg"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +97,6 @@
         android:textColor="#363539"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/imageViewArcDeco2"
         app:layout_constraintStart_toEndOf="@+id/imageViewArcDeco1"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
@@ -303,73 +302,78 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@color/light_lavender"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/flow"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:constraint_referenced_ids="buttonSave,buttonSummary,buttonPrev,buttonCancel"
-            app:flow_horizontalGap="16dp"
-            app:flow_horizontalStyle="packed"
-            app:flow_verticalAlign="center"
-            app:flow_wrapMode="aligned"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+           >
 
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/flow"
-            app:layout_constraintTop_toTopOf="@+id/flow" />
+            <Button
+                android:id="@+id/buttonCancel"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:maxWidth="320dp"
+                android:backgroundTint="@color/violet"
+                android:minWidth="100dp"
+                android:minHeight="0dp"
+                android:text="@string/quit"
+                android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/buttonSummary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/summary"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/buttonSave"
-            app:layout_constraintTop_toTopOf="@+id/flow"
-            />
+            <Button
+                android:id="@+id/buttonPrev"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:maxWidth="320dp"
+                android:backgroundTint="@color/violet"
+                android:minWidth="100dp"
+                android:minHeight="0dp"
+                android:text="@string/previous"
+                android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/buttonPrev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/previous"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/flow"
-            app:layout_constraintTop_toBottomOf="@+id/buttonSave"
-            />
+            <Button
+                android:id="@+id/buttonSummary"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:maxWidth="320dp"
+                android:backgroundTint="@color/violet"
+                android:minWidth="100dp"
+                android:minHeight="0dp"
+                android:text="@string/summary"
+                android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/buttonCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/violet"
-            android:minWidth="130dp"
-            android:text="@string/quit"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/buttonPrev"
-            app:layout_constraintTop_toTopOf="@+id/buttonPrev"
-            />
+            <Button
+                android:id="@+id/buttonSave"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:maxWidth="320dp"
+                android:backgroundTint="@color/violet"
+                android:minWidth="100dp"
+                android:minHeight="0dp"
+                android:text="@string/save"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
 
         <View
             android:id="@+id/divider5"

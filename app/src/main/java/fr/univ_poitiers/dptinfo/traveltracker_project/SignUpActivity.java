@@ -69,19 +69,23 @@ public class SignUpActivity extends AppCompatActivity {
             String firstname = editTextFirstName.getText().toString();
             String lastname = editTextLastName.getText().toString();
 
-            // Check if the user already exists
-            LiveData<User> userLiveData = userRepository.getUser(username, password);
-            userLiveData.observe(this, user -> {
-                if (user != null) {
-                    // If user already exists, show error message
-                    showErrorMessage();
-                } else {
-                    // If user doesn't exist, create new user and login
-                    createUserAndLogin(firstname, lastname, username, password);
-                }
-                // Remove observer to avoid multiple calls
-                userLiveData.removeObservers(this);
-            });
+            if (firstname.isEmpty() || lastname.isEmpty()) {
+               ToastHelper.showLongToast(this,getString(R.string.fill_all_fields));
+            }else{
+                // Check if the user already exists
+                LiveData<User> userLiveData = userRepository.getUser(username, password);
+                userLiveData.observe(this, user -> {
+                    if (user != null) {
+                        // If user already exists, show error message
+                        showErrorMessage();
+                    } else {
+                        // If user doesn't exist, create new user and login
+                        createUserAndLogin(firstname, lastname, username, password);
+                    }
+                    // Remove observer to avoid multiple calls
+                    userLiveData.removeObservers(this);
+                });
+            }
         });
     }
 

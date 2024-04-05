@@ -20,37 +20,40 @@ public class Trip implements Parcelable {
     private int userId;
 
     @ColumnInfo(name = "name")
-    private String name;
+    private String name = "";
 
     @ColumnInfo(name = "country")
-    private String country;
+    private String country = "";
 
     @ColumnInfo(name = "city")
-    private String city;
+    private String city = "";
 
     @ColumnInfo(name = "departureDate")
-    private String departureDate;
+    private String departureDate = "";
 
     @ColumnInfo(name = "ambianceRating")
-    private float ambianceRating;
+    private float ambianceRating = 0F;
 
     @ColumnInfo(name = "naturalBeautyRating")
-    private float naturalBeautyRating;
+    private float naturalBeautyRating= 0F;
 
     @ColumnInfo(name = "securityRating")
-    private float securityRating;
+    private float securityRating= 0F;
 
     @ColumnInfo(name = "accommodationRating")
-    private float accommodationRating;
+    private float accommodationRating= 0F;
 
     @ColumnInfo(name = "humanInteractionRating")
-    private float humanInteractionRating;
+    private float humanInteractionRating= 0F;
 
     @ColumnInfo(name = "plannedBudget")
-    private double plannedBudget;
+    private double plannedBudget = 0.0;
 
     @ColumnInfo(name = "actualBudget")
-    private double actualBudget;
+    private double actualBudget = 0.0;
+
+    @ColumnInfo(name = "levelSatisfactionActivities")
+    private int levelSatisfactionActivities = 0;
 
     public Trip() {
         // Format the current date as a string
@@ -72,6 +75,7 @@ public class Trip implements Parcelable {
         humanInteractionRating = in.readFloat();
         plannedBudget = in.readDouble();
         actualBudget = in.readDouble();
+        levelSatisfactionActivities= in.readInt();
     }
 
     @Override
@@ -89,6 +93,7 @@ public class Trip implements Parcelable {
         dest.writeFloat(humanInteractionRating);
         dest.writeDouble(plannedBudget);
         dest.writeDouble(actualBudget);
+        dest.writeInt(levelSatisfactionActivities);
     }
 
     @Override
@@ -212,6 +217,13 @@ public class Trip implements Parcelable {
         this.actualBudget = actualBudget;
     }
 
+    public int getLevelSatisfactionActivities() {
+        return levelSatisfactionActivities;
+    }
+
+    public void setLevelSatisfactionActivities(int levelSatisfactionActivities) {
+        this.levelSatisfactionActivities = levelSatisfactionActivities;
+    }
     @NonNull
     @Override
     public String toString() {
@@ -229,6 +241,7 @@ public class Trip implements Parcelable {
                 ", humanInteractionRating=" + humanInteractionRating +
                 ", plannedBudget=" + plannedBudget +
                 ", actualBudget=" + actualBudget +
+                ", levelSatisfactionActivities=" + levelSatisfactionActivities +
                 '}';
     }
 }

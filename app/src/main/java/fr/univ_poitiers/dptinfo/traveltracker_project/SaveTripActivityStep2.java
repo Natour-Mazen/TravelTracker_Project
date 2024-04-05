@@ -24,6 +24,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.tabs.TabLayout;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.SeekBarTextViewBinder;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
@@ -43,6 +44,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private Trip theNewTrip;
     private ConstraintLayout questionsLayout;
     private BottomSaveTripStepsFragment fragment;
+    private SeekBarTextViewBinder binder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         setContentView(R.layout.activity_save_trip_step2);
         applySystemWindowsInsets();
         initComponents();
-        bindSeekBarToTextView();
+
         initializeTrip();
         setupListeners();
         setupFragment();
@@ -87,21 +89,6 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         });
     }
 
-    private void bindSeekBarToTextView() {
-        sliderSatisfaction.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                textViewSatisfactionLevel.setText(String.valueOf(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-    }
-
     private void initializeTrip() {
         theNewTrip = getIntent().getParcelableExtra("NewTrip");
         assert theNewTrip != null;
@@ -109,9 +96,11 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     }
 
     private void setupListeners() {
+        binder = new SeekBarTextViewBinder(sliderSatisfaction, textViewSatisfactionLevel);
         switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 ToastHelper.showShortToast(this, "Une activité dangereuse, à ce que je vois 👀");
+                theNewTrip.setLevelOfAdvanture(theNewTrip.getLevelOfAdvanture() + 1);
             }
         });
 
@@ -126,7 +115,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     }
 
     private void setupFragment() {
-        fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep4.class);
+        fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep3.class);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainerBottom, fragment)
                 .commit();
@@ -161,13 +150,21 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         int selectedTabPosition = tabLayout.getSelectedTabPosition();
         tabLayout.removeTabAt(selectedTabPosition);
 
-        int sliderValue = Integer.parseInt((String) textViewSatisfactionLevel.getText());
+        int sliderValue = sliderSatisfaction.getProgress();
         theNewTrip.setLevelSatisfactionActivities(theNewTrip.getLevelSatisfactionActivities() + sliderValue);
 
+        if (tabLayout.getTabCount() <= 9) { // Modification ici
+            // Si il reste une tabulation ou aucune, activer le bouton Next dans le fragment
+            fragment.setTrip(theNewTrip);
+            fragment.setEnableNextBtn(true);
+        }
+
         if (tabLayout.getTabCount() == 0) {
+            // Si c'est la dernière tabulation
             questionsLayout.removeAllViews();
             tabLayout.setVisibility(View.GONE);
 
+            // Afficher un message
             TextView messageTextView = new TextView(this);
             messageTextView.setText("Vous ne pouvez plus enregistrer d'autres activités.");
             messageTextView.setGravity(Gravity.CENTER);
@@ -179,6 +176,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
             questionsLayout.addView(messageTextView);
             questionsLayout.setMinHeight(500);
 
+            // Centrer le messageTextView
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(questionsLayout);
             constraintSet.connect(messageTextView.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP);
@@ -186,9 +184,6 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
             constraintSet.connect(messageTextView.getId(), ConstraintSet.LEFT, ConstraintSet.PARENT_ID, ConstraintSet.LEFT);
             constraintSet.connect(messageTextView.getId(), ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT);
             constraintSet.applyTo(questionsLayout);
-
-            fragment.setTrip(theNewTrip);
-            fragment.setEnableNextBtn(true);
         }
     }
 }

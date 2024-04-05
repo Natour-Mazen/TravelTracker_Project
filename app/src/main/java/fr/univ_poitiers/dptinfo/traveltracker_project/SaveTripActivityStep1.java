@@ -15,23 +15,19 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.CalendarViewActivityBinder;
 
 import android.widget.EditText;
 import android.widget.CalendarView;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class SaveTripActivityStep1 extends AppCompatActivity {
 
     private static final String LOG_TAG = "SaveTripActivityStep1";
     private EditText editTextTitleTrip, editTextCity, editTextCountry;
     private CalendarView calendarViewStartTravel;
+    private CalendarViewActivityBinder Calanderbinder;
     private int userId;
-    private String selectedDate;
-
     private BottomSaveTripStepsFragment fragment;
 
     @Override
@@ -52,7 +48,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
 
         // Initialize session and setup buttons
         initializeSession();
-        setupButtons();
+        setupListeners();
 
         // Setup text watchers for input validation
         setupTextWatchers();
@@ -102,9 +98,9 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         editTextCountry.addTextChangedListener(textWatcher);
     }
 
-    // Setup button click listeners
-    private void setupButtons() {
-        calendarViewStartTravel.setOnDateChangeListener(this::onCalendarDateSelected);
+    // Setup listeners
+    private void setupListeners() {
+        Calanderbinder = new CalendarViewActivityBinder(calendarViewStartTravel);
     }
 
     // Enable or disable the next button based on input validation
@@ -122,8 +118,6 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
             fragment.setEnableNextBtn(false);
         }
     }
-
-
 
     // Initialize session to get user ID
     private void initializeSession() {
@@ -150,20 +144,10 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         newTrip.setCity(editTextCity.getText().toString());
         newTrip.setCountry(editTextCountry.getText().toString());
         newTrip.setName(editTextTitleTrip.getText().toString());
+        String selectedDate = Calanderbinder.getSelectedDate();
         if(selectedDate != null)
             newTrip.setDepartureDate(selectedDate);
         return newTrip;
     }
 
-    // Handle calendar date selection
-    private void onCalendarDateSelected(CalendarView view, int year, int month, int dayOfMonth) {
-        month++; // Calendar month is zero-based
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month - 1, dayOfMonth);
-        Date selectedDateCalander = calendar.getTime();
-
-        // Format the date as a string
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-        selectedDate = format.format(selectedDateCalander);
-    }
 }

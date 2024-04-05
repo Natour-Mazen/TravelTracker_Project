@@ -283,12 +283,12 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerBottom"
-        android:name="fr.univ_poitiers.dptinfo.traveltracker_project.BottomSaveTrips"
+        android:name="fr.univ_poitiers.dptinfo.traveltracker_project.BottomSaveTripStepsFragment"
         android:layout_width="0dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/fragment_bottom_save_trips" />
+        tools:layout="@layout/fragment_bottom_save_trip_steps" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,8 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +15,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
+
 import android.widget.EditText;
 import android.widget.CalendarView;
 
@@ -32,9 +29,11 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
     private static final String LOG_TAG = "SaveTripActivityStep1";
     private EditText editTextTitleTrip, editTextCity, editTextCountry;
     private CalendarView calendarViewStartTravel;
-    private Button buttonNext;
+  //  private Button buttonNext;
     private int userId, originalButtonTextColor, originalButtonBackground;
     private String selectedDate;
+
+    private BottomSaveTripStepsFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +58,14 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         // Setup text watchers for input validation
         setupTextWatchers();
 
-        // Setup previous button
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
+
+        fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep2.class);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerBottom, fragment)
+                .commit();
+
+
     }
 
     // Initialize UI components
@@ -69,7 +74,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         editTextCity = findViewById(R.id.editTextCity);
         editTextCountry = findViewById(R.id.editTextCountry);
         calendarViewStartTravel = findViewById(R.id.calendarViewStartTravel);
-        buttonNext = findViewById(R.id.buttonNext);
+       // buttonNext = findViewById(R.id.buttonNext);
     }
 
     // Apply system window insets to adjust layout with edge-to-edge display
@@ -103,9 +108,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
 
     // Setup button click listeners
     private void setupButtons() {
-        buttonNext.setOnClickListener(v -> goToNextStep());
         calendarViewStartTravel.setOnDateChangeListener(this::onCalendarDateSelected);
-        disableNextButton();
     }
 
     // Enable or disable the next button based on input validation
@@ -115,29 +118,16 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         String country = editTextCountry.getText().toString().trim();
 
         boolean enableButton = !title.isEmpty() && !city.isEmpty() && !country.isEmpty();
-        buttonNext.setEnabled(enableButton);
 
         if (enableButton) {
-            buttonNext.setTextColor(originalButtonTextColor);
-            buttonNext.setBackgroundColor(originalButtonBackground);
-        } else {
-            setDisabledButtonColors();
+            prepareTrip();
+            fragment.setEnableNextBtn(true);
+        }else {
+            fragment.setEnableNextBtn(false);
         }
     }
 
-    // Set colors for a disabled button
-    private void setDisabledButtonColors() {
-        buttonNext.setTextColor(Color.LTGRAY);
-        buttonNext.setBackgroundColor(Color.GRAY);
-    }
 
-    // Disable the next button
-    private void disableNextButton() {
-        originalButtonTextColor = buttonNext.getCurrentTextColor();
-        originalButtonBackground = buttonNext.getDrawingCacheBackgroundColor();
-        buttonNext.setEnabled(false);
-        setDisabledButtonColors();
-    }
 
     // Initialize session to get user ID
     private void initializeSession() {
@@ -152,11 +142,9 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
     }
 
     // Go to the next step of trip saving process
-    private void goToNextStep() {
+    private void prepareTrip() {
         Trip newTrip = createNewTrip();
-        Intent intent = new Intent(SaveTripActivityStep1.this, SaveTripActivityStep2.class);
-        intent.putExtra("NewTrip", newTrip);
-        startActivity(intent);
+        fragment.setTrip(newTrip);
     }
 
     // Create a new trip object with the provided details

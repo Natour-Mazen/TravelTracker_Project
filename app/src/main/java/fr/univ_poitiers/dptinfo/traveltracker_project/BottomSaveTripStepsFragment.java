@@ -1,7 +1,6 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,18 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.Objects;
-
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BottomSaveTrips#newInstance} factory method to
+ * Use the {@link BottomSaveTripStepsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BottomSaveTrips extends Fragment {
+public class BottomSaveTripStepsFragment extends Fragment {
 
     private static final String LOG_TAG = "BottomSaveTrips";
     private Trip mTrip;
@@ -36,12 +32,12 @@ public class BottomSaveTrips extends Fragment {
 
     private Boolean enableBtn;
 
-    public BottomSaveTrips() {
+    public BottomSaveTripStepsFragment() {
         // Required empty public constructor
     }
 
-    public static BottomSaveTrips newInstance( Class<?> nextActivity) {
-        BottomSaveTrips fragment = new BottomSaveTrips();
+    public static BottomSaveTripStepsFragment newInstance(Class<?> nextActivity) {
+        BottomSaveTripStepsFragment fragment = new BottomSaveTripStepsFragment();
         fragment.mNextActivity = nextActivity;
         return fragment;
     }
@@ -55,7 +51,7 @@ public class BottomSaveTrips extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bottom_save_trips, container, false);
+        View view = inflater.inflate(R.layout.fragment_bottom_save_trip_steps, container, false);
 
         // Récupération du bouton "Next"
         buttonNext = view.findViewById(R.id.buttonNext);

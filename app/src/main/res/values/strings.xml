@@ -77,4 +77,5 @@
     <string name="travel_mood_family_friendly">Family Friendly 👨‍👩‍👧‍👦</string>
     <string name="trip_saved_successfully_message">Trip saved successfully</string>
     <string name="share">Share</string>
+    <string name="travel_end_date">Travel End Date :</string>
 </resources>

@@ -74,7 +74,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {
-                ToastHelper.showLongToast(this, "Veuillez remùplir tout les champs.");
+                ToastHelper.showLongToast(this, getString(R.string.fill_all_fields));
             } else {
                 prepareTrip();
             }
@@ -133,7 +133,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
                 assert startDate != null;
                 if (startDate.compareTo(endDate) > 0) {
                     // The start date is after the end date
-                    ToastHelper.showLongToast(this,"La date de départ doit être antérieure à la date d'arrivée.");
+                    ToastHelper.showLongToast(this, getString(R.string.departure_before_arrival));
                     fragment.setEnableNextBtn(false);
                 } else {
                     // The start date is before the end date
@@ -145,7 +145,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
                 LogHelper.logError(LOG_TAG,e.getMessage());
             }
         }else{
-            ToastHelper.showLongToast(this, "Veuillez choisir une date de fin.");
+            ToastHelper.showLongToast(this, getString(R.string.choose_end_date));
         }
     }
 }

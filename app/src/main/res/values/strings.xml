@@ -103,4 +103,9 @@
     <string name="people_on_trip">How many people were present on this trip ?</string>
     <string name="satisfaction_globals_cale">On a scale of 1 to 10, how would you rate your overall satisfaction with this trip:</string>
     <string name="transport_trip">What means of transport did you use to make this trip ?</string>
+    <string name="fill_all_fields">Please fill all fields.</string>
+    <string name="departure_before_arrival">The departure date must be before the arrival date.</string>
+    <string name="choose_end_date">Please choose an end date.</string>
+    <string name="dangerous_activity">A dangerous activity, I see 👀</string>
+    <string name="no_more_activities">You can no longer register more activities.</string>
 </resources>

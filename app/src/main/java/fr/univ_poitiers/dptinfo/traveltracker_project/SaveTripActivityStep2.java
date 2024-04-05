@@ -99,14 +99,14 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         binder = new SeekBarTextViewBinder(sliderSatisfaction, textViewSatisfactionLevel);
         switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                ToastHelper.showShortToast(this, "Une activité dangereuse, à ce que je vois 👀");
+                ToastHelper.showShortToast(this, getString(R.string.dangerous_activity));
                 theNewTrip.setLevelOfAdvanture(theNewTrip.getLevelOfAdvanture() + 1);
             }
         });
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {
-                ToastHelper.showLongToast(this, "Veuillez remplir tous les champs.");
+                ToastHelper.showLongToast(this, getString(R.string.fill_all_fields));
             } else {
                 RemoveCurrentTab();
                 clearComponents();
@@ -166,7 +166,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
 
             // Afficher un message
             TextView messageTextView = new TextView(this);
-            messageTextView.setText("Vous ne pouvez plus enregistrer d'autres activités.");
+            messageTextView.setText(getString(R.string.no_more_activities));
             messageTextView.setGravity(Gravity.CENTER);
             messageTextView.setId(View.generateViewId());
             messageTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

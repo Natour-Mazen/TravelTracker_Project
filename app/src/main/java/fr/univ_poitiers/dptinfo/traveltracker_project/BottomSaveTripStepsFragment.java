@@ -53,6 +53,8 @@ public class BottomSaveTripStepsFragment extends Fragment {
 
         // Récupération du bouton "Next"
         mButtonNext = view.findViewById(R.id.buttonNext);
+        mOriginalButtonTextColor = mButtonNext.getCurrentTextColor();
+        mOriginalButtonBackground = mButtonNext.getDrawingCacheBackgroundColor();
 
         // Définition de l'écouteur de clic pour le bouton "Next"
         mButtonNext.setOnClickListener(v -> goToNextStep());
@@ -82,8 +84,7 @@ public class BottomSaveTripStepsFragment extends Fragment {
 
     // Disable the next button
     private void disableNextButton() {
-        mOriginalButtonTextColor = mButtonNext.getCurrentTextColor();
-        mOriginalButtonBackground = mButtonNext.getDrawingCacheBackgroundColor();
+
         mButtonNext.setTextColor(Color.LTGRAY);
         mButtonNext.setBackgroundColor(Color.GRAY);
         mButtonNext.setEnabled(false);

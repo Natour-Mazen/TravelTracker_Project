@@ -88,4 +88,7 @@
     <string name="combien_de_temps_cette_activit_a_t_elle_pris">Combien de temps cette activité a-t-elle pris ?</string>
     <string name="level_of_this_activity">Quel est le niveau de cette activité ?</string>
     <string name="satisfaction_level">Sélectionnez un niveau de satisfaction :</string>
+    <string name="people_on_trip">Combien de personnes étaient présentes lors de ce voyage ?</string>
+    <string name="satisfaction_globals_cale">Sur une échelle de 1 à 10, comment évaluez-vous votre satisfaction globale concernant ce voyage :</string>
+    <string name="transport_trip">Quel moyen de transport avez-vous utilisé pour réaliser ce voyage ?</string>
 </resources>

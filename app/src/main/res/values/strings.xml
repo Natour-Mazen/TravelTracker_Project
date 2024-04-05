@@ -100,4 +100,7 @@
     <string name="level_of_this_activity">What is the level of this activity ?</string>
     <string name="satisfaction_level">Select a satisfaction level :</string>
     <string name="invisble_text" translatable="false"><![CDATA[ ]]></string>
+    <string name="people_on_trip">How many people were present on this trip ?</string>
+    <string name="satisfaction_globals_cale">On a scale of 1 to 10, how would you rate your overall satisfaction with this trip:</string>
+    <string name="transport_trip">What means of transport did you use to make this trip ?</string>
 </resources>

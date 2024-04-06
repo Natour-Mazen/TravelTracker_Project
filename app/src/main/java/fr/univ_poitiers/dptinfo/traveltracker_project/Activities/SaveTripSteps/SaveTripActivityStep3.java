@@ -38,7 +38,6 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     private SeekBar seekBarSatisfaction;
     private TextView textViewSeekBarValue, textViewCount, textViewTripTitlePreview;
     private CalendarView calendarViewEndTravel;
-    private CalendarBinderComponent calanderbinder;
     private BottomSaveTripStepsFragment fragment;
     private Trip theNewTrip;
     private Button buttonSaveActivity;
@@ -73,10 +72,11 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     private void setupListeners() {
         SeekBarTextViewBinderComponent sliderbinder = new SeekBarTextViewBinderComponent(seekBarSatisfaction, textViewSeekBarValue);
         CounterComponent counterComponent = new CounterComponent(buttonDecrease, textViewCount, buttonIncrease, 1, 10);
-        calanderbinder = new CalendarBinderComponent(calendarViewEndTravel,this);
+        CalendarBinderComponent calanderbinder = new CalendarBinderComponent(calendarViewEndTravel, this);
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {
+                VibrationManager.vibrateError(this);
                 ToastHelper.showLongToast(this, getString(R.string.fill_all_fields));
             } else {
                 prepareTrip();
@@ -148,7 +148,8 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
                 LogHelper.logError(LOG_TAG,e.getMessage());
             }
         }else{
-            ToastHelper.showLongToast(this, getString(R.string.choose_end_date));
+            VibrationManager.vibrateError(this);
+            ToastHelper.showLongToast(this, getString(R.string.choose_date));
         }
     }
 

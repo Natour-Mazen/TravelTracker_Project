@@ -27,11 +27,11 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripSt
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.SeekBarTextViewBinderComponent;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.VibrationManager;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
 
     private static final String LOG_TAG = "SaveTripActivityStep2";
-
     private TextView textViewTripTitlePreview;
     private TextView textViewSatisfactionLevel;
     private EditText editTextActivityName, editTextTime;
@@ -107,6 +107,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {
+                VibrationManager.vibrateError(this);
                 ToastHelper.showLongToast(this, getString(R.string.fill_all_fields));
             } else {
                 RemoveCurrentTab();

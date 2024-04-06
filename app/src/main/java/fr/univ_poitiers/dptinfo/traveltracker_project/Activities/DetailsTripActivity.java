@@ -23,10 +23,11 @@ import android.widget.Toast;
 public class DetailsTripActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "DetailsTripActivity";
-    private TextView textViewTitleTrip, textViewCountryName, textViewCityName, textViewDate,
+    private TextView textViewTitleTrip, textViewCountryName, textViewCityName, textViewDate, textViewEndDate,
             textViewEstimatedBudget, textViewSpentBudget, textViewNoteAmbiance, textViewNoteHumansInteraction,
             textViewNoteNaturalBeauty, textViewNoteSafetyLevel, textViewNoteAccommodation,
-            textViewTravelMood, textViewAdventureIndex, textViewGlobalIndex;
+            textViewTravelMood, textViewAdventureIndex, textViewGlobalIndex, textViewSatisfaction,
+            textViewTransport;
 
     private Button buttonShare;
 
@@ -75,6 +76,7 @@ public class DetailsTripActivity extends AppCompatActivity {
         textViewCountryName = findViewById(R.id.textViewCountryName);
         textViewCityName = findViewById(R.id.textViewCityName);
         textViewDate = findViewById(R.id.textViewDate);
+        textViewEndDate = findViewById(R.id.textViewEndDate);
         textViewEstimatedBudget = findViewById(R.id.textViewEstimatedBudget);
         textViewSpentBudget = findViewById(R.id.textViewSpentBudget);
         textViewNoteAmbiance = findViewById(R.id.textViewNoteAmbiance);
@@ -85,6 +87,8 @@ public class DetailsTripActivity extends AppCompatActivity {
         textViewTravelMood = findViewById(R.id.textViewTravelMood);
         textViewAdventureIndex = findViewById(R.id.textViewAdventureIndex);
         textViewGlobalIndex = findViewById(R.id.textViewGlobalIndex);
+        textViewSatisfaction = findViewById(R.id.textViewTravelSatisfaction);
+        textViewTransport = findViewById(R.id.textViewTransport);
         buttonShare = findViewById(R.id.buttonShare);
     }
 
@@ -100,6 +104,8 @@ public class DetailsTripActivity extends AppCompatActivity {
             textViewCountryName.setText(tripToSee.getCountry());
             textViewCityName.setText(tripToSee.getCity());
             textViewDate.setText(tripToSee.getDepartureDate());
+            textViewEndDate.setText(tripToSee.getArrivalDate());
+            textViewTransport.setText(tripToSee.getTransportation());
             textViewEstimatedBudget.setText(String.valueOf(tripToSee.getPlannedBudget()));
             textViewSpentBudget.setText(String.valueOf(tripToSee.getActualBudget()));
             textViewNoteAmbiance.setText(String.valueOf(tripToSee.getAmbianceRating()));
@@ -107,7 +113,10 @@ public class DetailsTripActivity extends AppCompatActivity {
             textViewNoteNaturalBeauty.setText(String.valueOf(tripToSee.getNaturalBeautyRating()));
             textViewNoteSafetyLevel.setText(String.valueOf(tripToSee.getSecurityRating()));
             textViewNoteAccommodation.setText(String.valueOf(tripToSee.getAccommodationRating()));
-            FunnySummaryUpdater.updateFunnySummaryInformations(tripToSee, textViewTravelMood, textViewAdventureIndex, textViewGlobalIndex, this);
+            textViewAdventureIndex.setText(String.valueOf(tripToSee.getLevelOfAdvanture()));
+            FunnySummaryUpdater.updateFunnySummaryInformations(tripToSee,
+                    textViewTravelMood, textViewGlobalIndex,
+                    textViewSatisfaction,this);
         }
     }
 

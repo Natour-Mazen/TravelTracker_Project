@@ -92,7 +92,7 @@
     <string name="satisfaction_globals_cale">Sur une échelle de 1 à 10, comment évaluez-vous votre satisfaction globale concernant ce voyage :</string>
     <string name="transport_trip">Quel moyen de transport avez-vous utilisé pour réaliser ce voyage ?</string>
     <string name="fill_all_fields">Veuillez remplir tous les champs.</string>
-    <string name="departure_before_arrival">La date de départ doit être antérieure à la date d\'arrivée.</string>
+    <string name="departure_before_arrival">La date d\'arrivée doit être postérieure à la date de départ.</string>
     <string name="choose_end_date">Veuillez choisir une date de fin.</string>
     <string name="dangerous_activity">Une activité dangereuse, à ce que je vois 👀</string>
     <string name="no_more_activities">Vous ne pouvez plus enregistrer d\'autres activités.</string>

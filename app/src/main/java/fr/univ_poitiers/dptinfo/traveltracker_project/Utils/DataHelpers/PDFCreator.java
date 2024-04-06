@@ -91,6 +91,8 @@ public class PDFCreator {
         yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
         canvas.drawText("Departure Date: " + trip.getDepartureDate(), MARGIN, yPos, paint);
         yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Arrival Date: " + trip.getArrivalDate(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
         canvas.drawText("Ambiance Rating: " + trip.getAmbianceRating(), MARGIN, yPos, paint);
         yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
         canvas.drawText("Natural Beauty Rating: " + trip.getNaturalBeautyRating(), MARGIN, yPos, paint);

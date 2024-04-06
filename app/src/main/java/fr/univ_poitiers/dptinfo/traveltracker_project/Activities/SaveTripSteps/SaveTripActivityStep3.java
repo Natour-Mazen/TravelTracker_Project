@@ -46,17 +46,30 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
+
+        // Set layout
         setContentView(R.layout.activity_save_trip_step3);
+
+        // Apply system window insets
         applySystemWindowsInsets();
 
+        // Initialize UI components
         initComponents();
+
+        // Initialize the trip
         initializeTrip();
+
+        // Setup listeners for UI components
         setupListeners();
 
+        // Setup bottom fragment for further steps
         setupFragment();
     }
 
+    // Initialize UI components
     private void initComponents() {
         buttonDecrease = findViewById(R.id.buttonDecrease);
         textViewCount = findViewById(R.id.textViewCount);
@@ -69,6 +82,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
         buttonSaveActivity = findViewById(R.id.buttonSaveActivity);
     }
 
+    // Setup listeners for UI components
     private void setupListeners() {
         SeekBarTextViewBinderComponent sliderbinder = new SeekBarTextViewBinderComponent(seekBarSatisfaction, textViewSeekBarValue);
         CounterComponent counterComponent = new CounterComponent(buttonDecrease, textViewCount, buttonIncrease, 1, 10);
@@ -84,6 +98,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
         });
     }
 
+    // Check if the form is valid
     private boolean isFormValid() {
         String selectedTransportation = spinnerTransportation.getSelectedItem().toString();
         int seekBarValue = seekBarSatisfaction.getProgress();
@@ -94,6 +109,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
                 !countValue.isEmpty();
     }
 
+    // Apply system window insets
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -102,12 +118,14 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
         });
     }
 
+    // Initialize the trip with the provided data
     private void initializeTrip() {
         theNewTrip = getIntent().getParcelableExtra("NewTrip");
         assert theNewTrip != null;
         textViewTripTitlePreview.setText(theNewTrip.getName());
     }
 
+    // Setup bottom fragment for further steps
     private void setupFragment() {
         fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep4.class);
         getSupportFragmentManager().beginTransaction()
@@ -115,6 +133,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
                 .commit();
     }
 
+    // Prepare trip data before saving
     private void prepareTrip(){
         int newLevelAdv = theNewTrip.getLevelOfAdvanture() + seekBarSatisfaction.getProgress() + Integer.parseInt(textViewCount.getText().toString());
         String startDateTravel = theNewTrip.getDepartureDate();
@@ -122,7 +141,6 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
 
         theNewTrip.setTransportation(selectedTransportation);
         theNewTrip.setLevelOfAdvanture(newLevelAdv);
-
 
         // Convert the dates from String to Date
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
@@ -147,12 +165,13 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
             } catch (ParseException e) {
                 LogHelper.logError(LOG_TAG,e.getMessage());
             }
-        }else{
+        } else {
             VibrationManager.vibrateError(this);
             ToastHelper.showLongToast(this, getString(R.string.choose_date));
         }
     }
 
+    // Callback for date change
     @Override
     public void onDateChange(String date) {
         endDateTravel = date;

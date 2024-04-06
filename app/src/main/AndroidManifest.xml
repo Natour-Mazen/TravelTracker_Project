@@ -29,9 +29,6 @@
             android:name=".Activities.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.SaveTripSteps.SaveTripActivityStep4"
-            android:exported="false" />
-        <activity
             android:name=".Activities.SaveTripSteps.SaveTripActivityStep1"
             android:exported="false" />
         <activity

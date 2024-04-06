@@ -16,6 +16,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.VibrationManager;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -71,6 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
             String lastname = editTextLastName.getText().toString();
 
             if (firstname.isEmpty() || lastname.isEmpty()) {
+                VibrationManager.vibrateError(this);
                ToastHelper.showLongToast(this,getString(R.string.fill_all_fields));
             }else{
                 // Check if the user already exists

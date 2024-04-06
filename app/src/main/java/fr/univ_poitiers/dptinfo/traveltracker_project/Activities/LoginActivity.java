@@ -18,6 +18,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.VibrationManager;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -141,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginError() {
         String errorMessage = getString(R.string.login_error);
         ToastHelper.showLongToast(LoginActivity.this, errorMessage);
+        VibrationManager.vibrateError(this);
     }
 
     // Enable or disable Login button based on input

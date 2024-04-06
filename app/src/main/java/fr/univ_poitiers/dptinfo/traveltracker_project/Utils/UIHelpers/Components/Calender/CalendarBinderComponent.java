@@ -6,17 +6,31 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * A helper class to bind a CalendarView with a listener to track date changes.
+ * Note: To utilize date change events, implement the OnMyDateChangeListener interface.
+ */
 public class CalendarBinderComponent {
+
     private final CalendarView calendarView;
     private String selectedDate;
     private final OnMyDateChangeListener dateChangeListener;
 
+    /**
+     * Constructor to initialize the CalendarBinderComponent.
+     *
+     * @param calendarView The CalendarView to bind with.
+     * @param listener     The listener to track date changes.
+     */
     public CalendarBinderComponent(CalendarView calendarView, OnMyDateChangeListener listener) {
         this.calendarView = calendarView;
         this.dateChangeListener = listener;
         setupCalendarViewListener();
     }
 
+    /**
+     * Sets up the listener for the CalendarView to track date changes.
+     */
     private void setupCalendarViewListener() {
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             // Increment month because Calendar month is zero-based

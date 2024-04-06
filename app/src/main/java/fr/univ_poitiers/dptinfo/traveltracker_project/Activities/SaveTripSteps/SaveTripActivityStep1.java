@@ -20,6 +20,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender.CalendarBinderComponent;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender.OnMyDateChangeListener;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.VibrationManager;
 
 import android.widget.EditText;
 import android.widget.CalendarView;
@@ -32,6 +34,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDate
     private int userId;
     private BottomSaveTripStepsFragment fragment;
     private String selectedDate;
+    private Trip newTrip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,8 @@ public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDate
 
         // Setup text watchers for input validation
         setupTextWatchers();
+
+        newTrip = new Trip();
 
         // Setup the fragment
         fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep2.class);
@@ -112,7 +117,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDate
         String city = editTextCity.getText().toString().trim();
         String country = editTextCountry.getText().toString().trim();
 
-        boolean enableButton = !title.isEmpty() && !city.isEmpty() && !country.isEmpty();
+        boolean enableButton = !title.isEmpty() && !city.isEmpty() && !country.isEmpty() && selectedDate != null;
 
         if (enableButton) {
             prepareTrip();
@@ -136,25 +141,18 @@ public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDate
 
     // Go to the next step of trip saving process
     private void prepareTrip() {
-        Trip newTrip = createNewTrip();
-        fragment.setTrip(newTrip);
-    }
-
-    // Create a new trip object with the provided details
-    private Trip createNewTrip() {
-        Trip newTrip = new Trip();
         newTrip.setUserId(userId);
         newTrip.setCity(editTextCity.getText().toString());
         newTrip.setCountry(editTextCountry.getText().toString());
         newTrip.setName(editTextTitleTrip.getText().toString());
         if(selectedDate != null)
             newTrip.setDepartureDate(selectedDate);
-        return newTrip;
+        fragment.setTrip(newTrip);
     }
 
     @Override
     public void onDateChange(String date) {
         selectedDate = date;
-        LogHelper.logError(LOG_TAG,selectedDate);
+        prepareTrip();
     }
 }

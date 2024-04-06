@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.TextView;
 
 import java.util.Locale;
-import java.util.Random;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 
@@ -13,44 +12,53 @@ public class FunnySummaryUpdater {
     /**
      * Updates the funny summary information for the given trip and sets the text of the provided TextViews accordingly.
      *
-     * @param trip              The trip for which to update the funny summary.
-     * @param textViewTravelMood   TextView to display the travel mood.
-     * @param textViewAdventureIndex   TextView to display the adventure index.
-     * @param textViewGlobalIndex      TextView to display the global index.
+     * @param trip The trip for which to update the funny summary.
+     * @param textViewTravelMood TextView to display the travel mood.
+     * @param textViewGlobalIndex TextView to display the global index.
+     * @param textViewSatisfaction TextView to display the level of satisfaction.
+     * @param context The context in which the TextViews are used.
      */
-    public static void updateFunnySummaryInformations(Trip trip, TextView textViewTravelMood, TextView textViewAdventureIndex, TextView textViewGlobalIndex, Context context) {
+    public static void updateFunnySummaryInformations(Trip trip, TextView textViewTravelMood,
+                                                      TextView textViewGlobalIndex,
+                                                      TextView textViewSatisfaction,
+                                                      Context context) {
+
         double budgetDifference = trip.getPlannedBudget() - trip.getActualBudget();
+
         float averageRating = (trip.getAmbianceRating() + trip.getNaturalBeautyRating() +
                 trip.getSecurityRating() + trip.getAccommodationRating() +
                 trip.getHumanInteractionRating()) / 5;
-        Random random = new Random();
-        int randomFactor = random.nextInt(5) - 1;
 
-        int moodID = calculateMood(budgetDifference, averageRating, randomFactor);
+        int levelSatisfaction = trip.getLevelSatisfactionActivities() / trip.getNumberOfActivities();
+        textViewSatisfaction.setText(String.valueOf(levelSatisfaction));
+
+        int levelAdventure = trip.getLevelOfAdvanture();
+        int moodID = calculateMood(budgetDifference, averageRating, levelAdventure, levelSatisfaction);
         String mood = context.getString(moodID);
-        String adventureIndex = calculateAdventureIndex(averageRating, randomFactor);
-
         textViewTravelMood.setText(mood);
-        textViewAdventureIndex.setText(adventureIndex);
-        textViewGlobalIndex.setText(String.valueOf(averageRating));
+
+        float globalIndex = averageRating + levelSatisfaction + levelAdventure;
+        String globalIndexEmoji = getGlobalIndexEmoji(globalIndex);
+        textViewGlobalIndex.setText(String.format(Locale.getDefault(), "%.2f %s", globalIndex, globalIndexEmoji));
     }
 
     /**
-     * Calculates the travel mood based on the budget difference, average rating, and random factor.
+     * Calculates the travel mood based on the budget difference, average rating, level of adventure, and level of satisfaction.
      *
      * @param budgetDifference The difference between the planned and actual budget.
-     * @param averageRating    The average rating of the trip.
-     * @param randomFactor     The random factor.
+     * @param averageRating The average rating of the trip.
+     * @param levelAdventure The level of adventure of the trip.
+     * @param levelSatisfaction The level of satisfaction of the trip.
      * @return The calculated travel mood.
      */
-    private static int calculateMood(double budgetDifference, float averageRating, int randomFactor) {
-        if (budgetDifference >= 0 && averageRating >= 3.5 + randomFactor) {
+    private static int calculateMood(double budgetDifference, float averageRating, int levelAdventure, int levelSatisfaction) {
+        if (budgetDifference >= 0 && averageRating >=  levelAdventure) {
             return TravelMood.ADVENTUROUS.getMood();
-        } else if (budgetDifference >= 0 && averageRating < 3.5 - randomFactor) {
+        } else if (budgetDifference >= 0 && averageRating < levelSatisfaction) {
             return TravelMood.RELAXED.getMood();
-        } else if (budgetDifference < 0 && averageRating >= 3.5 + randomFactor) {
+        } else if (budgetDifference < 0 && averageRating >= levelAdventure) {
             return TravelMood.CULTURAL.getMood();
-        } else if (budgetDifference < 0 && averageRating < 3.5 - randomFactor) {
+        } else if (budgetDifference < 0 && averageRating < levelSatisfaction) {
             return TravelMood.ROMANTIC.getMood();
         } else {
             return TravelMood.FAMILY_FRIENDLY.getMood();
@@ -58,22 +66,22 @@ public class FunnySummaryUpdater {
     }
 
     /**
-     * Calculates the adventure index based on the average rating and random factor.
+     * Returns an emoji based on the value of the global index.
      *
-     * @param averageRating The average rating of the trip.
-     * @param randomFactor  The random factor.
-     * @return The calculated adventure index.
+     * @param globalIndex The global index of the trip.
+     * @return An emoji representing the mood associated with the global index.
      */
-    private static String calculateAdventureIndex(float averageRating, int randomFactor) {
-        String adventureIndexText = String.format(Locale.getDefault(), "%.2f", averageRating + randomFactor);
-        String adventureEmoji;
-        if (averageRating + randomFactor > 4) {
-            adventureEmoji = "😄";
-        } else if (averageRating + randomFactor > 3) {
-            adventureEmoji = "😐";
+    private static String getGlobalIndexEmoji(float globalIndex) {
+        if (globalIndex > 300) {
+            return "😄"; // Very happy
+        } else if (globalIndex > 200) {
+            return "😊"; // Happy
+        } else if (globalIndex > 100) {
+            return "😐"; // Neutral
+        } else if (globalIndex > 50) {
+            return "😕"; // Unhappy
         } else {
-            adventureEmoji = "😴";
+            return "😞"; // Very unhappy
         }
-        return adventureIndexText + " " + adventureEmoji;
     }
 }

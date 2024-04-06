@@ -110,5 +110,5 @@
     <string name="no_more_activities">You can no longer register more activities.</string>
     <string name="satisfaction_level_details">Satisfaction Level :</string>
     <string name="transport_used">Transport used :</string>
-    <string name="toast_fill_activities">You should fill in at least 2 activities to proceed to the next step. 🚶‍♂️</string>
+    <string name="toast_fill_activities">You should fill in at least 2 activities. 🚶‍♂️</string>
 </resources>

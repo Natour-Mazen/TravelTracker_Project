@@ -77,11 +77,11 @@ public class FunnySummaryUpdater {
         } else if (globalIndex > 200) {
             return "😊"; // Happy
         } else if (globalIndex > 100) {
-            return "😐"; // Neutral
+            return "🙂"; // Neutral
         } else if (globalIndex > 50) {
-            return "😕"; // Unhappy
+            return "😐"; // Unhappy
         } else {
-            return "😞"; // Very unhappy
+            return "😕"; // Very unhappy
         }
     }
 }

@@ -1,12 +1,10 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
 
 import android.widget.CalendarView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
 
 public class CalendarViewActivityBinder {
     private final CalendarView calendarView;

@@ -1,10 +1,12 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 
 public class MainActivity extends AppCompatActivity {
 

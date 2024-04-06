@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -13,37 +13,37 @@
         android:theme="@style/Theme.TravelTracker_Project"
         tools:targetApi="31">
         <activity
-            android:name=".SaveTripActivityStep3"
+            android:name=".Activities.SaveTripSteps.SaveTripActivityStep3"
             android:exported="false" />
         <activity
-            android:name=".SaveTripActivityStep4"
+            android:name=".Activities.SaveTripSteps.SaveTripActivityStep4"
             android:exported="false" />
         <activity
-            android:name=".SaveTripActivityStep2"
+            android:name=".Activities.SaveTripSteps.SaveTripActivityStep2"
             android:exported="false" />
         <activity
-            android:name=".DetailsTripActivity"
+            android:name=".Activities.DetailsTripActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".Activities.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".SaveTripActivityStep4"
+            android:name=".Activities.SaveTripSteps.SaveTripActivityStep4"
             android:exported="false" />
         <activity
-            android:name=".SaveTripActivityStep1"
+            android:name=".Activities.SaveTripSteps.SaveTripActivityStep1"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

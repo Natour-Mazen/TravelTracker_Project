@@ -1,5 +1,5 @@
 
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.DetailsTripActivity;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Activities.DetailsTripActivity;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {

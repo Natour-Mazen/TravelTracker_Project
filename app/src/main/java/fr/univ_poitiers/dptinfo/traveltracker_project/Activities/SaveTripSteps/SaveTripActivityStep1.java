@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities.SaveTripSteps;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,9 +14,10 @@ import androidx.lifecycle.LiveData;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.CalendarViewActivityBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CalendarViewActivityBinder;
 
 import android.widget.EditText;
 import android.widget.CalendarView;

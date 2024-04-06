@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils.MoodUpdates;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.MoodUpdates;
 
 import android.content.Context;
 import android.widget.TextView;

@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
@@ -14,9 +14,10 @@ import android.widget.EditText;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
 
 public class LoginActivity extends AppCompatActivity {
 

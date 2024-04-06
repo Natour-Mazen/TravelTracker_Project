@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lavender"
-    tools:context=".SaveTripActivityStep2"
+    tools:context=".Activities.SaveTripSteps.SaveTripActivityStep2"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp"
     tools:ignore="VisualLintBounds">
@@ -500,7 +500,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerBottom"
-        android:name="fr.univ_poitiers.dptinfo.traveltracker_project.BottomSaveTripStepsFragment"
+        android:name="fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment"
         android:layout_width="0dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,13 +1,7 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
 
 import android.app.Activity;
 import android.widget.Button;
-import org.jetbrains.annotations.NotNull;
-
-
-import android.app.Activity;
-import android.widget.Button;
-
 import org.jetbrains.annotations.NotNull;
 
 /**

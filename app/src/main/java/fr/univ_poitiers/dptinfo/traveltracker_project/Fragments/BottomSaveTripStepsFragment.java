@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.widget.Button;
 import org.jetbrains.annotations.NotNull;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 
 /**
  * A simple {@link Fragment} subclass.

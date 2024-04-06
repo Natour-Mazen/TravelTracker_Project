@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities.SaveTripSteps;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,10 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import fr.univ_poitiers.dptinfo.traveltracker_project.Activities.DetailsTripActivity;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Activities.HomeActivity;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
 
 import android.widget.Button;
 import android.widget.EditText;

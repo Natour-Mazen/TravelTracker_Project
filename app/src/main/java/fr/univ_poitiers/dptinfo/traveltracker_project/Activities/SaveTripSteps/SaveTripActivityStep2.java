@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities.SaveTripSteps;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
@@ -24,8 +23,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.tabs.TabLayout;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.SeekBarTextViewBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.SeekBarTextViewBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
 

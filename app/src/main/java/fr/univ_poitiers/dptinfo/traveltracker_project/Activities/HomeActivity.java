@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +16,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import fr.univ_poitiers.dptinfo.traveltracker_project.Activities.SaveTripSteps.SaveTripActivityStep1;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
 
 public class HomeActivity extends AppCompatActivity {

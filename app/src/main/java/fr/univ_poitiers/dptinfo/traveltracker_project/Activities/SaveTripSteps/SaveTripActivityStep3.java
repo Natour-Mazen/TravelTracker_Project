@@ -1,8 +1,6 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities.SaveTripSteps;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
@@ -22,11 +20,13 @@ import java.util.Date;
 import java.util.Locale;
 
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.DataHelpers.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.CalendarViewActivityBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.CounterComponent;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.SeekBarTextViewBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CalendarViewActivityBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CounterComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.SeekBarTextViewBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
 
 public class SaveTripActivityStep3 extends AppCompatActivity {
 

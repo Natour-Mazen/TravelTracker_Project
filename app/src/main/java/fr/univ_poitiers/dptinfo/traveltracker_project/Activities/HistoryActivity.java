@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Activities;
 
 import android.os.Bundle;
 
@@ -17,9 +17,10 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
+import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.HistoryAdapter;
-import fr.univ_poitiers.dptinfo.traveltracker_project.utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.HistoryAdapter;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
 
 public class HistoryActivity extends AppCompatActivity {
 

@@ -1,5 +1,5 @@
 
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Adapters;
 
 import android.content.Context;
 import android.content.Intent;

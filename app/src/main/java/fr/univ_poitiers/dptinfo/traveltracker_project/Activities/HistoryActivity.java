@@ -19,8 +19,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.Trip
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.UserRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.HistoryAdapter;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Adapters.HistoryAdapter;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
 
 public class HistoryActivity extends AppCompatActivity {
 
@@ -53,7 +53,7 @@ public class HistoryActivity extends AppCompatActivity {
         recycleListeHistory.setAdapter(historyAdapter);
 
         // Set up the previous button
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
+        PreviousButtonComponent.setupPreviousButton(this, R.id.buttonPrevious);
     }
 
     // Apply system window insets to adjust layout with edge-to-edge display

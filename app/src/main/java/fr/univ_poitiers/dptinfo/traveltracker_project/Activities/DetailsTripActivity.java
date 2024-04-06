@@ -14,7 +14,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.MoodUpdates.FunnySummaryUpdater;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.PDFCreator;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
 
 import android.widget.Button;
 import android.widget.TextView;
@@ -56,7 +56,7 @@ public class DetailsTripActivity extends AppCompatActivity {
 
 
         // Set up previous button
-        PreviousButton.setupPreviousButton(this,R.id.buttonPrevious);
+        PreviousButtonComponent.setupPreviousButton(this,R.id.buttonPrevious);
 
         // Configuration du clic sur le bouton de partage
         buttonShare.setOnClickListener(v -> {

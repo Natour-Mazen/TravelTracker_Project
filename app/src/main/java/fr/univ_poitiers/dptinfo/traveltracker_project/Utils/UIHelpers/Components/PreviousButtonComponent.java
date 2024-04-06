@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components;
 
 import android.app.Activity;
 import android.widget.Button;
@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Utility class for setting up a "previous" button in an activity.
  */
-public class PreviousButton {
+public class PreviousButtonComponent {
 
     /**
      * Sets up a button in the activity to act as a "previous" button.

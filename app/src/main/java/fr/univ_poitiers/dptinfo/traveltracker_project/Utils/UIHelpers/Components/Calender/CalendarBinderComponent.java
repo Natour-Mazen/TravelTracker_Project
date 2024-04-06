@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender;
 
 import android.widget.CalendarView;
 import java.text.SimpleDateFormat;
@@ -6,12 +6,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class CalendarViewActivityBinder {
+public class CalendarBinderComponent {
     private final CalendarView calendarView;
     private String selectedDate;
     private OnMyDateChangeListener dateChangeListener;
 
-    public CalendarViewActivityBinder(CalendarView calendarView, OnMyDateChangeListener listener) {
+    public CalendarBinderComponent(CalendarView calendarView, OnMyDateChangeListener listener) {
         this.calendarView = calendarView;
         this.dateChangeListener = listener;
         setupCalendarViewListener();

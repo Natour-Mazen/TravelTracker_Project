@@ -14,8 +14,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.User
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -38,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
         setupRegistrationButton();
 
         // Setup previous button
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
+        PreviousButtonComponent.setupPreviousButton(this, R.id.buttonPrevious);
 
         // Initialize UserRepository for database operations
         userRepository = new UserRepository(SignUpActivity.this.getApplication());

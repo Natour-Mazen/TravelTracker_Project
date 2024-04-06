@@ -16,8 +16,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.User
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.User;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         disableLoginButton();
 
         // Setup previous button
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrevious);
+        PreviousButtonComponent.setupPreviousButton(this, R.id.buttonPrevious);
     }
 
     // Disable Login button

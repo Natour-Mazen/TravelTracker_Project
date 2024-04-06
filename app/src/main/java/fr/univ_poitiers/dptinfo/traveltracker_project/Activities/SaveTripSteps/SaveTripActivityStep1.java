@@ -18,8 +18,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripSt
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.CalendarViewActivityBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.OnMyDateChangeListener;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender.CalendarBinderComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender.OnMyDateChangeListener;
 
 import android.widget.EditText;
 import android.widget.CalendarView;
@@ -103,7 +103,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDate
 
     // Setup listeners
     private void setupListeners() {
-        CalendarViewActivityBinder calanderbinder = new CalendarViewActivityBinder(calendarViewStartTravel, this);
+        CalendarBinderComponent calanderbinder = new CalendarBinderComponent(calendarViewStartTravel, this);
     }
 
     // Enable or disable the next button based on input validation

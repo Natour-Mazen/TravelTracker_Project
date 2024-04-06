@@ -25,8 +25,8 @@ import com.google.android.material.tabs.TabLayout;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.SeekBarTextViewBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.SeekBarTextViewBinderComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
 
 public class SaveTripActivityStep2 extends AppCompatActivity {
 
@@ -45,7 +45,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private Trip theNewTrip;
     private ConstraintLayout questionsLayout;
     private BottomSaveTripStepsFragment fragment;
-    private SeekBarTextViewBinder binder;
+    private SeekBarTextViewBinderComponent binder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +97,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        binder = new SeekBarTextViewBinder(sliderSatisfaction, textViewSatisfactionLevel);
+        binder = new SeekBarTextViewBinderComponent(sliderSatisfaction, textViewSatisfactionLevel);
         switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 ToastHelper.showShortToast(this, getString(R.string.dangerous_activity));

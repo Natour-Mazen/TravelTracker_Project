@@ -15,8 +15,8 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.Activities.HomeActivity;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.TripRepository;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.PreviousButton;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
 
 import android.widget.Button;
 import android.widget.EditText;
@@ -89,7 +89,7 @@ public class SaveTripActivityStep4 extends AppCompatActivity {
         });
         buttonCancel.setOnClickListener(v -> redirectToHomeActivity());
         buttonSummary.setOnClickListener(v -> redirectToDetailsActivity());
-        PreviousButton.setupPreviousButton(this, R.id.buttonPrev);
+        PreviousButtonComponent.setupPreviousButton(this, R.id.buttonPrev);
     }
 
     // Apply system window insets

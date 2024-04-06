@@ -23,12 +23,12 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.CalendarViewActivityBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.OnMyDateChangeListener;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CounterComponent;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.SeekBarTextViewBinder;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.VibrationManager;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender.CalendarBinderComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.Calender.OnMyDateChangeListener;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.CounterComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.SeekBarTextViewBinderComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.VibrationManager;
 
 public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDateChangeListener {
 
@@ -38,7 +38,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     private SeekBar seekBarSatisfaction;
     private TextView textViewSeekBarValue, textViewCount, textViewTripTitlePreview;
     private CalendarView calendarViewEndTravel;
-    private CalendarViewActivityBinder calanderbinder;
+    private CalendarBinderComponent calanderbinder;
     private BottomSaveTripStepsFragment fragment;
     private Trip theNewTrip;
     private Button buttonSaveActivity;
@@ -71,9 +71,9 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     }
 
     private void setupListeners() {
-        SeekBarTextViewBinder sliderbinder = new SeekBarTextViewBinder(seekBarSatisfaction, textViewSeekBarValue);
+        SeekBarTextViewBinderComponent sliderbinder = new SeekBarTextViewBinderComponent(seekBarSatisfaction, textViewSeekBarValue);
         CounterComponent counterComponent = new CounterComponent(buttonDecrease, textViewCount, buttonIncrease, 1, 10);
-        calanderbinder = new CalendarViewActivityBinder(calendarViewEndTravel,this);
+        calanderbinder = new CalendarBinderComponent(calendarViewEndTravel,this);
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {

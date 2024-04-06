@@ -1,15 +1,15 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components;
 
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
 
-public class SeekBarTextViewBinder {
+public class SeekBarTextViewBinderComponent {
     private final SeekBar seekBar;
     private final TextView textView;
 
-    public SeekBarTextViewBinder(@NotNull SeekBar seekBar,@NotNull TextView textView) {
+    public SeekBarTextViewBinderComponent(@NotNull SeekBar seekBar, @NotNull TextView textView) {
         this.seekBar = seekBar;
         this.textView = textView;
         setupSeekBarListener();

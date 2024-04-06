@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers;
 
 import android.content.Context;
 import android.widget.Toast;

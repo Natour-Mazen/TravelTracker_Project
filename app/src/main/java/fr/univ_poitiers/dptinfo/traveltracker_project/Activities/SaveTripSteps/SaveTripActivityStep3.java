@@ -23,12 +23,14 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CalendarViewActivityBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.CalendarViewActivityBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.OnMyDateChangeListener;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CounterComponent;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.SeekBarTextViewBinder;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.ToastHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.VibrationManager;
 
-public class SaveTripActivityStep3 extends AppCompatActivity {
+public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDateChangeListener {
 
     private static final String LOG_TAG = "SaveTripActivityStep3";
     private ImageButton buttonDecrease, buttonIncrease;
@@ -40,6 +42,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
     private BottomSaveTripStepsFragment fragment;
     private Trip theNewTrip;
     private Button buttonSaveActivity;
+    private String endDateTravel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
     private void setupListeners() {
         SeekBarTextViewBinder sliderbinder = new SeekBarTextViewBinder(seekBarSatisfaction, textViewSeekBarValue);
         CounterComponent counterComponent = new CounterComponent(buttonDecrease, textViewCount, buttonIncrease, 1, 10);
-        calanderbinder = new CalendarViewActivityBinder(calendarViewEndTravel);
+        calanderbinder = new CalendarViewActivityBinder(calendarViewEndTravel,this);
 
         buttonSaveActivity.setOnClickListener(v -> {
             if (!isFormValid()) {
@@ -114,7 +117,6 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
 
     private void prepareTrip(){
         int newLevelAdv = theNewTrip.getLevelOfAdvanture() * seekBarSatisfaction.getProgress() + Integer.parseInt(textViewCount.getText().toString());
-        String endDateTravel = calanderbinder.getSelectedDate();
         String startDateTravel = theNewTrip.getDepartureDate();
         String selectedTransportation = spinnerTransportation.getSelectedItem().toString();
 
@@ -134,6 +136,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
                 if (startDate.compareTo(endDate) > 0) {
                     // The start date is after the end date
                     ToastHelper.showLongToast(this, getString(R.string.departure_before_arrival));
+                    VibrationManager.vibrateError(this);
                     fragment.setEnableNextBtn(false);
                 } else {
                     // The start date is before the end date
@@ -147,5 +150,11 @@ public class SaveTripActivityStep3 extends AppCompatActivity {
         }else{
             ToastHelper.showLongToast(this, getString(R.string.choose_end_date));
         }
+    }
+
+    @Override
+    public void onDateChange(String date) {
+        endDateTravel = date;
+        LogHelper.logError(LOG_TAG,endDateTravel);
     }
 }

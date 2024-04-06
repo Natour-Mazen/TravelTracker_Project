@@ -1,4 +1,4 @@
-package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers;
+package fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender;
 
 import android.widget.CalendarView;
 import java.text.SimpleDateFormat;
@@ -9,9 +9,11 @@ import java.util.Locale;
 public class CalendarViewActivityBinder {
     private final CalendarView calendarView;
     private String selectedDate;
+    private OnMyDateChangeListener dateChangeListener;
 
-    public CalendarViewActivityBinder(CalendarView calendarView) {
+    public CalendarViewActivityBinder(CalendarView calendarView, OnMyDateChangeListener listener) {
         this.calendarView = calendarView;
+        this.dateChangeListener = listener;
         setupCalendarViewListener();
     }
 
@@ -31,6 +33,10 @@ public class CalendarViewActivityBinder {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
             this.selectedDate = dateFormat.format(selectedDate);
 
+            // Notify the listener of the date change
+            if (dateChangeListener != null) {
+                dateChangeListener.onDateChange(this.selectedDate);
+            }
         });
     }
 

@@ -17,19 +17,21 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Repositories.User
 import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Session.SessionManager;
-import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.CalendarViewActivityBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.CalendarViewActivityBinder;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Calender.OnMyDateChangeListener;
 
 import android.widget.EditText;
 import android.widget.CalendarView;
 
-public class SaveTripActivityStep1 extends AppCompatActivity {
+public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDateChangeListener  {
 
     private static final String LOG_TAG = "SaveTripActivityStep1";
     private EditText editTextTitleTrip, editTextCity, editTextCountry;
     private CalendarView calendarViewStartTravel;
-    private CalendarViewActivityBinder Calanderbinder;
     private int userId;
     private BottomSaveTripStepsFragment fragment;
+    private String selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +103,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
 
     // Setup listeners
     private void setupListeners() {
-        Calanderbinder = new CalendarViewActivityBinder(calendarViewStartTravel);
+        CalendarViewActivityBinder calanderbinder = new CalendarViewActivityBinder(calendarViewStartTravel, this);
     }
 
     // Enable or disable the next button based on input validation
@@ -145,10 +147,14 @@ public class SaveTripActivityStep1 extends AppCompatActivity {
         newTrip.setCity(editTextCity.getText().toString());
         newTrip.setCountry(editTextCountry.getText().toString());
         newTrip.setName(editTextTitleTrip.getText().toString());
-        String selectedDate = Calanderbinder.getSelectedDate();
         if(selectedDate != null)
             newTrip.setDepartureDate(selectedDate);
         return newTrip;
     }
 
+    @Override
+    public void onDateChange(String date) {
+        selectedDate = date;
+        LogHelper.logError(LOG_TAG,selectedDate);
+    }
 }

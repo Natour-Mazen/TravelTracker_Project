@@ -133,6 +133,6 @@ public class DetailsTripActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("application/pdf");
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        startActivity(Intent.createChooser(intent, "Partager via"));
+        startActivity(Intent.createChooser(intent, "🌐"));
     }
 }

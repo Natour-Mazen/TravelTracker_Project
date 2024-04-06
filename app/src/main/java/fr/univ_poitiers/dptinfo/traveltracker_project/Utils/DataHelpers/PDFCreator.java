@@ -104,6 +104,14 @@ public class PDFCreator {
         canvas.drawText("Planned Budget: " + trip.getPlannedBudget(), MARGIN, yPos, paint);
         yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
         canvas.drawText("Actual Budget: " + trip.getActualBudget(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Level Satisfaction Activities: " + trip.getLevelSatisfactionActivities(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Level Of Adventure: " + trip.getLevelOfAdvanture(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Number Of Activities: " + trip.getNumberOfActivities(), MARGIN, yPos, paint);
+        yPos += CONTENT_TEXT_SIZE + LINE_SPACING;
+        canvas.drawText("Transportation: " + trip.getTransportation(), MARGIN, yPos, paint);
     }
 
 

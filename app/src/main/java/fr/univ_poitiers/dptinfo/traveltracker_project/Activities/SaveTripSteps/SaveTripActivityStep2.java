@@ -60,6 +60,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         setupFragment();
     }
 
+    // Initialize UI components
     private void initComponents() {
         textViewTripTitlePreview = findViewById(R.id.textViewTripTitlePreview);
         textViewSatisfactionLevel = findViewById(R.id.textViewSatisfactionLevel);
@@ -82,6 +83,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         questionsLayout= findViewById(R.id.constraintLayoutQuestions);
     }
 
+    // Apply system window insets
     private void applySystemWindowsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -90,12 +92,14 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         });
     }
 
+    // Initialize trip details
     private void initializeTrip() {
         theNewTrip = getIntent().getParcelableExtra("NewTrip");
         assert theNewTrip != null;
         textViewTripTitlePreview.setText(theNewTrip.getName());
     }
 
+    // Setup listeners for UI components
     private void setupListeners() {
         binder = new SeekBarTextViewBinderComponent(sliderSatisfaction, textViewSatisfactionLevel);
         switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -116,6 +120,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         });
     }
 
+    // Setup fragment for further steps
     private void setupFragment() {
         fragment = BottomSaveTripStepsFragment.newInstance(SaveTripActivityStep3.class);
         getSupportFragmentManager().beginTransaction()
@@ -123,6 +128,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
                 .commit();
     }
 
+    // Check if the form is valid
     private boolean isFormValid() {
         return !editTextActivityName.getText().toString().isEmpty() &&
                 !editTextTime.getText().toString().isEmpty() &&
@@ -131,6 +137,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
                         checkboxThursday.isChecked() || checkboxFriday.isChecked() || checkboxSatarday.isChecked() || checkboxSunday.isChecked());
     }
 
+    // Clear input components after saving
     private void clearComponents() {
         editTextActivityName.setText("");
         editTextTime.setText("");
@@ -148,6 +155,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         sliderSatisfaction.setProgress(0);
     }
 
+    // Remove current tab after saving
     private void RemoveCurrentTab() {
         int selectedTabPosition = tabLayout.getSelectedTabPosition();
         tabLayout.removeTabAt(selectedTabPosition);
@@ -159,17 +167,17 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         theNewTrip.setNumberOfActivities(nbActivity);
 
         if (tabLayout.getTabCount() <= 5 ) {
-            // Si il reste une tabulation ou aucune, on active le bouton Next dans le fragment
+            // If there is one tab left or none, enable the Next button in the fragment
             fragment.setTrip(theNewTrip);
             fragment.setEnableNextBtn(true);
         }
 
         if (tabLayout.getTabCount() == 0) {
-            // Si c'est la dernière tabulation
+            // If it's the last tab
             questionsLayout.removeAllViews();
             tabLayout.setVisibility(View.GONE);
 
-            // Afficher un message
+            // Display a message
             TextView messageTextView = new TextView(this);
             messageTextView.setText(getString(R.string.no_more_activities));
             messageTextView.setGravity(Gravity.CENTER);
@@ -181,7 +189,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
             questionsLayout.addView(messageTextView);
             questionsLayout.setMinHeight(500);
 
-            // Centrer le messageTextView
+            // Center the messageTextView
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(questionsLayout);
             constraintSet.connect(messageTextView.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP);

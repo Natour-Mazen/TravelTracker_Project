@@ -9,7 +9,7 @@ import java.util.Locale;
 public class CalendarBinderComponent {
     private final CalendarView calendarView;
     private String selectedDate;
-    private OnMyDateChangeListener dateChangeListener;
+    private final OnMyDateChangeListener dateChangeListener;
 
     public CalendarBinderComponent(CalendarView calendarView, OnMyDateChangeListener listener) {
         this.calendarView = calendarView;
@@ -38,9 +38,5 @@ public class CalendarBinderComponent {
                 dateChangeListener.onDateChange(this.selectedDate);
             }
         });
-    }
-
-    public String getSelectedDate() {
-        return selectedDate;
     }
 }

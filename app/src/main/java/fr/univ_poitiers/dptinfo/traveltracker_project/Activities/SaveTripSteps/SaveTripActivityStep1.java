@@ -117,7 +117,7 @@ public class SaveTripActivityStep1 extends AppCompatActivity implements OnMyDate
         String city = editTextCity.getText().toString().trim();
         String country = editTextCountry.getText().toString().trim();
 
-        boolean enableButton = !title.isEmpty() && !city.isEmpty() && !country.isEmpty() && selectedDate != null;
+        boolean enableButton = !title.isEmpty() && !city.isEmpty() && !country.isEmpty();
 
         if (enableButton) {
             prepareTrip();

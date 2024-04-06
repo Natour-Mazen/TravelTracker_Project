@@ -156,6 +156,5 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     @Override
     public void onDateChange(String date) {
         endDateTravel = date;
-        LogHelper.logError(LOG_TAG,endDateTravel);
     }
 }

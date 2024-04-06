@@ -25,6 +25,7 @@ import com.google.android.material.tabs.TabLayout;
 import fr.univ_poitiers.dptinfo.traveltracker_project.DataBase.Entities.Trip;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Fragments.BottomSaveTripStepsFragment;
 import fr.univ_poitiers.dptinfo.traveltracker_project.R;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.LogHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.SeekBarTextViewBinderComponent;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.VibrationManager;
@@ -172,7 +173,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         int nbActivity = theNewTrip.getNumberOfActivities() + 1;
         theNewTrip.setNumberOfActivities(nbActivity);
 
-        if (tabLayout.getTabCount() <= 5 ) {
+        if (tabLayout.getTabCount() <= 2 ) {
             // If there is one tab left or none, enable the Next button in the fragment
             fragment.setTrip(theNewTrip);
             fragment.setEnableNextBtn(true);

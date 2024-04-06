@@ -12,26 +12,24 @@
         android:id="@+id/imageViewArcDeco1"
         android:layout_width="70dp"
         android:layout_height="77dp"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
         app:srcCompat="@drawable/arc_3" />
 
     <ImageView
         android:id="@+id/imageViewArcDeco2"
         android:layout_width="70dp"
         android:layout_height="77dp"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.969"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
         app:srcCompat="@drawable/arc_3" />
 
     <TextView
@@ -53,7 +51,7 @@
         android:id="@+id/imageView6"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="@string/arcimg"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -235,6 +233,68 @@
                 <!-- TextView 2 -->
                 <TextView
                     android:id="@+id/textViewDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="@color/Dark_blue_gray"
+                    android:padding="5dp"
+                    android:textAlignment="textStart"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- TextView 1 -->
+                <TextView
+                    android:id="@+id/textViewDisplayEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:padding="5dp"
+                    android:text="@string/travel_end_date"
+                    android:textAlignment="textStart"
+                    android:textColor="#5d5a63"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:maxWidth="120dp"/>
+
+                <!-- TextView 2 -->
+                <TextView
+                    android:id="@+id/textViewEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="@color/Dark_blue_gray"
+                    android:padding="5dp"
+                    android:textAlignment="textStart"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- TextView 1 -->
+                <TextView
+                    android:id="@+id/textViewDisplayTransport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:padding="5dp"
+                    android:text="@string/transport_used"
+                    android:textAlignment="textStart"
+                    android:textColor="#5d5a63"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:maxWidth="120dp"/>
+
+                <!-- TextView 2 -->
+                <TextView
+                    android:id="@+id/textViewTransport"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -470,20 +530,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textViewDisplayMood"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/travel_mood"
-                    android:textAlignment="center"
-                    android:textColor="#5d5a63"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
                 <View
                     android:id="@+id/divider2"
@@ -497,14 +543,57 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textViewTravelMood"
+                    android:id="@+id/textViewMood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="73dp"
+                    android:text="@string/travel_mood"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.146"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+                <TextView
+                    android:id="@+id/textViewTravelMood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:textColor="@color/Dark_blue_gray"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.18"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewDisplayMood" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewMood" />
+
+
+                <TextView
+                    android:id="@+id/textViewDisplaySatisfaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/satisfaction_level_details"
+                    android:textAlignment="center"
+                    android:textColor="#5d5a63"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.702"
+                    app:layout_constraintStart_toEndOf="@+id/textViewMood"
+                    app:layout_constraintTop_toTopOf="@+id/textViewMood" />
+
+                <TextView
+                    android:id="@+id/textViewTravelSatisfaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/Dark_blue_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.67"
+                    app:layout_constraintStart_toEndOf="@+id/textViewTravelMood"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDisplaySatisfaction" />
 
                 <TextView
                     android:id="@+id/textViewDisplayAdventureIndex"
@@ -517,7 +606,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintHorizontal_bias="0.109"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTravelMood" />
 
@@ -530,9 +619,10 @@
                     android:textColor="@color/Dark_blue_gray"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.243"
+                    app:layout_constraintHorizontal_bias="0.179"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewDisplayAdventureIndex" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDisplayAdventureIndex"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/textViewDisplayGlobalIndex"
@@ -544,7 +634,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.888"
+                    app:layout_constraintHorizontal_bias="0.694"
                     app:layout_constraintStart_toEndOf="@+id/textViewDisplayAdventureIndex"
                     app:layout_constraintTop_toTopOf="@+id/textViewDisplayAdventureIndex" />
 
@@ -552,10 +642,10 @@
                     android:id="@+id/textViewGlobalIndex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:textColor="@color/Dark_blue_gray"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.771"
+                    app:layout_constraintHorizontal_bias="0.67"
                     app:layout_constraintStart_toEndOf="@+id/textViewAdventureIndex"
                     app:layout_constraintTop_toBottomOf="@+id/textViewDisplayGlobalIndex" />
 
@@ -590,6 +680,7 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toEndOf="@+id/buttonPrevious"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.466" />

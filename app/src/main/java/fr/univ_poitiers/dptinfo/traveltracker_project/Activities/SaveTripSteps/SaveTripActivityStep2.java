@@ -45,7 +45,6 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private Trip theNewTrip;
     private ConstraintLayout questionsLayout;
     private BottomSaveTripStepsFragment fragment;
-    private SeekBarTextViewBinderComponent binder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +57,11 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         initializeTrip();
         setupListeners();
         setupFragment();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         ToastHelper.showShortToast(this, getString(R.string.toast_fill_activities));
         VibrationManager.vibrateInfo(this);
     }
@@ -104,7 +107,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
 
     // Setup listeners for UI components
     private void setupListeners() {
-        binder = new SeekBarTextViewBinderComponent(sliderSatisfaction, textViewSatisfactionLevel);
+        SeekBarTextViewBinderComponent binder = new SeekBarTextViewBinderComponent(sliderSatisfaction, textViewSatisfactionLevel);
         switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 ToastHelper.showShortToast(this, getString(R.string.dangerous_activity));

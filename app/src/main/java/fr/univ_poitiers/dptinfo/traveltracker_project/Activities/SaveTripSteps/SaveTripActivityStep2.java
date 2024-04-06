@@ -58,6 +58,9 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         initializeTrip();
         setupListeners();
         setupFragment();
+
+        ToastHelper.showShortToast(this, getString(R.string.toast_fill_activities));
+        VibrationManager.vibrateInfo(this);
     }
 
     // Initialize UI components

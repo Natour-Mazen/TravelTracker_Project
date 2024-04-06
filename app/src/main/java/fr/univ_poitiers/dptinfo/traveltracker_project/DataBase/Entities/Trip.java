@@ -62,6 +62,9 @@ public class Trip implements Parcelable {
     @ColumnInfo(name = "levelOfAdvanture")
     private int levelOfAdvanture = 0;
 
+    @ColumnInfo(name = "nomberOfActivities")
+    private int numberOfActivities = 0;
+
     @ColumnInfo(name = "transportation")
     private String transportation = "";
 
@@ -96,6 +99,7 @@ public class Trip implements Parcelable {
         actualBudget = in.readDouble();
         levelSatisfactionActivities= in.readInt();
         levelOfAdvanture= in.readInt();
+        numberOfActivities = in.readInt();
     }
 
     @Override
@@ -117,6 +121,7 @@ public class Trip implements Parcelable {
         dest.writeDouble(actualBudget);
         dest.writeInt(levelSatisfactionActivities);
         dest.writeInt(levelOfAdvanture);
+        dest.writeInt(numberOfActivities);
     }
 
     @Override
@@ -271,6 +276,14 @@ public class Trip implements Parcelable {
         this.transportation = transportation;
     }
 
+    public int getNumberOfActivities() {
+        return numberOfActivities;
+    }
+
+    public void setNumberOfActivities(int numberOfActivities) {
+        this.numberOfActivities = numberOfActivities;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -292,6 +305,7 @@ public class Trip implements Parcelable {
                 ", levelSatisfactionActivities=" + levelSatisfactionActivities +
                 ", levelOfAdvanture=" + levelOfAdvanture +
                 ", transportation=" + transportation +
+                ", nomberOfActivities=" + numberOfActivities +
                 '}';
     }
 }

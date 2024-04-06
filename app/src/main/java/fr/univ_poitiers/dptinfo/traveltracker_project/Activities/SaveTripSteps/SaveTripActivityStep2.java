@@ -155,6 +155,9 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         int sliderValue = sliderSatisfaction.getProgress();
         theNewTrip.setLevelSatisfactionActivities(theNewTrip.getLevelSatisfactionActivities() + sliderValue);
 
+        int nbActivity = theNewTrip.getNumberOfActivities() + 1;
+        theNewTrip.setNumberOfActivities(nbActivity);
+
         if (tabLayout.getTabCount() <= 5 ) {
             // Si il reste une tabulation ou aucune, on active le bouton Next dans le fragment
             fragment.setTrip(theNewTrip);

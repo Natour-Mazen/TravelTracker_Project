@@ -116,7 +116,7 @@ public class SaveTripActivityStep3 extends AppCompatActivity implements OnMyDate
     }
 
     private void prepareTrip(){
-        int newLevelAdv = theNewTrip.getLevelOfAdvanture() * seekBarSatisfaction.getProgress() + Integer.parseInt(textViewCount.getText().toString());
+        int newLevelAdv = theNewTrip.getLevelOfAdvanture() + seekBarSatisfaction.getProgress() + Integer.parseInt(textViewCount.getText().toString());
         String startDateTravel = theNewTrip.getDepartureDate();
         String selectedTransportation = spinnerTransportation.getSelectedItem().toString();
 

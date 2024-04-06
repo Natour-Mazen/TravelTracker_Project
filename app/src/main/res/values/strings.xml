@@ -108,4 +108,6 @@
     <string name="choose_date">Please choose a date.</string>
     <string name="dangerous_activity">A dangerous activity, I see 👀</string>
     <string name="no_more_activities">You can no longer register more activities.</string>
+    <string name="satisfaction_level_details">Satisfaction Level :</string>
+    <string name="transport_used">Transport used :</string>
 </resources>

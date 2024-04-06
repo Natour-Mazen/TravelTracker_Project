@@ -96,4 +96,6 @@
     <string name="choose_date">Veuillez choisir une date.</string>
     <string name="dangerous_activity">Une activité dangereuse, à ce que je vois 👀</string>
     <string name="no_more_activities">Vous ne pouvez plus enregistrer d\'autres activités.</string>
+    <string name="satisfaction_level_details">Niveau de satisfaction :</string>
+    <string name="transport_used">Transport utilisé :</string>
 </resources>

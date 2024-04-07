@@ -122,7 +122,7 @@
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/textViewLorem"
+        app:layout_constraintEnd_toStartOf="@+id/textViewHomePresentation"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view5">
@@ -280,12 +280,12 @@
         app:layout_constraintVertical_bias="0.343" />
 
     <TextView
-        android:id="@+id/textViewLorem"
+        android:id="@+id/textViewHomePresentation"
         android:layout_width="wrap_content"
-        android:layout_height="107dp"
+        android:layout_height="130dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/LoremText"
+        android:text="@string/HomePresentationText"
         android:textAlignment="center"
         android:textColor="#546E7A"
         android:textSize="16sp"

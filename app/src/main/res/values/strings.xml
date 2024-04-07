@@ -34,7 +34,7 @@
     <string name="history">History</string>
     <string name="quit">Quit</string>
     <string name="hi">Hi,</string>
-    <string name="LoremText" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut erat sit amet ligula lacinia ullamcorper sed ac justo. Sed at viverra ipsum. Fusce tincidunt, dolor sit amet ultrices malesuada, metus sapien aliquam ex, non dapibus libero libero id nulla. Ut commodo sodales ex vitae auctor. Vestibulum in enim ut mauris finibus consectetur.</string>
+    <string name="HomePresentationText">With TravelTracker, record your trips in one click and keep a history of all your adventures. Whether you\'re a globetrotter or a casual traveler, TravelTracker is here to make your travel experience easier and more enjoyable. Get started today and discover how TravelTracker can transform the way you travel.</string>
     <string name="imgdeco" translatable="false">ImgDeco</string>
     <string name="TitleSaveTripSteps">get ready to embark\n on the adventure 😆</string>
     <string name="next">Next</string>

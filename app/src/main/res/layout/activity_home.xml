@@ -268,6 +268,8 @@
         android:id="@+id/buttonQuit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/violet"
         android:text="@string/quit"
@@ -278,10 +280,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textViewLorem"
+        android:id="@+id/textViewHomePresentation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/LoremText"
+        android:padding="5dp"
+        android:text="@string/HomePresentationText"
         android:textAlignment="center"
         android:textColor="@color/Dark_blue_gray"
         android:textSize="16sp"
@@ -310,7 +313,7 @@
         android:id="@+id/buttonDisconnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="140dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/violet"
         android:text="@string/disconnect"

@@ -26,6 +26,7 @@
     <string name="history">Historique</string>
     <string name="quit">Quitter</string>
     <string name="hi">Salut,</string>
+    <string name="HomePresentationText">Avec TravelTracker, enregistrez vos voyages en un clic et gardez un historique de toutes vos aventures. Que vous soyez un globe-trotter ou un voyageur occasionnel, TravelTracker est là pour rendre votre expérience de voyage plus facile et plus agréable. Commencez dès aujourd’hui et découvrez comment TravelTracker peut transformer votre façon de voyager.</string>
     <string name="TitleSaveTripSteps">préparez-vous à embarquer\n dans l\'aventure 😆</string>
     <string name="next">Suivant</string>
     <string name="travel_start_date">Date de Début de Voyage :</string>

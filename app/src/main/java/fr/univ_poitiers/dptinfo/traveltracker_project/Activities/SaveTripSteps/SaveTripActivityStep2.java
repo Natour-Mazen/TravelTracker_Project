@@ -33,8 +33,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.Vi
 public class SaveTripActivityStep2 extends AppCompatActivity {
 
     private static final String LOG_TAG = "SaveTripActivityStep2";
-    private TextView textViewTripTitlePreview;
-    private TextView textViewSatisfactionLevel;
+    private TextView textViewTripTitlePreview, textViewSatisfactionLevel;
     private EditText editTextActivityName, editTextTime;
     private TabLayout tabLayout;
     private RadioButton radioButtonLowPriority, radioButtonMediumPriority, radioButtonHighPriority;

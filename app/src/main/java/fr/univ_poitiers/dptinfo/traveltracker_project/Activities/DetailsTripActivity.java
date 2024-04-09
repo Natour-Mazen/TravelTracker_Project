@@ -15,6 +15,7 @@ import fr.univ_poitiers.dptinfo.traveltracker_project.R;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.MoodUpdates.FunnySummaryUpdater;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.DataHelpers.PDFCreator;
 import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Components.PreviousButtonComponent;
+import fr.univ_poitiers.dptinfo.traveltracker_project.Utils.UIHelpers.Helpers.ToastHelper;
 
 import android.widget.Button;
 import android.widget.TextView;
@@ -65,7 +66,7 @@ public class DetailsTripActivity extends AppCompatActivity {
             if (pdfUri != null) {
                 sharePDF(pdfUri);
             } else {
-                Toast.makeText(DetailsTripActivity.this, "Erreur lors de la création du PDF", Toast.LENGTH_SHORT).show();
+                ToastHelper.showLongToast(this,"Erreur lors de la création du PDF");
             }
         });
     }

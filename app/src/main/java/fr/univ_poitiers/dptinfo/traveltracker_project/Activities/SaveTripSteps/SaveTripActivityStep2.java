@@ -1,6 +1,7 @@
 package fr.univ_poitiers.dptinfo.traveltracker_project.Activities.SaveTripSteps;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
@@ -45,6 +47,7 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
     private Trip theNewTrip;
     private ConstraintLayout questionsLayout;
     private BottomSaveTripStepsFragment fragment;
+    private static int tabCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +60,43 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         initializeTrip();
         setupListeners();
         setupFragment();
+
+        if (savedInstanceState != null && tabLayout.getTabCount() != tabCount) {
+            adjustTabs(tabCount);
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        // Display a short toast message and vibrate the device for user information
         ToastHelper.showShortToast(this, getString(R.string.toast_fill_activities));
         VibrationManager.vibrateInfo(this);
+        // Update the state of the TabLayout
+        updateTabLayout();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Save the current number of tabs in the TabLayout
+        tabCount = tabLayout.getTabCount();
+    }
+
+    /**
+     * Adjusts the number of tabs in the TabLayout to match the desired count.
+     *
+     * @param desiredTabCount The desired number of tabs in the TabLayout.
+     */
+    private void adjustTabs(int desiredTabCount) {
+        // Add new tabs to the TabLayout until the current count matches the desired count
+        while (tabLayout.getTabCount() < desiredTabCount) {
+            tabLayout.addTab(tabLayout.newTab());
+        }
+        // Remove tabs from the TabLayout until the current count matches the desired count
+        while (tabLayout.getTabCount() > desiredTabCount) {
+            tabLayout.removeTabAt(tabLayout.getTabCount() - 1);
+        }
     }
 
     // Initialize UI components
@@ -161,17 +194,8 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
         sliderSatisfaction.setProgress(0);
     }
 
-    // Remove current tab after saving
-    private void RemoveCurrentTab() {
-        int selectedTabPosition = tabLayout.getSelectedTabPosition();
-        tabLayout.removeTabAt(selectedTabPosition);
-
-        int sliderValue = sliderSatisfaction.getProgress();
-        theNewTrip.setLevelSatisfactionActivities(theNewTrip.getLevelSatisfactionActivities() + sliderValue);
-
-        int nbActivity = theNewTrip.getNumberOfActivities() + 1;
-        theNewTrip.setNumberOfActivities(nbActivity);
-
+    //Update the number of tab in the tablayout
+    private void updateTabLayout(){
         if (tabLayout.getTabCount() <= 2 ) {
             // If there is one tab left or none, enable the Next button in the fragment
             fragment.setTrip(theNewTrip);
@@ -204,5 +228,19 @@ public class SaveTripActivityStep2 extends AppCompatActivity {
             constraintSet.connect(messageTextView.getId(), ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT);
             constraintSet.applyTo(questionsLayout);
         }
+    }
+
+    // Remove current tab after saving
+    private void RemoveCurrentTab() {
+        int selectedTabPosition = tabLayout.getSelectedTabPosition();
+        tabLayout.removeTabAt(selectedTabPosition);
+
+        int sliderValue = sliderSatisfaction.getProgress();
+        theNewTrip.setLevelSatisfactionActivities(theNewTrip.getLevelSatisfactionActivities() + sliderValue);
+
+        int nbActivity = theNewTrip.getNumberOfActivities() + 1;
+        theNewTrip.setNumberOfActivities(nbActivity);
+
+        updateTabLayout();
     }
 }

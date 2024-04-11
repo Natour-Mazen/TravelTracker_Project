@@ -51,21 +51,21 @@ public class BottomSaveTripStepsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bottom_save_trip_steps, container, false);
 
-        // Récupération du bouton "Next"
+        // Retrieve of the "next" button
         mButtonNext = view.findViewById(R.id.buttonNext);
         mOriginalButtonTextColor = mButtonNext.getCurrentTextColor();
         mOriginalButtonBackground = mButtonNext.getDrawingCacheBackgroundColor();
 
-        // Définition de l'écouteur de clic pour le bouton "Next"
+        // Definition of the listener when we click on the "next" button
         mButtonNext.setOnClickListener(v -> goToNextStep());
 
-        // Configurer le bouton de retour arrière
+        // Configuration of the "prev" button
         Button buttonPrev = view.findViewById(R.id.buttonPrev);
         buttonPrev.setOnClickListener(v -> {
-            // Obtenir l'activité à partir du fragment
+            // Get the activity with the use of the fragment
             Activity activity = getActivity();
             if (activity != null) {
-                // Terminer l'activité actuelle
+                // Finish the current activity
                 activity.finish();
             }
         });
@@ -75,7 +75,7 @@ public class BottomSaveTripStepsFragment extends Fragment {
         return view;
     }
 
-    // Méthode pour passer à l'étape suivante du processus de sauvegarde de voyage
+    // Method to pass to the next step of the save process
     private void goToNextStep() {
         Intent intent = new Intent(getActivity(), mNextActivity);
         intent.putExtra("NewTrip", mTrip);
@@ -90,7 +90,7 @@ public class BottomSaveTripStepsFragment extends Fragment {
         mButtonNext.setEnabled(false);
     }
 
-    // enable the next button
+    // Enable the next button
     private void enableNextButton() {
         mButtonNext.setTextColor(mOriginalButtonTextColor);
         mButtonNext.setBackgroundColor(mOriginalButtonBackground);

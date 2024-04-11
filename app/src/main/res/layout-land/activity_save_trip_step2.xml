@@ -177,13 +177,14 @@
                     android:id="@+id/textViewActivityTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/title_of_activity"
                     android:textAlignment="center"
                     android:textColor="#5d5a63"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.21"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -200,6 +201,7 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/transperent_white"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.64"
                     app:layout_constraintStart_toEndOf="@+id/textViewActivityTitle"
                     app:layout_constraintTop_toTopOf="@+id/textViewActivityTitle" />
 

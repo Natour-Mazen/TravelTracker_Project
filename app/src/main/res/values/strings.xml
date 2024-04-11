@@ -111,4 +111,5 @@
     <string name="satisfaction_level_details">Satisfaction Level :</string>
     <string name="transport_used">Transport used :</string>
     <string name="toast_fill_activities">You should fill in at least 2 activities. 🚶‍♂️</string>
+    <string name="creation_pdf_error">Error creating PDF️</string>
 </resources>

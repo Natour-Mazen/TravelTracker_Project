@@ -66,7 +66,8 @@ public class DetailsTripActivity extends AppCompatActivity {
             if (pdfUri != null) {
                 sharePDF(pdfUri);
             } else {
-                ToastHelper.showLongToast(this,"Erreur lors de la création du PDF");
+                String messageError = getString(R.string.creation_pdf_error);
+                ToastHelper.showLongToast(this,messageError);
             }
         });
     }

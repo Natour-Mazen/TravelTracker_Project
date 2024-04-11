@@ -100,4 +100,5 @@
     <string name="satisfaction_level_details">Niveau de satisfaction :</string>
     <string name="transport_used">Transport utilisé :</string>
     <string name="toast_fill_activities">Vous devez remplir au moins 2 activités. 🚶‍♂️</string>
+    <string name="creation_pdf_error">Erreur lors de la création du PDF</string>
 </resources>

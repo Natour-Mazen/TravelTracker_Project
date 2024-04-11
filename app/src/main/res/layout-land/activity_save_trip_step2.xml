@@ -8,8 +8,7 @@
     android:background="@color/lavender"
     tools:context=".Activities.SaveTripSteps.SaveTripActivityStep2"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp"
-    tools:ignore="VisualLintBounds">
+    tools:layout_editor_absoluteY="0dp">
 
     <ImageView
         android:id="@+id/imageViewArcDeco1"
@@ -126,11 +125,12 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
+                android:background="@drawable/tab_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -485,8 +485,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="32dp"
-                    android:text="@string/save"
                     android:backgroundTint="@color/violet"
+                    android:text="@string/save"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

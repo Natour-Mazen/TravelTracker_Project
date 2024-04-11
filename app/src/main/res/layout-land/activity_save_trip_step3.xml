@@ -8,8 +8,7 @@
     android:background="@color/lavender"
     tools:context=".Activities.SaveTripSteps.SaveTripActivityStep2"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp"
-    tools:ignore="VisualLintBounds">
+    tools:layout_editor_absoluteY="0dp">
 
     <ImageView
         android:id="@+id/imageViewArcDeco1"
@@ -165,8 +164,7 @@
                         android:textAlignment="textStart"
                         android:textColor="#5d5a63"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -227,11 +225,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:background="@drawable/lavander_oval"
                         android:entries="@array/transportation_array"
                         android:minHeight="48dp"
                         android:padding="25dp"
-                        android:spinnerMode="dropdown"
-                        android:background="@drawable/lavander_oval"/>
+                        android:spinnerMode="dropdown" />
 
                 </LinearLayout>
 

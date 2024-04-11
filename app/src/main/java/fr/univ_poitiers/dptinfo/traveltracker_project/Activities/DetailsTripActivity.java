@@ -60,7 +60,7 @@ public class DetailsTripActivity extends AppCompatActivity {
         // Set up previous button
         PreviousButtonComponent.setupPreviousButton(this,R.id.buttonPrevious);
 
-        // Configuration du clic sur le bouton de partage
+        // Configuration of the on click of the shared button.
         buttonShare.setOnClickListener(v -> {
             Uri pdfUri = PDFCreator.createPDF(DetailsTripActivity.this, tripToSee);
             if (pdfUri != null) {
